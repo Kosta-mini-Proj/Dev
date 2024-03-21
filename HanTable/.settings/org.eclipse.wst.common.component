@@ -2,7 +2,7 @@
     <wb-module deploy-name="HanTable">
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <property name="context-root" value="HanTable"/>
         <property name="java-output-path" value="/HanTable/build/classes"/>
+        <property name="context-root" value="hantable"/>
     </wb-module>
 </project-modules>
