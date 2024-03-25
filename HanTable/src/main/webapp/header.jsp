@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
 	*{
@@ -25,6 +25,7 @@
 	}
 	.headerImgContainer{
 		float:left;
+		margin-left: -11px;
 	}
 	.headerSearchContainer{
 		margin-left:auto;
@@ -76,10 +77,12 @@
 	<div class="headerContainer">
 		<div class="headerInnerContainer">
 			<div class="headerImgContainer">
-				<img src="./image/logo_white.png">
+				<a href="main">
+					<img src="./image/logo_white.png">
+				</a>
 			</div>
 			<div class="headerSearchContainer">
-				<input type="text" placeholder="°Ë»ö¾î¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä." class="searchInput"/>
+				<input type="text" placeholder="ê²€ìƒ‰ì–´ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”." class="searchInput"/>
 				<img src="./image/search.png" style="width:40px; height:40px;">
 			</div>
 			<div class="headerUserContainer">
@@ -89,8 +92,8 @@
 	</div>
 	<div class="subHeaderContainer">
 		<div class="subHeaderInnerContainer">
-			<strong class="subHeaderText">ºÐ·ù</strong>
-			<strong class="subHeaderText">·¹½ÃÇÇ ÀÛ¼ºÇÏ±â</strong>
+			<strong class="subHeaderText">ë¶„ë¥˜</strong>
+			<strong class="subHeaderText">ë ˆì‹œí”¼ ìž‘ì„±í•˜ê¸°</strong>
 		</div>
 	</div>
 </body>
