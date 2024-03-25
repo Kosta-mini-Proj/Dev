@@ -256,7 +256,7 @@ h1 {
          });
       </script>
       
-      <br><br><button class="finishBtn" id="finishBtn" type="submit">등 록</button><br><br>
+      <br><br><button class="finishBtn" id="finishBtn" type="submit">수 정</button><br><br>
    </div>
    </div>
 </body>
