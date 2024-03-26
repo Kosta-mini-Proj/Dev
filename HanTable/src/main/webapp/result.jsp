@@ -4,10 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>韓食堂</title>
+<title>검색 결과</title>
 <style>
-	body{
-		overflow-x: hidden;
+	.popContentsContainer {
+		width: 1280px;
+		height: auto;
+		margin-bottom: 50px;
 	}
 	.mainContainer {
 		width: 1280px;
@@ -17,84 +19,10 @@
 		margin-left: 320px;
 		padding-bottom: 50px;
 	}
-	.recContentsContainer {
-		width: 1280px;
-		height: auto;
-		display: grid;
-		grid-template-columns: repeat(2, 620px);
-        gap: 37px;
-        margin-top: 30px;
-	}
-	.popContentsContainer {
-		width: 1280px;
-		height: auto;
-		margin-bottom: 50px;
-	}
 	.mainTitle{
 		color: #937062;
 		font-size: 24px;
 		margin-top: 50px;
-	}
-	.leftContent{
-		display: grid;
-		grid-template-rows: 620px 300px;
-		gap: 30px;
-	}
-	.leftTopContent{
-		border: 1px solid #BDBDBD;
-		border-radius: 5px;
-	}
-	.leftbottomContent{
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 25px;
-	}
-	.leftBottomLeftContent{
-		border: 1px solid #BDBDBD;
-		border-radius: 5px;
-		height: 295px;
-		width: 295px;
-		float: bottom;
-	}
-	.leftBottomRightContent{
-		border: 1px solid #BDBDBD;
-		border-radius: 5px;
-		height: 295px;
-		width: 295px;
-		float: bottom;
-	}
-	.rightContent{
-		display: grid;
-		grid-template-rows: 300px 620px;
-		gap: 30px;
-	}
-	.rightBottomContent{
-		border: 1px solid #BDBDBD;
-		border-radius: 5px;
-	}
-	.rightTopContent{
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 25px;
-	}
-	.rightTopLeftContent{
-		border: 1px solid #BDBDBD;
-		border-radius: 5px;
-		height: 295px;
-		width: 295px;
-	}
-	.rightTopRightContent{
-		border: 1px solid #BDBDBD;
-		border-radius: 5px;
-		height: 295px;
-		width: 295px;
-	}
-	.recImg {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		overflow: hidden;
-		border-radius: inherit;
 	}
 	.popContentsContainer{
 		margin-top: 30px;
@@ -157,36 +85,7 @@
 <body>
 	<%@ include file="header.jsp" %>
 	<div class="mainContainer">
-		<strong class="mainTitle">추천 레시피</strong>
-		<div class="recContentsContainer">
-			<div class="leftContent">
-				<div class="leftTopContent">
-					<img src="./image/example.png" alt="" class="recImg">
-				</div>
-				<div class="leftbottomContent">
-					<div class="leftBottomLeftContent">
-						<img src="./image/example.png" alt="" class="recImg">
-					</div>
-					<div class="leftBottomRightContent">
-						<img src="./image/example.png" alt="" class="recImg">
-					</div>
-				</div>
-			</div>
-			<div class="rightContent">
-				<div class="rightTopContent">
-					<div class="rightTopLeftContent">
-						<img src="./image/example.png" alt="" class="recImg">
-					</div>
-					<div class="rightTopRightContent">
-						<img src="./image/example.png" alt="" class="recImg">
-					</div>
-				</div>
-				<div class="rightBottomContent">
-					<img src="./image/example.png" alt="" class="recImg">
-				</div>
-			</div>
-		</div>
-		<strong class="mainTitle">인기 레시피</strong>
+		<strong class="mainTitle">“검색어”의 검색 결과</strong>
 		<div class="popContentsContainer">
 			<div class="recipeCard">
 				<div class="recipeImgContainer">
@@ -202,7 +101,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="recipeCard">
+						<div class="recipeCard">
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
 				</div>
@@ -216,7 +115,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="recipeCard">
+						<div class="recipeCard">
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
 				</div>
@@ -230,7 +129,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="recipeCard">
+						<div class="recipeCard">
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
 				</div>
@@ -244,7 +143,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="recipeCard">
+						<div class="recipeCard">
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
 				</div>
@@ -258,7 +157,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="recipeCard">
+						<div class="recipeCard">
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
 				</div>
