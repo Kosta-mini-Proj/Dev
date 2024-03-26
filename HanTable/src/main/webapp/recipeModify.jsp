@@ -32,10 +32,15 @@
    margin: 0 auto;
 }
 
-
+p {
+	font-size:20px;
+	font-weight:bold;
+}
 
 .createContentLine {
     display: inline; /* 인라인 요소로 지정 */
+    margin:0;
+    gap:50px;
   }
 
 .createContentLine p {
@@ -47,9 +52,11 @@
 }
 
 .createContentLine .inputTitle {
-    width: 650px; /* input 태그의 너비 값 설정 */
+    width: 645px; /* input 태그의 너비 값 설정 */
     display: inline-block; /* 인라인 요소를 블록 요소로 변경하여 너비 속성이 적용되도록 함 */
-    height:30px;
+    height:40px;
+    font-size:20px;
+    
     vertical-align : middle;
     background: #FFFFFF;
 	border: 1px solid #BFA89F;
@@ -57,9 +64,10 @@
 }
 
 .createContentLine .inputIntro {
-    width: 650px; /* input 태그의 너비 값 설정 */
+    width: 645px; /* input 태그의 너비 값 설정 */
+    font-size:20px;
     display: inline-block; /* 인라인 요소를 블록 요소로 변경하여 너비 속성이 적용되도록 함 */
-    height:30px;
+    height:40px;
     vertical-align : middle;
     background: #FFFFFF;
 	border: 1px solid #BFA89F;
@@ -72,42 +80,32 @@
 	box-sizing: border-box;
 	vertical-align : middle;
 	position: absolute;
-	width: 650px;
+	width: 645px;
 	height: 164px;
-	top: 470px;
+	top: 550px;
 	background: #FFFFFF;
 	border: 1px solid #BFA89F;
 	border-radius: 5px;
+	/* text-overflow:ellipsis;
+	word-break: keep-all; */
+	
 
 }
+
 
 .createContentLine select {
     font-size: 15px;
     text-align: center;
-    height:30px;
+    height:40px;
     vertical-align : middle;
     margin : 0;
-    width: 110px;
+    width: 130px;
     margin-left:-10px;
-    margin-right:50px;
+    margin-right:43px;
     display: inline-block; /* 인라인 요소를 블록 요소로 변경하여 너비 속성이 적용되도록 함 */
     background: #FFFFFF;
 	border: 1px solid #BFA89F;
 	border-radius: 5px;
-/* Rectangle 113 */
-
-/* box-sizing: border-box;
-
-position: absolute;
-width: 140px;
-height: 45px;
-left: 479px;
-top: 510px;
-
-background: #FFFFFF;
-border: 1px solid #BFA89F;
-border-radius: 5px; */
-
 }
 
 
@@ -137,15 +135,17 @@ h1 {
 .mainImgButton {
    /* Rectangle 54 */
 	position: absolute;
-	width: 335px;
-	height: 335px;
-	left : 1260px;
+	width: 415px;
+	height:415px;
+	left : 1180px;
 	background: #D9D9D9;
 	border-radius: 5px;
 }
 
 .ingredient {
    height: 100Px;
+   font-size:20px;
+   
 }
 
 .recipeCreateInnerContainer .finishBtn {
@@ -170,6 +170,7 @@ h1 {
 
 
 </style>
+
 <!-- TUI 에디터 CSS CDN -->
 <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
 
@@ -180,18 +181,20 @@ h1 {
    %>
    <div class="recipeCreateContainer" id="recipeCreateContainer">
    <div class="recipeCreateInnerContainer" id="recipeCreateInnerContainer">
-      <br><br><br><h1>레시피 등록</h1><br><br>
+      <br><br><br><h1>레시피 수정</h1><br><br>
       <div class="left">
       
          <div class="createContentLine">
-            <p>레시피 제목</p><input class="inputTitle" id="inputTitle" type="text">
+            <p>레시피 제목</p><input class="inputTitle" id="inputTitle" type="text" maxlength="48">
          </div>
+         <br>
          <br>
          <div class="createContentLine">
             <p>요리 소개</p><input class="inputIntro" id="inputIntro" type="text">
          </div>
          <br>
-         <div class="createContentLine">
+         <br>
+         <div class="createContentLine" id="selectContainer">
             <p>분류</p>
             <select class="cate-type" id="cate-type">
                   <option>종류별</option>
@@ -203,6 +206,7 @@ h1 {
                   <option>디저트</option>
                   <option>기타</option>
             </select >
+            
             <select class="cate-how" id="cate-how">
                   <option>조리방법별</option>
                   <option>찌기</option>
@@ -228,11 +232,10 @@ h1 {
                   <option>60분 이상</option>
             </select>
          </div>
-         <br>
+         <br><br>
          <div class="createContentLine">
-            <p class="titleIngredient" id="titleIngredient">재료</p><input class="ingredient" id="ingredient" type="text">
+            <p class="titleIngredient" id="titleIngredient">재료</p><textarea class="ingredient" id="ingredient" type="text"></textarea><br>
          </div>
-         
       </div>
       
       <div class="right">

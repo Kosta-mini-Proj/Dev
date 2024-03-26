@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
 <style>
    .recipeContainer {
       width:1920px;
@@ -35,15 +36,15 @@
    }
    
    .recipeLine {
-   	  width: 1280px;
-	  height: 0px;
+     width: 1280px;
+     height: 0px;
 
-	  border: 1px solid #BFA89F;
+     border: 1px solid #BFA89F;
 
-	  /* Inside auto layout */
-	  flex: none;
-	  order: 1;
-	  flex-grow: 0;
+     /* Inside auto layout */
+     flex: none;
+     order: 1;
+     flex-grow: 0;
    }
       
    .recipeInnerContainer>.left {
@@ -103,7 +104,7 @@
 }
 
 .intro {
-	margin-top: 65px;
+   margin-top: 65px;
 }
 
 .recipeMainImg {
@@ -115,7 +116,7 @@ top: 279px;
 }
 
 .recipeContent {
-	margin-top:120px;
+   margin-top:120px;
 }
 
 .recipeIngredient {
@@ -144,57 +145,113 @@ top: 279px;
 }
 
 .contentViewer {
-	width:1280px;
-	margin 0;
+   width:1280px;
+   margin 0;
 }
 
 .recipeComment {
-	/* position: absolute; */
-	width: 1280px;
-	left: 315px;
-	/* top: 2773px; */
-	margin-top:2000px;
+   /* position: absolute; */
+   width: 1280px;
+   margin:0 auto;
+   /* left: 315px; */
+   /* top: 2773px; */
+   margin-top:100px;
+}
+
+.contentViewer {
+   width:1280px;
+   margin: 0;
+   height: 2000px;
+   font-size:15px;
 }
 
 /* . */
 
 .commentImg{
-	position: absolute;
-	width: 12px;
-	height: 47px;
-	left: 1554px;
-	top: 2896px;
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 500;
-	font-size: 40px;
-	line-height: 48px;
-	color: #000000;
-	
+   position: absolute;
+   width: 12px;
+   height: 47px;
+   left: 1554px;
+   top: 2896px;
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 40px;
+   line-height: 48px;
+   color: #000000;
+   
+}
+
+.recipeRecipeCommentLeft{
+   float:left;
+}
+
+
+.recipeRecipeCommentRight {
+   float:right;
 }
 
 .kebab {
-	width:45px;
-	height:45px;
-	float:right;
-	vertical-align : middle;
+   width:20px;
+   height:20px;
+   float:right;
+   margin-top:20px;
 }
-/* position: absolute;
-width: 12px;
-height: 47px;
-left: 1554px;
-top: 2896px;
 
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 40px;
-line-height: 48px;
+.views {
+   float:left;
+}
 
-color: #000000; */
+.nameDate {
+   float:right;
+}
+
+.moreComment {
+   /* Rectangle 146 */
+
+   box-sizing: border-box;
+   position: absolute;
+   width: 253px;
+   height: 59px;
+   left: 828px;
+   top: 3500px;
+   background: #FFFFFF;
+   border: 1px solid #D9D9D9;
+   border-radius: 5px;
+}
+
+/* Group 16 
+   댓글 입력 창
+*/
+.addComment {
+   position: absolute;
+   width: 1160px;
+   height: 120px;
+   font-size:20px;
+   left: 315px;
+   top: 3600px;
+   
+}
 
 
+/* Rectangle 112 
+   댓글 등록 버튼
+*/
+.addCommentBtn {
+   box-sizing: border-box;
+   position: absolute;
+   width: 120px;
+   height: 123px;
+   left: 1478px;
+   top: 3600px;
+   background: #FFFFFF;
+   border: 1px solid #616161;
+   
+}
 
+.toastui-editor {
+	font-size: 100px;
+}
 
 </style>
 
@@ -208,9 +265,9 @@ color: #000000; */
             
             
             <div class="intro" id="intro">
-            	<span class="recipeTitle" id="recipeTitle" width="800px">바질 김치</span><span class="imgs" id="imgs"><img class="no-like" id="no-like" src="image/no-like-heart.png"></span>
-            	<br><br><hr class="line" id="line">
-            	<br>
+               <span class="recipeTitle" id="recipeTitle" width="800px">바질 김치</span><span class="imgs" id="imgs"><img class="no-like" id="no-like" src="image/no-like-heart.png"></span>
+               <br><br><hr class="line" id="line">
+               <br>
                <p class="recipeIntro" id="recipeIntro">바질에 김치 양념을 버무려 보세요. 향긋함이 살아 있는 색다른 김치가 완성된답니다! 
                서양 요리의 대표 식재료인 바질과 우리나라의 김치가 만나 동서양이 아주 조화롭게 어울리는 맛이 탄생해요. 
                특히 파스타 등 양식과 아주 잘 어울려요.</p>
@@ -259,6 +316,9 @@ color: #000000; */
         const editor = toastui.Editor.factory({
             el : document.querySelector("#contentViewer"),
             viewer:true,
+            width: '1280px',
+             
+            /* initialValue : "Hello toast ui editor~!" */
             initialValue : "Hello toast ui editor~!"
         });
     </script>
@@ -270,19 +330,27 @@ color: #000000; */
       
       <!-- 댓글 -->
        <div class="recipeComment" id="recipeComment">
-         <span class="recipeRecipeComment" id="recipeRecipeComment" width="800px">댓글</span>
+         <span class="recipeRecipeComment" id="recipeRecipeComment">댓글</span>
             <br><br><hr class="recipeLine" id="recipeLine"><br>
+            <div>
             <div class="recipeRecipeCommentLeft" id="recipeRecipeCommentLeft">
-            <span class="ingredientContent" id="ingredientContent" width="800px">아이디</span>
+            <span class="ingredientContent" id="ingredientContent">아이디</span>
             &nbsp;&nbsp;&nbsp;
-            <span class="ingredientContent" id="ingredientContent" width="800px">2024-03-25</span>
+            <span class="ingredientContent" id="ingredientContent">2024-03-25</span><br><br>
+            <span>너무너무너무 너무너무너무 맛있어요</span>
             </div>
             <!-- <p class="ingredientContent" id="ingredientContent">아이디 </p> &nbsp;&nbsp;&nbsp; -->  
-			<div class="recipeRecipeCommentRight" id="recipeRecipeCommentRight">
-			<img class="kebab" id="kebab" src="image/kebab.png">
-			</div>
-			<hr class="recipeLine" id="recipeLine">
-			
+         <div class="recipeRecipeCommentRight" id="recipeRecipeCommentRight">
+         <img class="kebab" id="kebab" src="image/kebab.png">
+         </div>
+         <br><br><br><br><hr class="recipeLine" id="recipeLine"><br>
+         </div>
+         <button type="submit" class="moreComment" id="moreComment">더보기</button>
+      </div>
+      
+      <div class="addCommentContainer" id="addCommentContainer">
+            <textarea class="addComment" id="addComment" type="text" placeholder="댓글 입력 공간입니다."></textarea>
+            <button class="addCommentBtn" id="addCommentBtn">등록</button>
       </div>
       
       
