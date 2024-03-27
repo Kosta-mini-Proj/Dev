@@ -165,7 +165,10 @@ h1 {
     border-radius: 5px; /* 버튼 모서리 둥글게 */
 }
 
-/* 바질에 김치 양념을 버무려 보세요. 향긋함이 살아 있는 색다른 김치가 완성된답니다! 서양 요리의 대표 식재료인 바질과 우리나라의 김치가 만나 동서양이 아주 조화롭게 어울리는 맛이 탄생해요. 특히 파스타 등 양식과 아주 잘 어울려요. */
+.finishBtn:hover{
+		background: #BF917E;
+}
+
 
 
 
@@ -261,6 +264,7 @@ h1 {
       
       <br><br><button class="finishBtn" id="finishBtn" type="submit">수 정</button><br><br>
    </div>
-   </div>
+</div>
+   
 </body>
 </html>
