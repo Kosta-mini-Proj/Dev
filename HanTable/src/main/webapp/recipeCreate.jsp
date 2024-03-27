@@ -75,7 +75,6 @@ p {
 }
 
 .createContentLine .ingredient {
-    /* Rectangle 116 */
 
 	box-sizing: border-box;
 	vertical-align : middle;
@@ -86,10 +85,6 @@ p {
 	background: #FFFFFF;
 	border: 1px solid #BFA89F;
 	border-radius: 5px;
-	/* text-overflow:ellipsis;
-	word-break: keep-all; */
-	
-
 }
 
 
@@ -133,7 +128,6 @@ h1 {
 }
 
 .mainImgButton {
-   /* Rectangle 54 */
 	position: absolute;
 	width: 415px;
 	height:415px;
@@ -165,13 +159,17 @@ h1 {
     border-radius: 5px; /* 버튼 모서리 둥글게 */
 }
 
-/* 바질에 김치 양념을 버무려 보세요. 향긋함이 살아 있는 색다른 김치가 완성된답니다! 서양 요리의 대표 식재료인 바질과 우리나라의 김치가 만나 동서양이 아주 조화롭게 어울리는 맛이 탄생해요. 특히 파스타 등 양식과 아주 잘 어울려요. */
+.finishBtn:hover{
+		background: #BF917E;
+}
 
-
-
+.editorContent {
+	visibility:hidden;
+}
 </style>
 
-<!-- TUI 에디터 CSS CDN -->
+<!-- TOAST UI Editor CDN URL(CSS) ?-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css"/>
 <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
 
 </head>
@@ -246,7 +244,7 @@ h1 {
       
       <!-- 에디터를 적용할 요소 (컨테이너) -->
       <div class="recipeContent" id="recipeContent"></div>
-
+      <div class="editorContent" id="editorContent"></div>
       <!-- TUI 에디터 JS CDN -->
       <script
          src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
@@ -256,8 +254,11 @@ h1 {
             height : '800px',
             initialValue : '해당 요리에 대한 레시피의 자세한 설명을 자유롭게 입력하세요.', // 초기 설명 (토스트ui editor에서 사용자가 입력하기전 설명해주는 부분)
             initialEditType : 'wysiwyg',
-            
          });
+         
+     	 // !!여기!! editor.getHtml()을 사용해서 에디터 내용 받아오기
+         document.querySelector('#editorContent').insertAdjacentHTML('afterbegin' ,editor.getHTML());
+         console.log(editor.getHTML());
       </script>
       
       <br><br><button class="finishBtn" id="finishBtn" type="submit">등 록</button><br><br>
