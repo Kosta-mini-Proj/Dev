@@ -7,6 +7,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	a {
+	    text-decoration: none;
+	}
 	*{
 		padding:0;
 		margin:0;
@@ -83,17 +86,25 @@
 			</div>
 			<div class="headerSearchContainer">
 				<input type="text" placeholder="검색어를 입력해주세요." class="searchInput"/>
-				<img src="./image/search.png" style="width:40px; height:40px;">
+				<a href="result.jsp">
+					<img src="./image/search.png" style="width:40px; height:40px;">
+				</a>
 			</div>
 			<div class="headerUserContainer">
-				<img src="./image/nonlogin.png">
+				<a href="login">
+					<img src="./image/nonlogin.png">
+				</a>
 			</div>
 		</div>
 	</div>
 	<div class="subHeaderContainer">
 		<div class="subHeaderInnerContainer">
-			<strong class="subHeaderText">분류</strong>
-			<strong class="subHeaderText">레시피 작성하기</strong>
+			<a href="category.jsp">
+				<strong class="subHeaderText">분류</strong>
+			</a>
+			<a href="recipeCreate.jsp">
+				<strong class="subHeaderText">레시피 작성하기</strong>
+			</a>
 		</div>
 	</div>
 </body>
