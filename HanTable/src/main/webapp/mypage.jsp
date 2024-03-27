@@ -1,75 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
 <style>
-	*{
-		padding:0;
-		margin:0;
-	}
-	.headerContainer{
-		width:1920px;
-		height:100px;
-		background:#937062;
-	}
-	.headerInnerContainer{
-		width:1280px;
-		height:100px;
-		margin:0 auto;
-		display:flex;
-		align-items:center;
-	}
-	.headerImgContainer{
-		float:left;
-	}
-	.headerSearchContainer{
-		margin-left:auto;
-		display:flex;
-		align-items:center;
-	}
-	.searchInput{
-		width:400px;
-		height:40px;
-		background:none;
-		margin-right: 30px;
-		color: white;
-		font-size:21px;
-		border:none;
-		border-bottom:1px solid #bdbdbd;
-		padding-left:10px;
-	}
-	.searchInput::placeholder {
-		color:white;
-	}
-	.headerUserContainer{
-		margin-left: 50px;
-		cursor:pointer;
-	}
-	.subHeaderContainer{
-		width:1920px;
-		height:50px;
-		background:#BFA89F;
-	}
-	.subHeaderInnerContainer{
-		margin:0 auto;
-		display:flex;
-		align-items:center;
-		height: 50px;
-		width: 1280px;
-	}
-	.subHeaderText{
-		color:#f5f5f5;
-		font-size:21px;
-		margin-right:50px;
-		cursor:pointer;
-	}
-	.subHeaderText:hover{
-		color:white;
-	}
 	.mypageContainer{
 		width:1920px;
         height: 1000px;
@@ -87,50 +23,50 @@
         position: relative;
     }
     .form-popup {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    right: 15px;
-    border: 3px solid #f1f1f1;
-    z-index: 9;
+    	display: none;
+    	position: fixed;
+    	bottom: 0;
+    	right: 15px;
+    	border: 3px solid #f1f1f1;
+    	z-index: 9;
     }
 	.mypageIntro {
-  	color: #937062; 
-  	font-size: 36px; 
+  		color: #937062; 
+  		font-size: 36px; 
 	}
 	.btn-group .button {
-	width:320px;
-	height:69px;
-    background-color:#FFFFFF;
-	border: none;
-	border-bottom: 1px solid #937062;
-    color: #937062;
-  	text-align: center;
-	font-size: 24px;
-    float: left;
+		width:320px;
+		height:69px;
+    	background-color:#FFFFFF;
+		border: none;
+		border-bottom: 1px solid #937062;
+    	color: #937062;
+  		text-align: center;
+		font-size: 24px;
+    	float: left;
 	}
 	.btn-group .button:hover,
 	.btn-group .button.active {
-	border: 1px solid #937062;
-	border-bottom: 1px solid #ffffff;
+		border: 1px solid #937062;
+		border-bottom: 1px solid #ffffff;
 	}
     .mypageBox{
     width:1278px;
-    height: auto;
-	border: 1px solid #937062;
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    border-top:1px solid #FFFFFF;
-    border-bottom-left-radius: 0.5%;
-    border-bottom-right-radius: 0.5%;
+    	height: auto;
+		border: 1px solid #937062;
+    	display:flex;
+    	flex-wrap: wrap;
+    	justify-content: space-around;
+    	border-top:1px solid #FFFFFF;
+    	border-bottom-left-radius: 0.5%;
+    	border-bottom-right-radius: 0.5%;
 	}
 	.recipebox{
-	margin: 13px;
-	width:290px;
-	height:420px;
-	border:1px solid #D9D9D9;
-    border-radius: 1%;
+		margin: 13px;
+		width:290px;
+		height:420px;
+		border:1px solid #D9D9D9;
+    	border-radius: 1%;
 	}
     .recipebox-img{
         width:290px;
@@ -218,26 +154,7 @@
 </style>
 </head>
 <body>
-	<div class="headerContainer">
-		<div class="headerInnerContainer">
-			<div class="headerImgContainer">
-				<img src="./image/logo_white.png">
-			</div>
-			<div class="headerSearchContainer">
-				<input type="text" placeholder="검색어를 입력해주세요." class="searchInput"/>
-				<img src="./image/search.png" style="width:40px; height:40px;">
-			</div>
-			<div class="headerUserContainer">
-				<img src="./image/nonlogin.png">
-			</div>
-		</div>
-	</div>
-	<div class="subHeaderContainer">
-		<div class="subHeaderInnerContainer">
-			<strong class="subHeaderText">분류</strong>
-			<strong class="subHeaderText">레시피 작성하기</strong>
-		</div>
-	</div>
+<%@ include file="header.jsp" %>
 <div class="mypageContainer">    
     <div class="mypageInnerContainer">
         <br><p class="mypageIntro">마이페이지</p><br>
