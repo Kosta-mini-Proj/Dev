@@ -38,10 +38,7 @@
    .recipeLine {
      width: 1280px;
      height: 0px;
-
      border: 1px solid #BFA89F;
-
-     /* Inside auto layout */
      flex: none;
      order: 1;
      flex-grow: 0;
@@ -61,12 +58,27 @@
    .no-like{
       width:30px;
       height:30px;
+      margin-left:-15px;
       vertical-align : middle;
    }
    
+   .dropdownTitle {
+   	  float:right;
+   	  margin-right:10px;
+      vertical-align : middle;
+   }
+   
+   .titlekebab {
+   	  width:30px;
+   	  height:30px;
+   	  margin-left:10px;
+   	  vertical-align : middle;
+   }
+   
    .imgs {
-      float:right;
-      margin:10px;
+   	  float:right;
+   	  margin-right:15px;
+      vertical-align : middle;
    }
    
    .recipeIntro{
@@ -80,23 +92,20 @@
    font-size: 24px;
    line-height: 29px;
 
-   color: #000000;
+   color: #000000;  
 }
 
-/* #반찬 #기타 #채소 #150kcal~300kcal #30분 */
 .recipeCate {
    position: absolute;
    width: 493px;
    height: 29px;
    left: 332px;
    top: 600px;
-
    font-family: 'Inter';
    font-style: normal;
    font-weight: 400;
    font-size: 24px;
    line-height: 29px;
-   /* identical to box height */
    display: flex;
    align-items: center;
 
@@ -108,8 +117,6 @@
 }
 
 .recipeMainImg {
- /* image 6 */
-
 width: 410px;
 height: 410px;
 top: 279px;
@@ -165,8 +172,6 @@ top: 279px;
    font-size:15px;
 }
 
-/* . */
-
 .commentImg{
    position: absolute;
    width: 12px;
@@ -191,7 +196,7 @@ top: 279px;
    float:right;
 }
 
-.kebab {
+.Contentkebab {
    width:20px;
    height:20px;
    float:right;
@@ -207,8 +212,6 @@ top: 279px;
 }
 
 .moreComment {
-   /* Rectangle 146 */
-
    box-sizing: border-box;
    position: absolute;
    width: 253px;
@@ -220,9 +223,10 @@ top: 279px;
    border-radius: 5px;
 }
 
-/* Group 16 
-   댓글 입력 창
-*/
+.moreComment:hover{
+		background: #F5F5F5;
+}
+
 .addComment {
    position: absolute;
    width: 1160px;
@@ -233,10 +237,6 @@ top: 279px;
    
 }
 
-
-/* Rectangle 112 
-   댓글 등록 버튼
-*/
 .addCommentBtn {
    box-sizing: border-box;
    position: absolute;
@@ -249,12 +249,15 @@ top: 279px;
    
 }
 
+.addCommentBtn:hover{
+		background: #F5F5F5;
+}
+
 .toastui-editor {
 	font-size: 100px;
 }
 
 </style>
-
 </head>
 <body>
 <% pageContext.include("header.jsp"); %>
@@ -265,7 +268,9 @@ top: 279px;
             
             
             <div class="intro" id="intro">
-               <span class="recipeTitle" id="recipeTitle" width="800px">바질 김치</span><span class="imgs" id="imgs"><img class="no-like" id="no-like" src="image/no-like-heart.png"></span>
+               <span class="recipeTitle" id="recipeTitle" width="800px">바질 김치</span>
+               <div class="dropdownTitle" id="dropdownTitle" style="float:right;"><img class="titlekebab" id="titlekebab" src="image/kebab.png"></div>
+               <div class="imgs" id="imgs"><img class="no-like" id="no-like" src="image/no-like-heart.png"></div>
                <br><br><hr class="line" id="line">
                <br>
                <p class="recipeIntro" id="recipeIntro">바질에 김치 양념을 버무려 보세요. 향긋함이 살아 있는 색다른 김치가 완성된답니다! 
@@ -299,26 +304,15 @@ top: 279px;
             <div class="contentViewer" id="contentViewer">
             
             </div>
-            
-             <!-- toast ui viewer js -->
-    <!-- <script src="https://uicdn.toast.com/editor/3.0.2/toastui-editor-viewer.min.js"></script> -->
     
     <!-- toast ui all js -->
     <script src="https://uicdn.toast.com/editor/3.0.2/toastui-editor-all.min.js"></script>
     <script>
-        //Viewer용 CDN을 사용할 경우
-        // const editor = new toastui.Editor({
-        //     el : document.querySelector(".toast-custom-viewer"),
-        //     initialValue : "Hello toast ui editor~!"
-        // });
-
-        //전체(ALL)용 CDN을 사용할 경우
+        //전체(ALL)용 CDN을 사 용할 경우
         const editor = toastui.Editor.factory({
             el : document.querySelector("#contentViewer"),
             viewer:true,
             width: '1280px',
-             
-            /* initialValue : "Hello toast ui editor~!" */
             initialValue : "Hello toast ui editor~!"
         });
     </script>
@@ -327,7 +321,6 @@ top: 279px;
       <div class="viewNameDate" id="viewNameDate">
       <span class="views" id="views">조회수 : 1024</span> <span class="nameDate" id="nameDate">작성자 : OOO 작성일자 : 2024-02-13</span>
       </div>
-      
       <!-- 댓글 -->
        <div class="recipeComment" id="recipeComment">
          <span class="recipeRecipeComment" id="recipeRecipeComment">댓글</span>
@@ -339,9 +332,9 @@ top: 279px;
             <span class="ingredientContent" id="ingredientContent">2024-03-25</span><br><br>
             <span>너무너무너무 너무너무너무 맛있어요</span>
             </div>
-            <!-- <p class="ingredientContent" id="ingredientContent">아이디 </p> &nbsp;&nbsp;&nbsp; -->  
+             
          <div class="recipeRecipeCommentRight" id="recipeRecipeCommentRight">
-         <img class="kebab" id="kebab" src="image/kebab.png">
+         <button class="kebab" id="kebab"><img class="Contentkebab" id="Contentkebab" src="image/kebab.png"></button>
          </div>
          <br><br><br><br><hr class="recipeLine" id="recipeLine"><br>
          </div>
@@ -352,9 +345,8 @@ top: 279px;
             <textarea class="addComment" id="addComment" type="text" placeholder="댓글 입력 공간입니다."></textarea>
             <button class="addCommentBtn" id="addCommentBtn">등록</button>
       </div>
-      
-      
    </div>
 </div>
+
 </body>
 </html>
