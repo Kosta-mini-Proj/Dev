@@ -68,13 +68,6 @@
       vertical-align : middle;
    }
    
-   .titlekebab {
-   	  width:30px;
-   	  height:30px;
-   	  margin-left:10px;
-   	  vertical-align : middle;
-   }
-   
    .imgs {
    	  float:right;
    	  margin-right:15px;
@@ -257,7 +250,50 @@ top: 279px;
 	font-size: 100px;
 }
 
+.dropdownbtn {
+	background-color:#ffffff;
+	color:#ffffff;
+	border: none;
+}
+
+.dropdownbtn img {
+   	  width:30px;
+   	  height:30px;
+   	  margin-left:10px;
+   	  vertical-align : middle;
+   }
+
+.dropdown {
+	position:relative;
+	display:inline-block;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 130px;
+  z-index: 1;
+}
+
+.dropdownContent button {
+   background-color: #ffffff;
+   padding: 12px 16px;
+   width: 130px;
+   height:55px;
+   text-align: center;
+   position: relative;
+}
+
+.dropdownContent button:hover {
+   background: #F5F5F5;
+}
+
+.dropdown:hover .dropdownContent {
+   display: block;
+}
 </style>
+
 </head>
 <body>
 <% pageContext.include("header.jsp"); %>
@@ -269,13 +305,23 @@ top: 279px;
             
             <div class="intro" id="intro">
                <span class="recipeTitle" id="recipeTitle" width="800px">바질 김치</span>
-               <div class="dropdownTitle" id="dropdownTitle" style="float:right;"><img class="titlekebab" id="titlekebab" src="image/kebab.png"></div>
+               <div class="dropdown" style="float:right;">
+                  <button class="dropdownbtn"><img class="titlekebab" id="titlekebab" src="image/kebab.png" alt="Dropdown"></button>
+                  	<div class="dropdownContent" id="dropdownContent">
+                  		<button>수정</button>
+                  		<button style="border-top:none;">삭제</button>
+                  	</div>       
+               </div>
                <div class="imgs" id="imgs"><img class="no-like" id="no-like" src="image/no-like-heart.png"></div>
                <br><br><hr class="line" id="line">
                <br>
-               <p class="recipeIntro" id="recipeIntro">바질에 김치 양념을 버무려 보세요. 향긋함이 살아 있는 색다른 김치가 완성된답니다! 
-               서양 요리의 대표 식재료인 바질과 우리나라의 김치가 만나 동서양이 아주 조화롭게 어울리는 맛이 탄생해요. 
-               특히 파스타 등 양식과 아주 잘 어울려요.</p>
+               <p class="recipeIntro" id="recipeIntro">진주에서 유명한 땡초김밥을 우리의식탁에서 만들어 봤어요! 일반적인 김밥은 준비할 게 많아서 조금 번거로울 수 있지만 
+               땡초 김밥은 들어가는 재료도 간단하면서 만들기도 쉽답니다.
+                짭짤하면서 매콤해 계속해서 당기는 매력적인 김밥이에요. 스트레스가 풀릴 때 즐길 수 있을 만큼 적당히 매콤해서 마요네즈 등과 함께 드셔도 좋을 것 같아요.
+                꼬마김밥으로 만들어도 좋고, 크게 말아서 한입 크기로 잘라 먹어도 좋아요. 취향에 맞게 만들어 맛있게 드셔보세요.
+               *본 레시피는 브라운 초고속 블렌더를 이용한 레시피입니다.ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+               ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄴㄴㄴㄴ
+               </p>
                
                <p class="recipeCate" id="recipeCate">#반찬 #기타 #채소 #150kcal~300kcal #30분</p>
             </div>
@@ -334,7 +380,14 @@ top: 279px;
             </div>
              
          <div class="recipeRecipeCommentRight" id="recipeRecipeCommentRight">
-         <button class="kebab" id="kebab"><img class="Contentkebab" id="Contentkebab" src="image/kebab.png"></button>
+         	<div class="dropdown" style="float:right; margin-top:15px;">
+                 <button class="dropdownbtn"><img class="titlekebab" id="titlekebab" src="image/kebab.png" alt="Dropdown"></button>
+                  <div class="dropdownContent" id="dropdownContent">
+                  		<button>수정</button>
+                  		<button style="border-top:none;">삭제</button>
+                  </div>       
+            </div>
+        <!--  <button class="kebab" id="kebab"><img class="Contentkebab" id="Contentkebab" src="image/kebab.png"></button> -->
          </div>
          <br><br><br><br><hr class="recipeLine" id="recipeLine"><br>
          </div>
@@ -343,7 +396,7 @@ top: 279px;
       
       <div class="addCommentContainer" id="addCommentContainer">
             <textarea class="addComment" id="addComment" type="text" placeholder="댓글 입력 공간입니다."></textarea>
-            <button class="addCommentBtn" id="addCommentBtn">등록</button>
+            <button class="addCommentBtn" id="addCommentBtn" type="submit">등록</button>
       </div>
    </div>
 </div>
