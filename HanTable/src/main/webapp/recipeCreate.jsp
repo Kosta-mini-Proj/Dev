@@ -188,7 +188,7 @@ h1 {
          <br>
          <br>
          <div class="createContentLine">
-            <p>요리 소개</p><input class="inputIntro" id="inputIntro" type="text">
+            <p>요리 소개</p><textarea class="inputIntro" id="inputIntro" type="text" maxlength="350"></textarea>
          </div>
          <br>
          <br>
