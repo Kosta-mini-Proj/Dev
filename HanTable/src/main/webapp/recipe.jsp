@@ -281,6 +281,7 @@ top: 279px;
    padding: 12px 16px;
    width: 130px;
    height:55px;
+   font-size: 20px;
    text-align: center;
    position: relative;
 }
@@ -308,7 +309,7 @@ top: 279px;
                <div class="dropdown" style="float:right;">
                   <button class="dropdownbtn"><img class="titlekebab" id="titlekebab" src="image/kebab.png" alt="Dropdown"></button>
                   	<div class="dropdownContent" id="dropdownContent">
-                  		<button>수정</button>
+                  		<button onmousedown="document.location.href='recipemodify'">수정</button>
                   		<button style="border-top:none;">삭제</button>
                   	</div>       
                </div>
@@ -400,6 +401,18 @@ top: 279px;
       </div>
    </div>
 </div>
-
 </body>
+<script>
+	const button = document.querySelector('.dropdownbtn');
+
+	button.addEventListener('click', () => {
+		const dropdown = document.querySelector('.dropdownContent');
+		dropdown.style.display = 'block';
+	});
+
+	button.addEventListener('blur', (e) => {
+	 	const dropdown = document.querySelector('.dropdownContent');
+	 	dropdown.style.display = '';
+	});
+</script>
 </html>
