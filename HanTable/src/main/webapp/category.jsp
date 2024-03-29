@@ -7,6 +7,9 @@
 <meta charset="UTF-8">
 <title>분류</title>
 <style>
+	a {
+	    text-decoration: none;
+	}
 	*{
 		padding:0;
 		margin:0;
@@ -80,46 +83,66 @@
 		height: 300px;
 		width: 1125px;
 	}
-	.subHeaderTopContainer{
-		height: 76px;
+	.subHeaderTopUpContainer{
+		height: 88px;
 		width: 1125px;
+  		display: flex;
+  		flex-direction: column;
+	}
+	.subHeaderTopContainer{
+		height: 48px;
+		width: 1125px;
+	    position: relative;
+	    margin-top: auto;
 	}
 	.subHeaderMiddleContainer{
-		height: 46px;
+		height: 48px;
 		width: 1125px;
-	
+	    position: relative;	
 	}
 	.subHeaderBottomContainer{
 		height: 76px;
 		width: 1125px;
-	}
-	.categoryAllContainer{
-		width:1920px;
-		height: auto;
-    	flex-wrap: wrap;
-    	justify-content: center;
-    	align-items: center;
+	    position: relative;
+		
 	}
 	.categoryIntroContainer{
-		height:200px;
-		width: 1920px;
-	}
-	.categoryMainContainer{
-		width:1280px;
-		height: auto;
+		width:1920px;
+		height: 200px;
 		display:flex;
         justify-content: space-around;
 	}
+	.categoryIntroInnerContainer{
+		width: 1280px;
+		height:200px;
+		position: relative;
+	}
+	.categoryMainContainer{
+		width:1920px;
+		height: auto;
+		display:flex;
+    	justify-content: space-around;
+	}
+	.categoryMainInnerContainer{
+		width:1280px;
+		height: auto;
+		margin-top: 30px;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 30px;
+		grid-row-gap: 40px;
+    	grid-auto-flow: dense;
+	}
 	.resultTypeButton{
+		padding: 0.1em 0.5em;
 		font-size:21px;
-		text-color:white;
+		color:white;
 		font-weight: bold;
 		border:none;
 		border-radius:5%;
 		margin-left: 20px;
     	margin-right: 20px;
     	background:#BFA89F;
-    	
 	}
 	.resultTypeButton:hover,
 	.resultTypeButton.active {
@@ -173,6 +196,53 @@
 	.cateType{
 		font-size: 18px;
 	}
+	.resultSelect{
+   		border: none;
+   		position: absolute;
+   		font-size: 20px;
+    	right: 0;
+    	bottom: 10px;
+	}
+	.categorySearchContainer{
+		margin-left:10px;
+		display:flex;
+		align-items:center;
+	}
+	.categorySearchInput{
+		width:700px;
+		height:30px;
+		background:none;
+		margin-left: 30px;
+		color: white;
+		font-size:18px;
+		border:none;
+		border-bottom:1px solid #bdbdbd;
+		padding-left:10px;
+	}
+	.categorySearchInput::placeholder {
+    	color: white;
+	}
+	.like-count{
+  		font-size: 24px;
+  		color:white;
+	}
+	.like-icon {
+  		width: 24px; 
+ 		height: 24px;
+		margin-right: 5px; 
+	}
+	.like-container {
+		position: absolute;
+		bottom: 5px;
+		right: 5px;
+		display: flex;
+		align-items: center;
+	}
+	.recipeImgContainer{
+		width: 290px;
+		height: 290px;
+		position: relative;
+}
 </style>
 </head>
 <body>
@@ -185,10 +255,14 @@
 			</div>
 			<div class="headerSearchContainer">
 				<input type="text" placeholder="검색어를 입력해주세요." class="searchInput"/>
-				<img src="./image/search.png" style="width:40px; height:40px;">
+				<a href="result.jsp">
+					<img src="./image/search.png" style="width:40px; height:40px;">
+				</a>
 			</div>
 			<div class="headerUserContainer">
-				<img src="./image/nonlogin.png">
+				<a href="login">
+					<img src="./image/nonlogin.png">
+				</a>
 			</div>
 		</div>	
 	</div>
@@ -202,15 +276,17 @@
 				<p class="categoryMenu">재료검색</p>
 			</div>
 			<div class="subHeaderButtonContainer">
-				<div class="subHeaderTopContainer">
-					<button class="resultTypeButton">전체</button>
-					<button class="resultTypeButton">국/찌개</button>
-					<button class="resultTypeButton">일품</button>
-					<button class="resultTypeButton">반찬</button>
-					<button class="resultTypeButton">밥</button>
-					<button class="resultTypeButton">면</button>
-					<button class="resultTypeButton">디저트</button>
-					<button class="resultTypeButton">기타</button>
+				<div class="subHeaderTopUpContainer">
+					<div class="subHeaderTopContainer">
+						<button class="resultTypeButton">전체</button>
+						<button class="resultTypeButton">국/찌개</button>
+						<button class="resultTypeButton">일품</button>
+						<button class="resultTypeButton">반찬</button>
+						<button class="resultTypeButton">밥</button>
+						<button class="resultTypeButton">면</button>
+						<button class="resultTypeButton">디저트</button>
+						<button class="resultTypeButton">기타</button>
+					</div>
 				</div>
 				<div class="subHeaderMiddleContainer">
 					<button class="resultTypeButton">전체</button>
@@ -237,67 +313,288 @@
 					<button class="resultTypeButton">60분 이상</button>
 				</div>
 				<div class="subHeaderBottomContainer">
-					<div class="headerSearchContainer">
-						<img src="./image/search.png" style="width:24px; height:24px;">
-						<input type="text" placeholder="검색어를 입력해주세요." class="searchInput"/>				
+					<div class="categorySearchContainer">
+						<a href="result.jsp">
+							<img src="./image/search.png" style="width:24px; height:24px;margin-left: 30px;">
+						</a>
+						<input type="text" placeholder="콤마(,) 로 재료를 구분하여 한 번에 다양한 재료를 검색해보세요." class="categorySearchInput"/>				
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="categoryAllContainer">
 	<div class="categoryIntroContainer">
-		<select>
-			<option>최신순</option>
-			<option>추천순</option>
-			<option>난이도순</option>
-			<option>조리시간순</option>
-		</select>
+		<div class="categoryIntroInnerContainer">
+			<select class="resultSelect">
+				<option>최신순</option>
+				<option>추천순</option>
+				<option>난이도순</option>
+				<option>조리시간순</option>
+			</select>
+		</div>
 	</div>
 	<div class="categoryMainContainer">
-		<div class="recipeCard">
-			<div class="recipeImgContainer">
-				<img src="./image/example.png" alt="" class="popImg">
+		<div class="categoryMainInnerContainer">
+			<div class="recipeCard">
+				<div class="recipeImgContainer">
+					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
+				</div>
+				<div class="recpContents">
+					<p class="popTitle">꼬마김밥</p>
+					<p class="popTime">20분</p>
+					<div class="popCategories">
+						<p>#밥</p>
+						<p>#기타</p>
+						<p>#채소/과일류</p>
+					</div>
+				</div>
 			</div>
-			<div class="recpContents">
-				<p class="popTitle">꼬마김밥</p>
-				<p class="popTime">20분</p>
-				<div class="popCategories">
-					<p>#밥</p>
-					<p>#기타</p>
-					<p>#채소/과일류</p>
+			<div class="recipeCard">
+				<div class="recipeImgContainer">
+					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
+				</div>
+				<div class="recpContents">
+					<p class="popTitle">꼬마김밥</p>
+					<p class="popTime">20분</p>
+					<div class="popCategories">
+						<p>#밥</p>
+						<p>#기타</p>
+						<p>#채소/과일류</p>
+					</div>
+				</div>
+			</div><div class="recipeCard">
+				<div class="recipeImgContainer">
+					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
+				</div>
+				<div class="recpContents">
+					<p class="popTitle">꼬마김밥</p>
+					<p class="popTime">20분</p>
+					<div class="popCategories">
+						<p>#밥</p>
+						<p>#기타</p>
+						<p>#채소/과일류</p>
+					</div>
+				</div>
+			</div><div class="recipeCard">
+				<div class="recipeImgContainer">
+					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
+				</div>
+				<div class="recpContents">
+					<p class="popTitle">꼬마김밥</p>
+					<p class="popTime">20분</p>
+					<div class="popCategories">
+						<p>#밥</p>
+						<p>#기타</p>
+						<p>#채소/과일류</p>
+					</div>
+				</div>
+			</div><div class="recipeCard">
+				<div class="recipeImgContainer">
+					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
+				</div>
+				<div class="recpContents">
+					<p class="popTitle">꼬마김밥</p>
+					<p class="popTime">20분</p>
+					<div class="popCategories">
+						<p>#밥</p>
+						<p>#기타</p>
+						<p>#채소/과일류</p>
+					</div>
+				</div>
+			</div><div class="recipeCard">
+				<div class="recipeImgContainer">
+					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
+				</div>
+				<div class="recpContents">
+					<p class="popTitle">꼬마김밥</p>
+					<p class="popTime">20분</p>
+					<div class="popCategories">
+						<p>#밥</p>
+						<p>#기타</p>
+						<p>#채소/과일류</p>
+					</div>
+				</div>
+			</div><div class="recipeCard">
+				<div class="recipeImgContainer">
+					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
+				</div>
+				<div class="recpContents">
+					<p class="popTitle">꼬마김밥</p>
+					<p class="popTime">20분</p>
+					<div class="popCategories">
+						<p>#밥</p>
+						<p>#기타</p>
+						<p>#채소/과일류</p>
+					</div>
+				</div>
+			</div><div class="recipeCard">
+				<div class="recipeImgContainer">
+					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
+				</div>
+				<div class="recpContents">
+					<p class="popTitle">꼬마김밥</p>
+					<p class="popTime">20분</p>
+					<div class="popCategories">
+						<p>#밥</p>
+						<p>#기타</p>
+						<p>#채소/과일류</p>
+					</div>
+				</div>
+			</div><div class="recipeCard">
+				<div class="recipeImgContainer">
+					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
+				</div>
+				<div class="recpContents">
+					<p class="popTitle">꼬마김밥</p>
+					<p class="popTime">20분</p>
+					<div class="popCategories">
+						<p>#밥</p>
+						<p>#기타</p>
+						<p>#채소/과일류</p>
+					</div>
+				</div>
+			</div><div class="recipeCard">
+				<div class="recipeImgContainer">
+					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
+				</div>
+				<div class="recpContents">
+					<p class="popTitle">꼬마김밥</p>
+					<p class="popTime">20분</p>
+					<div class="popCategories">
+						<p>#밥</p>
+						<p>#기타</p>
+						<p>#채소/과일류</p>
+					</div>
+				</div>
+			</div><div class="recipeCard">
+				<div class="recipeImgContainer">
+					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
+				</div>
+				<div class="recpContents">
+					<p class="popTitle">꼬마김밥</p>
+					<p class="popTime">20분</p>
+					<div class="popCategories">
+						<p>#밥</p>
+						<p>#기타</p>
+						<p>#채소/과일류</p>
+					</div>
+				</div>
+			</div><div class="recipeCard">
+				<div class="recipeImgContainer">
+					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
+				</div>
+				<div class="recpContents">
+					<p class="popTitle">꼬마김밥</p>
+					<p class="popTime">20분</p>
+					<div class="popCategories">
+						<p>#밥</p>
+						<p>#기타</p>
+						<p>#채소/과일류</p>
+					</div>
+				</div>
+			</div><div class="recipeCard">
+				<div class="recipeImgContainer">
+					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
+				</div>
+				<div class="recpContents">
+					<p class="popTitle">꼬마김밥</p>
+					<p class="popTime">20분</p>
+					<div class="popCategories">
+						<p>#밥</p>
+						<p>#기타</p>
+						<p>#채소/과일류</p>
+					</div>
+				</div>
+			</div><div class="recipeCard">
+				<div class="recipeImgContainer">
+					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
+				</div>
+				<div class="recpContents">
+					<p class="popTitle">꼬마김밥</p>
+					<p class="popTime">20분</p>
+					<div class="popCategories">
+						<p>#밥</p>
+						<p>#기타</p>
+						<p>#채소/과일류</p>
+					</div>
+				</div>
+			</div><div class="recipeCard">
+				<div class="recipeImgContainer">
+					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
+				</div>
+				<div class="recpContents">
+					<p class="popTitle">꼬마김밥</p>
+					<p class="popTime">20분</p>
+					<div class="popCategories">
+						<p>#밥</p>
+						<p>#기타</p>
+						<p>#채소/과일류</p>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="recipeCard">
-			<div class="recipeImgContainer">
-				<img src="./image/example.png" alt="" class="popImg">
-			</div>
-			<div class="recpContents">
-				<p class="popTitle">꼬마김밥</p>
-				<p class="popTime">20분</p>
-				<div class="popCategories">
-					<p>#밥</p>
-					<p>#기타</p>
-					<p>#채소/과일류</p>
-				</div>
-			</div>
-		</div>
-		<div class="recipeCard">
-			<div class="recipeImgContainer">
-				<img src="./image/example.png" alt="" class="popImg">
-			</div>
-			<div class="recpContents">
-				<p class="popTitle">꼬마김밥</p>
-				<p class="popTime">20분</p>
-				<div class="popCategories">
-					<p>#밥</p>
-					<p>#기타</p>
-					<p>#채소/과일류</p>
-				</div>
-			</div>
-		</div>
-	</div>
+	</div>	
+	<div class="categoryIntroContainer">
 	</div>
 </body>		
 </html>

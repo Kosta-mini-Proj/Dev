@@ -43,11 +43,12 @@
 	.leftTopContent{
 		border: 1px solid #BDBDBD;
 		border-radius: 5px;
+		position: relative;
 	}
 	.leftbottomContent{
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		gap: 25px;
+		gap: 25px;		
 	}
 	.leftBottomLeftContent{
 		border: 1px solid #BDBDBD;
@@ -55,6 +56,7 @@
 		height: 295px;
 		width: 295px;
 		float: bottom;
+		position: relative;
 	}
 	.leftBottomRightContent{
 		border: 1px solid #BDBDBD;
@@ -62,6 +64,7 @@
 		height: 295px;
 		width: 295px;
 		float: bottom;
+		position: relative;
 	}
 	.rightContent{
 		display: grid;
@@ -71,6 +74,7 @@
 	.rightBottomContent{
 		border: 1px solid #BDBDBD;
 		border-radius: 5px;
+		position: relative;	
 	}
 	.rightTopContent{
 		display: grid;
@@ -82,12 +86,14 @@
 		border-radius: 5px;
 		height: 295px;
 		width: 295px;
+		position: relative;
 	}
 	.rightTopRightContent{
 		border: 1px solid #BDBDBD;
 		border-radius: 5px;
 		height: 295px;
 		width: 295px;
+		position: relative;
 	}
 	.recImg {
 		width: 100%;
@@ -152,6 +158,44 @@
 	.cateType{
 		font-size: 18px;
 	}
+	.like-countbig{
+ 		font-size: 36px;
+ 		color:white;
+	}
+	.like-count{
+  		font-size: 24px;
+  		color:white;
+	}
+	.like-iconbig{
+		width: 36px;
+		height: 36px;
+		margin-right: 5px;
+	}
+	.like-icon {
+  		width: 24px; 
+ 		height: 24px;
+		margin-right: 5px; 
+	}
+	.like-containerbig {
+		position: absolute;
+		bottom: 10px;
+		right: 10px;
+		display: flex;
+		align-items: center;
+	}
+	.like-container {
+		position: absolute;
+		bottom: 5px;
+		right: 5px;
+		display: flex;
+		align-items: center;
+	}
+	.recipeImgContainer{
+		width: 290px;
+		height: 290px;
+		position: relative;
+}
+
 </style>
 </head>
 <body>
@@ -162,13 +206,25 @@
 			<div class="leftContent">
 				<div class="leftTopContent">
 					<img src="./image/example.png" alt="" class="recImg">
+						<div class="like-containerbig">
+							<img src="./image/like-heart.png" class="like-iconbig">
+							<span class="like-countbig">100</span>
+  						</div>
 				</div>
 				<div class="leftbottomContent">
 					<div class="leftBottomLeftContent">
 						<img src="./image/example.png" alt="" class="recImg">
+							<div class="like-container">
+								<img src="./image/like-heart.png" class="like-icon">
+								<span class="like-count">100</span>
+  							</div>
 					</div>
 					<div class="leftBottomRightContent">
 						<img src="./image/example.png" alt="" class="recImg">
+							<div class="like-container">
+								<img src="./image/like-heart.png" class="like-icon">
+								<span class="like-count">100</span>
+  							</div>
 					</div>
 				</div>
 			</div>
@@ -176,13 +232,25 @@
 				<div class="rightTopContent">
 					<div class="rightTopLeftContent">
 						<img src="./image/example.png" alt="" class="recImg">
+							<div class="like-container">
+								<img src="./image/like-heart.png" class="like-icon">
+								<span class="like-count">100</span>
+  							</div>
 					</div>
 					<div class="rightTopRightContent">
 						<img src="./image/example.png" alt="" class="recImg">
+							<div class="like-container">
+								<img src="./image/like-heart.png" class="like-icon">
+								<span class="like-count">100</span>
+  							</div>
 					</div>
 				</div>
 				<div class="rightBottomContent">
 					<img src="./image/example.png" alt="" class="recImg">
+						<div class="like-containerbig">
+								<img src="./image/like-heart.png" class="like-iconbig">
+								<span class="like-countbig">100</span>
+  						</div>
 				</div>
 			</div>
 		</div>
@@ -191,6 +259,10 @@
 			<div class="recipeCard">
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
 				</div>
 				<div class="recpContents">
 					<p class="popTitle">꼬마김밥</p>
@@ -205,6 +277,10 @@
 			<div class="recipeCard">
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
 				</div>
 				<div class="recpContents">
 					<p class="popTitle">꼬마김밥</p>
@@ -219,6 +295,10 @@
 			<div class="recipeCard">
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
 				</div>
 				<div class="recpContents">
 					<p class="popTitle">꼬마김밥</p>
@@ -233,6 +313,10 @@
 			<div class="recipeCard">
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
 				</div>
 				<div class="recpContents">
 					<p class="popTitle">꼬마김밥</p>
@@ -247,6 +331,10 @@
 			<div class="recipeCard">
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
 				</div>
 				<div class="recpContents">
 					<p class="popTitle">꼬마김밥</p>
@@ -261,6 +349,10 @@
 			<div class="recipeCard">
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
 				</div>
 				<div class="recpContents">
 					<p class="popTitle">꼬마김밥</p>
