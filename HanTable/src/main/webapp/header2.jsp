@@ -66,9 +66,10 @@
 	.dropdownContent {
   		display: none;
   		position: absolute;
-  		background-color: #BFA89F;
+  		background-color: #BF917E;
   		min-width: 200px;
   		z-index: 1;
+  		transform: translateX(-35%);
 	}
 
 	.dropdownContent a {
@@ -84,9 +85,6 @@
   		 background: #937062;
 	}
 
-	/* .headerUserContainer:hover .dropdownContent {
-   		display: block;
-	} */
 	.subHeaderContainer{
 		width:1920px;
 		height:50px;
@@ -126,8 +124,8 @@
 				<button class="dropdownbtn" id="dropdownbtn"><img src="./image/nonlogin.png"></button>
 				<div class="dropdownContent">
 					<a href="#" onmousedown="document.location.href='recipecreate'">레시피 작성하기</a>
-					<a href="mypage">마이페이지</a>
-					<a href="logout">로그아웃</a>
+					<a href="#" onmousedown="document.location.href='mypage'">마이페이지</a>
+					<a href="#" onmousedown="document.location.href='logout'">로그아웃</a>
 				</div>
 			</div>
 		</div>
