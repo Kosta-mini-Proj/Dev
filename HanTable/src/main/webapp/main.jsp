@@ -10,66 +10,66 @@
 		overflow-x: hidden;
 	}
 	.mainContainer {
-		width: 1280px;
+		width: 1024px;
 		height: auto;
 		display: flex;
 		flex-direction: column;
-		margin-left: 320px;
-		padding-bottom: 50px;
+		margin-left: 448px;
+		padding-bottom: 40px;
 	}
 	.recContentsContainer {
-		width: 1280px;
+		width: 1024px;
 		height: auto;
 		display: grid;
-		grid-template-columns: repeat(2, 620px);
-        gap: 37px;
+		grid-template-columns: repeat(2, 496px);
+        gap: 28px;
         margin-top: 30px;
 	}
 	.popContentsContainer {
-		width: 1280px;
+		width: 1024px;
 		height: auto;
-		margin-bottom: 50px;
+		margin-bottom: 40px;
 	}
 	.mainTitle{
 		color: #937062;
-		font-size: 24px;
-		margin-top: 50px;
+		font-size: 50px;
+		margin-top: 40px;
 	}
 	.leftContent{
 		display: grid;
-		grid-template-rows: 620px 300px;
-		gap: 30px;
+		grid-template-rows: 496px 240px;
+		gap: 24px;
 	}
 	.leftTopContent{
 		border: 1px solid #BDBDBD;
-		border-radius: 5px;
+		border-radius: 4px;
 		position: relative;
 	}
 	.leftbottomContent{
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		gap: 25px;		
+		gap: 16px;		
 	}
 	.leftBottomLeftContent{
 		border: 1px solid #BDBDBD;
-		border-radius: 5px;
-		height: 295px;
-		width: 295px;
+		border-radius: 4px;
+		height: 232px;
+		width: 232px;
 		float: bottom;
 		position: relative;
 	}
 	.leftBottomRightContent{
 		border: 1px solid #BDBDBD;
-		border-radius: 5px;
-		height: 295px;
-		width: 295px;
+		border-radius: 4px;
+		height: 232px;
+		width: 232px;
 		float: bottom;
 		position: relative;
 	}
 	.rightContent{
 		display: grid;
-		grid-template-rows: 300px 620px;
-		gap: 30px;
+		grid-template-rows: 240px 496px;
+		gap: 24px;
 	}
 	.rightBottomContent{
 		border: 1px solid #BDBDBD;
@@ -79,20 +79,20 @@
 	.rightTopContent{
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		gap: 25px;
+		gap: 20px;
 	}
 	.rightTopLeftContent{
 		border: 1px solid #BDBDBD;
 		border-radius: 5px;
-		height: 295px;
-		width: 295px;
+		height: 236px;
+		width: 236px;
 		position: relative;
 	}
 	.rightTopRightContent{
 		border: 1px solid #BDBDBD;
 		border-radius: 5px;
-		height: 295px;
-		width: 295px;
+		height: 232px;
+		width: 232px;
 		position: relative;
 	}
 	.recImg {
@@ -103,48 +103,48 @@
 		border-radius: inherit;
 	}
 	.popContentsContainer{
-		margin-top: 30px;
+		margin-top: 24px;
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		gap: 30px;
-		grid-row-gap: 40px;
+		gap: 24px;
+		grid-row-gap: 32px;
     	grid-auto-flow: dense;
 	}
 	.recipeCard{
-		width: 290px;
-		height: 420px;
+		width: 232px;
+		height: 336px;
 		border: 1px solid #BDBDBD;
 		border-radius: 5px;
 		display: flex;
 		flex-direction: column;
 	}
 	.popImg{
-		width: 100%;
-		height: 100%;
+		width: 232px;
+		height: 232px;
 		object-fit: cover;
 		overflow: hidden;
 		border-radius: 5px 5px 0 0;
 	}
 	.recpContents{
-		margin-top: 5px;
+		margin-top: 4px;
 		display: flex;
 		flex-direction: column;
 		text-align: center;
 	}
 	.popTitle{
-		margin-top: 10px;
-		font-size: 21px;
+		margin-top: 8px;
+		font-size: 16px;
 		font-weight: medium;
 	}
 	.popTime{
-		margin-top: 10px;
-		font-size: 21px;
+		margin-top: 8px;
+		font-size: 16px;
 		color: #616161;
 		font-weight: medium;
 	}
 	.popCategories{
-		margin-top: 10px;
-		width: 290px;
+		margin-top: 8px;
+		width: 232px;
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
@@ -152,28 +152,28 @@
 	.popCategories > p {
 		margin: 0 5px;
 		flex-wrap: nowrap;
-		font-size: 18px;
+		font-size: 12px;
 		color: #937062;
 	}
 	.cateType{
-		font-size: 18px;
+		font-size: 12px;
 	}
 	.like-countbig{
- 		font-size: 36px;
+ 		font-size: 28px;
  		color:white;
 	}
 	.like-count{
-  		font-size: 24px;
+  		font-size: 16px;
   		color:white;
 	}
 	.like-iconbig{
-		width: 36px;
-		height: 36px;
+		width: 28px;
+		height: 28px;
 		margin-right: 5px;
 	}
 	.like-icon {
-  		width: 24px; 
- 		height: 24px;
+  		width: 20px; 
+ 		height: 20px;
 		margin-right: 5px; 
 	}
 	.like-containerbig {
@@ -191,8 +191,8 @@
 		align-items: center;
 	}
 	.recipeImgContainer{
-		width: 290px;
-		height: 290px;
+		width: 232px;
+		height: 232px;
 		position: relative;
 }
 
@@ -266,7 +266,7 @@
 				</div>
 				<div class="recpContents">
 					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">15분↓</p>
+					<p class="popTime">15분</p>
 					<div class="popCategories">
 						<p>#밥</p>
 						<p>#기타</p>
@@ -284,7 +284,7 @@
 				</div>
 				<div class="recpContents">
 					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">30분↓</p>
+					<p class="popTime">30분</p>
 					<div class="popCategories">
 						<p>#밥</p>
 						<p>#기타</p>
@@ -302,7 +302,7 @@
 				</div>
 				<div class="recpContents">
 					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">45분↓</p>
+					<p class="popTime">45분</p>
 					<div class="popCategories">
 						<p>#밥</p>
 						<p>#기타</p>
@@ -320,7 +320,7 @@
 				</div>
 				<div class="recpContents">
 					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">60분↓</p>
+					<p class="popTime">60분</p>
 					<div class="popCategories">
 						<p>#밥</p>
 						<p>#기타</p>
@@ -338,7 +338,7 @@
 				</div>
 				<div class="recpContents">
 					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">60분⬆️</p>
+					<p class="popTime">60분</p>
 					<div class="popCategories">
 						<p>#밥</p>
 						<p>#기타</p>
@@ -356,7 +356,7 @@
 				</div>
 				<div class="recpContents">
 					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">20분</p>
+					<p class="popTime">30분</p>
 					<div class="popCategories">
 						<p>#밥</p>
 						<p>#기타</p>
