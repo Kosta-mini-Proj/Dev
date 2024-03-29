@@ -242,7 +242,7 @@
         	<div class="popContentsContainer">
 				<div class="recipeCard">
 					<div class="recipeImgContainer">
-						<img src="./image/example.png" alt="" class="popImg">
+						<img src="./image/recipe2.png" alt="" class="popImg">
 							<div class="like-container">
 								<img src="./image/like-heart.png" class="like-icon">
 								<span class="like-count">0</span>
@@ -260,7 +260,7 @@
 				</div>
 				<div class="recipeCard">
 					<div class="recipeImgContainer">
-						<img src="./image/example.png" alt="" class="popImg">
+						<img src="./image/recipe1.png" alt="" class="popImg">
 							<div class="like-container">
 								<img src="./image/like-heart.png" class="like-icon">
 								<span class="like-count">1000</span>
@@ -275,7 +275,7 @@
 				</div>
 								<div class="recipeCard">
 					<div class="recipeImgContainer">
-						<img src="./image/example.png" alt="" class="popImg">
+						<img src="./image/recipe4.png" alt="" class="popImg">
 							<div class="like-container">
 								<img src="./image/like-heart.png" class="like-icon">
 								<span class="like-count">100000</span>
@@ -357,7 +357,7 @@
         	<p style="margin-battom: 20px; font-size: 24px;text-align: center;">비밀번호 확인이 필요한 요청입니다.</p>
         	<p style="margin-battom: 100px; font-size: 24px;text-align: center;">현재 비밀번호를 입력해주세요.</p><br><br>
         	<input type="password" id="passwordInput" placeholder="비밀번호를 입력하세요"><br>
-        	<button class="yesbutton" id="confirmPassword">입력완료</button>
+        	<button class="yesbutton" id="closePopup">입력완료</button>
     </div>
 </div>
 <script>

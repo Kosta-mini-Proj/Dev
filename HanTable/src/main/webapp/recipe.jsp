@@ -329,7 +329,7 @@ top: 279px;
          
       </div>
       <div class="right" id="right">
-         <br><br><br><img class="recipeMainImg" id="recipeMainImg" src="image/bajil.jpg"/>
+         <br><br><br><img class="recipeMainImg" id="recipeMainImg" src="image/recipe4.png"/>
       </div>
       <br>
       

@@ -66,7 +66,7 @@
 	.dropdownContent {
   		display: none;
   		position: absolute;
-  		background-color: #BFA89F;
+  		background-color: #BF917E;
   		min-width: 200px;
   		z-index: 1;
 	}

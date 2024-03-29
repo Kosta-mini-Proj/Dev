@@ -328,7 +328,6 @@
 			<select class="resultSelect">
 				<option>최신순</option>
 				<option>추천순</option>
-				<option>난이도순</option>
 				<option>조리시간순</option>
 			</select>
 		</div>
@@ -338,6 +337,60 @@
 			<div class="recipeCard">
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
+				</div>
+				<div class="recpContents">
+					<p class="popTitle">꼬마김밥</p>
+					<p class="popTime">20분</p>
+					<div class="popCategories">
+						<p>#밥</p>
+						<p>#기타</p>
+						<p>#채소/과일류</p>
+					</div>
+				</div>
+			</div>
+			<div class="recipeCard">
+				<div class="recipeImgContainer">
+					<img src="./image/recipe1.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
+				</div>
+				<div class="recpContents">
+					<p class="popTitle">꼬마김밥</p>
+					<p class="popTime">20분</p>
+					<div class="popCategories">
+						<p>#밥</p>
+						<p>#기타</p>
+						<p>#채소/과일류</p>
+					</div>
+				</div>
+			</div>
+			<div class="recipeCard">
+				<div class="recipeImgContainer">
+					<img src="./image/recipe3.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
+				</div>
+				<div class="recpContents">
+					<p class="popTitle">꼬마김밥</p>
+					<p class="popTime">20분</p>
+					<div class="popCategories">
+						<p>#밥</p>
+						<p>#기타</p>
+						<p>#채소/과일류</p>
+					</div>
+				</div>
+			</div>
+			<div class="recipeCard">
+				<div class="recipeImgContainer">
+					<img src="./image/recipe4.png" alt="" class="popImg">
 						<div class="like-container">
 							<img src="./image/like-heart.png" class="like-icon">
 							<span class="like-count">100</span>
@@ -370,227 +423,7 @@
 						<p>#채소/과일류</p>
 					</div>
 				</div>
-			</div><div class="recipeCard">
-				<div class="recipeImgContainer">
-					<img src="./image/example.png" alt="" class="popImg">
-						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
-							<span class="like-count">100</span>
-  						</div>
-				</div>
-				<div class="recpContents">
-					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">20분</p>
-					<div class="popCategories">
-						<p>#밥</p>
-						<p>#기타</p>
-						<p>#채소/과일류</p>
-					</div>
-				</div>
-			</div><div class="recipeCard">
-				<div class="recipeImgContainer">
-					<img src="./image/example.png" alt="" class="popImg">
-						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
-							<span class="like-count">100</span>
-  						</div>
-				</div>
-				<div class="recpContents">
-					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">20분</p>
-					<div class="popCategories">
-						<p>#밥</p>
-						<p>#기타</p>
-						<p>#채소/과일류</p>
-					</div>
-				</div>
-			</div><div class="recipeCard">
-				<div class="recipeImgContainer">
-					<img src="./image/example.png" alt="" class="popImg">
-						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
-							<span class="like-count">100</span>
-  						</div>
-				</div>
-				<div class="recpContents">
-					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">20분</p>
-					<div class="popCategories">
-						<p>#밥</p>
-						<p>#기타</p>
-						<p>#채소/과일류</p>
-					</div>
-				</div>
-			</div><div class="recipeCard">
-				<div class="recipeImgContainer">
-					<img src="./image/example.png" alt="" class="popImg">
-						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
-							<span class="like-count">100</span>
-  						</div>
-				</div>
-				<div class="recpContents">
-					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">20분</p>
-					<div class="popCategories">
-						<p>#밥</p>
-						<p>#기타</p>
-						<p>#채소/과일류</p>
-					</div>
-				</div>
-			</div><div class="recipeCard">
-				<div class="recipeImgContainer">
-					<img src="./image/example.png" alt="" class="popImg">
-						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
-							<span class="like-count">100</span>
-  						</div>
-				</div>
-				<div class="recpContents">
-					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">20분</p>
-					<div class="popCategories">
-						<p>#밥</p>
-						<p>#기타</p>
-						<p>#채소/과일류</p>
-					</div>
-				</div>
-			</div><div class="recipeCard">
-				<div class="recipeImgContainer">
-					<img src="./image/example.png" alt="" class="popImg">
-						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
-							<span class="like-count">100</span>
-  						</div>
-				</div>
-				<div class="recpContents">
-					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">20분</p>
-					<div class="popCategories">
-						<p>#밥</p>
-						<p>#기타</p>
-						<p>#채소/과일류</p>
-					</div>
-				</div>
-			</div><div class="recipeCard">
-				<div class="recipeImgContainer">
-					<img src="./image/example.png" alt="" class="popImg">
-						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
-							<span class="like-count">100</span>
-  						</div>
-				</div>
-				<div class="recpContents">
-					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">20분</p>
-					<div class="popCategories">
-						<p>#밥</p>
-						<p>#기타</p>
-						<p>#채소/과일류</p>
-					</div>
-				</div>
-			</div><div class="recipeCard">
-				<div class="recipeImgContainer">
-					<img src="./image/example.png" alt="" class="popImg">
-						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
-							<span class="like-count">100</span>
-  						</div>
-				</div>
-				<div class="recpContents">
-					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">20분</p>
-					<div class="popCategories">
-						<p>#밥</p>
-						<p>#기타</p>
-						<p>#채소/과일류</p>
-					</div>
-				</div>
-			</div><div class="recipeCard">
-				<div class="recipeImgContainer">
-					<img src="./image/example.png" alt="" class="popImg">
-						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
-							<span class="like-count">100</span>
-  						</div>
-				</div>
-				<div class="recpContents">
-					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">20분</p>
-					<div class="popCategories">
-						<p>#밥</p>
-						<p>#기타</p>
-						<p>#채소/과일류</p>
-					</div>
-				</div>
-			</div><div class="recipeCard">
-				<div class="recipeImgContainer">
-					<img src="./image/example.png" alt="" class="popImg">
-						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
-							<span class="like-count">100</span>
-  						</div>
-				</div>
-				<div class="recpContents">
-					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">20분</p>
-					<div class="popCategories">
-						<p>#밥</p>
-						<p>#기타</p>
-						<p>#채소/과일류</p>
-					</div>
-				</div>
-			</div><div class="recipeCard">
-				<div class="recipeImgContainer">
-					<img src="./image/example.png" alt="" class="popImg">
-						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
-							<span class="like-count">100</span>
-  						</div>
-				</div>
-				<div class="recpContents">
-					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">20분</p>
-					<div class="popCategories">
-						<p>#밥</p>
-						<p>#기타</p>
-						<p>#채소/과일류</p>
-					</div>
-				</div>
-			</div><div class="recipeCard">
-				<div class="recipeImgContainer">
-					<img src="./image/example.png" alt="" class="popImg">
-						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
-							<span class="like-count">100</span>
-  						</div>
-				</div>
-				<div class="recpContents">
-					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">20분</p>
-					<div class="popCategories">
-						<p>#밥</p>
-						<p>#기타</p>
-						<p>#채소/과일류</p>
-					</div>
-				</div>
-			</div><div class="recipeCard">
-				<div class="recipeImgContainer">
-					<img src="./image/example.png" alt="" class="popImg">
-						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
-							<span class="like-count">100</span>
-  						</div>
-				</div>
-				<div class="recpContents">
-					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">20분</p>
-					<div class="popCategories">
-						<p>#밥</p>
-						<p>#기타</p>
-						<p>#채소/과일류</p>
-					</div>
-				</div>
+			</div>
 			</div>
 		</div>
 	</div>	

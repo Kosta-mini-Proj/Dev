@@ -80,6 +80,28 @@
 	.cateType{
 		font-size: 18px;
 	}
+	.like-count{
+  		font-size: 24px;
+  		color:white;
+	}
+	.like-icon {
+  		width: 24px; 
+ 		height: 24px;
+		margin-right: 5px; 
+	}
+	.like-container {
+		position: absolute;
+		bottom: 5px;
+		right: 5px;
+		display: flex;
+		align-items: center;
+	}
+	.recipeImgContainer{
+		width: 290px;
+		height: 290px;
+		position: relative;
+}
+	
 </style>
 </head>
 <body>
@@ -90,6 +112,10 @@
 			<div class="recipeCard">
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>					
 				</div>
 				<div class="recpContents">
 					<p class="popTitle">꼬마김밥</p>
@@ -101,9 +127,13 @@
 					</div>
 				</div>
 			</div>
-						<div class="recipeCard">
+			<div class="recipeCard">
 				<div class="recipeImgContainer">
-					<img src="./image/example.png" alt="" class="popImg">
+					<img src="./image/recipe5.png" alt="" class="popImg">
+						<div class="like-container">
+							<img src="./image/like-heart.png" class="like-icon">
+							<span class="like-count">100000</span>
+  						</div>					
 				</div>
 				<div class="recpContents">
 					<p class="popTitle">꼬마김밥</p>
@@ -114,63 +144,7 @@
 						<p>#채소/과일류</p>
 					</div>
 				</div>
-			</div>
-						<div class="recipeCard">
-				<div class="recipeImgContainer">
-					<img src="./image/example.png" alt="" class="popImg">
-				</div>
-				<div class="recpContents">
-					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">20분</p>
-					<div class="popCategories">
-						<p>#밥</p>
-						<p>#기타</p>
-						<p>#채소/과일류</p>
-					</div>
-				</div>
-			</div>
-						<div class="recipeCard">
-				<div class="recipeImgContainer">
-					<img src="./image/example.png" alt="" class="popImg">
-				</div>
-				<div class="recpContents">
-					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">20분</p>
-					<div class="popCategories">
-						<p>#밥</p>
-						<p>#기타</p>
-						<p>#채소/과일류</p>
-					</div>
-				</div>
-			</div>
-						<div class="recipeCard">
-				<div class="recipeImgContainer">
-					<img src="./image/example.png" alt="" class="popImg">
-				</div>
-				<div class="recpContents">
-					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">20분</p>
-					<div class="popCategories">
-						<p>#밥</p>
-						<p>#기타</p>
-						<p>#채소/과일류</p>
-					</div>
-				</div>
-			</div>
-						<div class="recipeCard">
-				<div class="recipeImgContainer">
-					<img src="./image/example.png" alt="" class="popImg">
-				</div>
-				<div class="recpContents">
-					<p class="popTitle">꼬마김밥</p>
-					<p class="popTime">20분</p>
-					<div class="popCategories">
-						<p>#밥</p>
-						<p>#기타</p>
-						<p>#채소/과일류</p>
-					</div>
-				</div>
-			</div>
+			</div>	
 		</div>
 	</div>
 </body>
