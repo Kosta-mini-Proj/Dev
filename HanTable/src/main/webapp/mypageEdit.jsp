@@ -9,14 +9,16 @@
 <style>
 	.mypageContainer{
 		width:1920px;
-        height: 1000px;
         display:flex;
         justify-content: space-around;
     }
    	.mypageInnerContainer{
 	    width:1280px;
-        height: 1000px;
 	    align-items:center;
+	}
+	.mypageEmptyContainer{
+		width:1280px;
+		height:40px;
 	}
     .recipeImgContainer{
         width:290px;
@@ -45,6 +47,7 @@
 	  	text-align: center;
 		font-size: 24px;
 	    float: left;
+    	margin-bottom:0;	    
 	}
 	.btn-group .button:hover,
 	.btn-group .button.active {
@@ -62,54 +65,6 @@
 	    border-bottom-left-radius: 0.5%;
 	    border-bottom-right-radius: 0.5%;
 	}
-	.recipebox{
-		margin: 13px;
-		width:290px;
-		height:420px;
-		border:1px solid #D9D9D9;
-	    border-radius: 1%;
-	}
-    .recipebox-img{
-        width:290px;
-	    height:287px;
-    }
-    .like{
-        font-size: 24px; 
-        bottom: 0%;
-        right: 1%;
-        color: #FFFFFF;
-        text-align: right;
-        position: absolute;
-    }
-    .recipebox-title{
-        font-size: 24px;
-        color: #000000; 
-        text-align: center;
-        margin: 0;
-    }
-    .recipebox-time{
-        font-size: 21px; 
-        color: #616161;
-        text-align: center;
-        margin: 0 auto;
-    }
-    .recipebox-category{
-        font-size: 20px; 
-        color: #937062;
-        text-align: center;
-        margin: 1;
-    }
-    .comment{
-        font-size: 24px; 
-        color:#000000;
-        text-align: left;
-    }
-    .comment-time{
-        font-size: 20px; 
-        color: #616161;
-        bottom: 0;
-        text-align: right;
-    }
     .popup {
         display: none;
         position: fixed;
@@ -130,7 +85,7 @@
         transform: translate(-50%, -50%);
     }
     .close {
-    float: right;
+    	float: right;
         cursor: pointer;
     }
 
@@ -158,11 +113,10 @@
 		width:318px;
     	height:743px;
     	color: #FFFFFF;
-    	pont-size:24px;
-    	text-align: center;
+    	font-weight: bold;
+    	pont-size:27px;
+    	text-align: right;
     	background-color:#BFA89F;
-   		top: 0;
-    	left: 0;
     }
     .editpage{
     	width:960px;
@@ -202,24 +156,24 @@
         top:86%; 
     }
     .popupdelete {
-        display: none;
+         display: none;
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: background-color: rgba(0,0,0,0.5);
-;
+        background-color: rgba(0,0,0,0.5);
     }
     .popupdelete-content {
         background-color: white;
-        padding: 20px;
+        padding:20px;
         width:504px;
 	    height:300px;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        text-align: center;
     }
 	.deletebutton{
 		width:119px;
@@ -234,8 +188,36 @@
 		align-content: center;
 		justify-content: center;
 		height: 70px;
-		width: 1000px;
+		width: 1280px;
 		margin-top: 50px;
+	}
+	.joinBtn{
+		width: 180px;
+		height: 50px;
+		background: #937062;
+		color:white;
+		border: 0px;
+		border-radius: 5px;
+		font-size: 18px;
+		cursor:pointer;
+		margin-right: 10px;
+	}
+	.joinBtn:hover{
+		background: #BF917E;
+	}
+	.cancleBtn{
+		width: 180px;
+		height: 50px;
+		background: #D9D9D9;
+		color:white;
+		border: 0px;
+		border-radius: 5px;
+		font-size: 18px;
+		cursor:pointer;
+		margin-left: 10px;
+	}
+	.cancleBtn:hover{
+		background: #F5F5F5;
 	}
 /* 회원정보수정 완 */    
 </style>
@@ -244,7 +226,9 @@
 	<%@ include file="header.jsp" %>
 <div class="mypageContainer">    
     <div class="mypageInnerContainer">
-        <br><p class="mypageIntro">마이페이지</p><br>
+    	<div class="mypageEmptyContainer"></div>
+        <br><p class="mypageIntro">마이페이지</p>
+    	<div class="mypageEmptyContainer"></div>
         <div class="btn-group">
             <button class="button">레시피</button>
             <button class="button">좋아요</button>
@@ -276,8 +260,8 @@
     	</div>
     	<br><br><br><br><br>
     	<div class ="btnContainer">
-       		<button class="editbutton" style="background-color: #937062">수정완료</button>
-    		<button class="editbutton" style="background-color: #D9D9D9" id="openPopup2">회원탈퇴</button>
+       		<button class="joinBtn">수정완료</button>
+    		<button class="cancleBtn" id="openPopup2">회원탈퇴</button>
     	</div>
 <!-- 회원정보수정 완 -->
 	</div>
@@ -285,23 +269,22 @@
 <div id="passwordPopup" class="popup">
     <div class="popup-content">
         <span class="close" id="closePopup">&times;</span>
-        <h3 style="color: #937062; font-size: 32px; text-align: center;">비밀번호 확인</h3>
-        <p>비밀번호 확인이 필요한 요청입니다.</p>
-        <p>현재 비밀번호를 입력해주세요</p><br>
+        <br><br><h3 style="color: #937062; font-size: 32px; text-align: center;">비밀번호 확인</h3><br>
+        <p style="margin-battom: 20px; font-size: 24px; text-align: center;">비밀번호 확인이 필요한 요청입니다.</p>
+        <p style="margin-battom: 100px; font-size: 24px; text-align: center;">현재 비밀번호를 입력해주세요.</p><br><br>
         <input type="password" id="passwordInput" placeholder="비밀번호를 입력하세요"><br>
-        <button class="yesbutton" id="confirmPassword">확인</button>
+        <button class="yesbutton" id="closePopup">입력완료</button>
     </div>
 </div>
     <!-- 회원정보수정 -->
 
 <div id="deletePopup" class="popupdelete">
     <div class="popupdelete-content">
-        <span class="close" id="closePopup">&times;</span>
-        <h3 style="color: #937062; font-size: 32px; text-align: center;">탈퇴 확인</h3>
-        <p>탈퇴 후 복원할 수 없습니다.</p>
-        <p>정말로 탈퇴하시겠습니까?</p><br>
-        <button class="deletebutton" id="confirmPassword" style="background-color: #937062" >확인</button>
-        <button class="deletebutton" id="confirmPassword" style="background-color: #DEDEDE">취소</button>
+        <h3 style="color: #937062; font-size: 32px; text-align: center;">탈퇴 확인</h3><br><br>
+        <p style= "font-size: 24px; text-align: center;">탈퇴 후 복원할 수 없습니다.</p>
+        <p style= "font-size: 24px; text-align: center;">정말로 탈퇴하시겠습니까?</p><br><br>
+        <button class="joinBtn" id="closePopup2">확인</button>
+        <button class="cancleBtn" id="closePopup2">취소</button>
     </div>
 </div>
     <!-- 회원정보수정 완 -->
