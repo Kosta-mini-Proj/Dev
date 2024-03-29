@@ -114,7 +114,6 @@
     	height:743px;
     	color: #FFFFFF;
     	font-weight: bold;
-    	pont-size:27px;
     	text-align: right;
     	background-color:#BFA89F;
     }
@@ -139,21 +138,21 @@
         width:584px;
       	height:50px;
         display: block;
-        top:47%;        
+        top:54%;        
     }
     input[type="editpasswordre"] {
         position: absolute;
         width:584px;
       	height:50px;
         display: block; 
-        top:57%;
+        top:64%;
     }
     input[type="editemail"] {
         position: absolute;
         width:584px;
       	height:50px;
         display: block;
-        top:86%; 
+        top:93%; 
     }
     .popupdelete {
          display: none;
@@ -219,6 +218,11 @@
 	.cancleBtn:hover{
 		background: #F5F5F5;
 	}
+	.editMenuPont{
+		position: relative;
+		margin-right: 66px;
+		pont-size:24px;
+	}
 /* 회원정보수정 완 */    
 </style>
 </head>
@@ -238,24 +242,24 @@
 <!-- 회원정보수정 -->
         <div class="mypageBox">
        		<div class="editmenu">
-				<p style="position: relative; top: 10%;">아이디</p>
-				<p style="position: relative; top: 20%;">비밀번호 수정</p>
-				<p style="position: relative; top: 30%;">비밀번호 확인</p>
-				<p style="position: relative; top: 40%;">이름</p>
-				<p style="position: relative; top: 50%;">전화번호</p>
-				<p style="position: relative; top: 60%;">이메일</p>
-				<p style="position: relative; top: 70%;">생년월일</p>
+				<p style="top: 10%" class="editMenuPont">아이디</p>
+				<p style="top: 20%" class="editMenuPont">비밀번호 수정</p>
+				<p style="top: 30%" class="editMenuPont">비밀번호 확인</p>
+				<p style="top: 40%;" class="editMenuPont">이름</p>
+				<p style="top: 50%;" class="editMenuPont">전화번호</p>
+				<p style="top: 60%;" class="editMenuPont">이메일</p>
+				<p style="top: 70%;" class="editMenuPont">생년월일</p>
     		</div>
     		<div class="editpage">
-    			<p style="position: relative; top: 10%; color: #696969;">Admin123456</p>
-    			<p style="position: relative; top: 14%; color: #F35555;">사용할 수 없는 비밀번호입니다.</p>
-    			<input type="editpassword" id="passwordInput" placeholder="비밀번호 입력(문자, 숫자, 특수문자 포함 8~20자)"><br>
-				<p style="position: relative; top: 22%; color: #F35555;">비밀번호가 일치하지 않습니다.</p>
-				<input type="editpasswordre" id="passwordInput" placeholder="비밀번호 재입력">
-				<p style="position: relative; top: 37%; color: #696969;">홍길동</p>
-				<p style="position: relative; top: 47%; color: #696969;">010-1234-1234</p>
-				<input type="editemail" id="passwordInput" placeholder="이메일">
-				<p style="position: relative; top: 70%; color: #696969;">2024년 3월 6일</p>
+    			<p style="position: relative; top: 10%; color: #696969; margin-left: 25px;">Admin123456</p>
+    			<p style="position: relative; top: 14%; color: #F35555; margin-left: 25px;">사용할 수 없는 비밀번호입니다.</p>
+    			<input type="editpassword" id="passwordInput" placeholder="비밀번호 입력(문자, 숫자, 특수문자 포함 8~20자)" style="margin-left: 25px;"><br>
+				<p style="position: relative; top: 22%; color: #F35555; margin-left: 25px;">비밀번호가 일치하지 않습니다.</p>
+				<input type="editpasswordre" id="passwordInput" placeholder="비밀번호 재입력" style="margin-left: 25px;">
+				<p style="position: relative; top: 37%; color: #696969; margin-left: 25px;">홍길동</p>
+				<p style="position: relative; top: 47%; color: #696969; margin-left: 25px;">010-1234-1234</p>
+				<input type="editemail" id="passwordInput" placeholder="이메일" style="margin-left: 25px;">
+				<p style="position: relative; top: 70%; color: #696969; margin-left: 25px;">2024년 3월 6일</p>
 			</div>	
     	</div>
     	<br><br><br><br><br>
@@ -273,7 +277,7 @@
         <p style="margin-battom: 20px; font-size: 24px; text-align: center;">비밀번호 확인이 필요한 요청입니다.</p>
         <p style="margin-battom: 100px; font-size: 24px; text-align: center;">현재 비밀번호를 입력해주세요.</p><br><br>
         <input type="password" id="passwordInput" placeholder="비밀번호를 입력하세요"><br>
-        <button class="yesbutton" id="closePopup">입력완료</button>
+        <button class="yesbutton" id="passwordYes">입력완료</button>
     </div>
 </div>
     <!-- 회원정보수정 -->
@@ -284,7 +288,7 @@
         <p style= "font-size: 24px; text-align: center;">탈퇴 후 복원할 수 없습니다.</p>
         <p style= "font-size: 24px; text-align: center;">정말로 탈퇴하시겠습니까?</p><br><br>
         <button class="joinBtn" id="closePopup2">확인</button>
-        <button class="cancleBtn" id="closePopup2">취소</button>
+        <button class="cancleBtn" id="closePopup3">취소</button>
     </div>
 </div>
     <!-- 회원정보수정 완 -->
@@ -295,12 +299,21 @@
     document.getElementById('closePopup').addEventListener('click', function() {
         document.getElementById('passwordPopup').style.display = 'none';
     });
+    document.getElementById('passwordYes').addEventListener('click', function() {
+        document.getElementById('passwordPopup').style.display = 'none';
+        document.getElementById('mypageContainer').style.display = 'none';
+        document.getElementById('mypageditContiner').style.display = 'block';
+
+    });
     <!-- 회원정보수정 -->
     document.getElementById('openPopup2').addEventListener('click', function() {
         document.getElementById('deletePopup').style.display = 'block';
     });
     document.getElementById('closePopup2').addEventListener('click', function() {
         document.getElementById('deletePopup').style.display = 'none';
+    });
+    document.getElementById('closePopup3').addEventListener('click', function() {
+    	document.getElementById('deletePopup').style.display = 'none';
     });
     <!-- 회원정보수정 완 -->
 </script>

@@ -81,7 +81,7 @@
 		<div class="headerInnerContainer">
 			<div class="headerImgContainer">
 				<a href="main">
-					<img src="./image/logo_white.png">
+					<img src="./image/logo.png">
 				</a>
 			</div>
 			<div class="headerSearchContainer">
