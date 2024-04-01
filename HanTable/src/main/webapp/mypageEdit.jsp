@@ -13,18 +13,13 @@
         justify-content: space-around;
     }
    	.mypageInnerContainer{
-	    width:1280px;
+	    width:1024px;
 	    align-items:center;
 	}
 	.mypageEmptyContainer{
-		width:1280px;
+		width:1024px;
 		height:40px;
 	}
-    .recipeImgContainer{
-        width:290px;
-	    height:287px;
-        position: relative;
-    }
     .form-popup {
 	    display: none;
 	    position: fixed;
@@ -35,17 +30,17 @@
     }
 	.mypageIntro {
 	  	color: #937062; 
-	  	font-size: 36px; 
+	  	font-size: 28px; 
 	}
 	.btn-group .button {
-		width:320px;
-		height:69px;
+		width:256px;
+		height:56px;
 	    background-color:#FFFFFF;
 		border: none;
 		border-bottom: 1px solid #937062;
 	    color: #937062;
 	  	text-align: center;
-		font-size: 24px;
+		font-size: 19px;
 	    float: left;
     	margin-bottom:0;	    
 	}
@@ -55,7 +50,7 @@
 		border-bottom: 1px solid #ffffff;
 	}
     .mypageBox{
-	    width:1278px;
+	    width:1022px;
 	    height: auto;
 		border: 1px solid #937062;
 	    display:flex;
@@ -110,28 +105,16 @@
     }
 /* 회원정보수정 */    
 	.editmenu{
-		width:318px;
-    	height:743px;
+		width:253px;
+    	height:500px;
     	color: #FFFFFF;
     	font-weight: bold;
     	text-align: right;
     	background-color:#BFA89F;
     }
     .editpage{
-    	width:960px;
-    	height:743px;
-    	pont-size:20px;
-    }
-    .editbutton{
-    	width:201px;
-    	height:60px;
-    	border-radius:2%;
-    	border: none;
-    	pont-size:24px;
-    	text-align: center;
-    	color: #FFFFFF;
-        font-weight: bold;
-		align-items:center;
+    	width:768px;
+    	height:500px;
     }
     input[type="editpassword"] {
         position: absolute;
@@ -218,10 +201,38 @@
 	.cancleBtn:hover{
 		background: #F5F5F5;
 	}
-	.editMenuPont{
+	.editMenuFont{
 		position: relative;
-		margin-right: 66px;
-		pont-size:24px;
+		margin-right: 50px;
+		margin-top:50px;
+		font-size:20px;
+	}
+	.editPageFont{
+		position: relative;
+		margin-left: 30px;
+		margin-top:50px;
+		font-size:20px;
+	}
+	
+	.editPageContainer{
+		position: relative;
+	    width:768px;
+    	height:77px;
+    	margin-left:15px;
+	}
+	.editPageFont2{
+		position: relative;
+		margin-left:10px;
+		font-size:20px;
+		bold:none;
+		color:#696969;
+	    position: absolute;
+    	bottom: 0;
+	}
+	.editPageInputContainer{
+		position: relative;	
+		width:768px;
+    	height:77px;
 	}
 /* 회원정보수정 완 */    
 </style>
@@ -242,24 +253,29 @@
 <!-- 회원정보수정 -->
         <div class="mypageBox">
        		<div class="editmenu">
-				<p style="top: 10%" class="editMenuPont">아이디</p>
-				<p style="top: 20%" class="editMenuPont">비밀번호 수정</p>
-				<p style="top: 30%" class="editMenuPont">비밀번호 확인</p>
-				<p style="top: 40%;" class="editMenuPont">이름</p>
-				<p style="top: 50%;" class="editMenuPont">전화번호</p>
-				<p style="top: 60%;" class="editMenuPont">이메일</p>
-				<p style="top: 70%;" class="editMenuPont">생년월일</p>
+       			<p class="editMenuFont">아이디</p>
+				<p class="editMenuFont">비밀번호 수정</p>
+				<p class="editMenuFont">비밀번호 확인</p>
+				<p class="editMenuFont">이름</p>
+				<p class="editMenuFont">이메일</p>
+				<p class="editMenuFont">생년월일</p>
     		</div>
     		<div class="editpage">
-    			<p style="position: relative; top: 10%; color: #696969; margin-left: 25px;">Admin123456</p>
-    			<p style="position: relative; top: 14%; color: #F35555; margin-left: 25px;">사용할 수 없는 비밀번호입니다.</p>
-    			<input type="editpassword" id="passwordInput" placeholder="비밀번호 입력(문자, 숫자, 특수문자 포함 8~20자)" style="margin-left: 25px;"><br>
-				<p style="position: relative; top: 22%; color: #F35555; margin-left: 25px;">비밀번호가 일치하지 않습니다.</p>
-				<input type="editpasswordre" id="passwordInput" placeholder="비밀번호 재입력" style="margin-left: 25px;">
-				<p style="position: relative; top: 37%; color: #696969; margin-left: 25px;">홍길동</p>
-				<p style="position: relative; top: 47%; color: #696969; margin-left: 25px;">010-1234-1234</p>
-				<input type="editemail" id="passwordInput" placeholder="이메일" style="margin-left: 25px;">
-				<p style="position: relative; top: 70%; color: #696969; margin-left: 25px;">2024년 3월 6일</p>
+				<div class="editPageContainer">
+					<p class="editPageFont2">Admin123456</p>
+				</div>
+				<div class="editPageInputContainer">
+				</div>
+				<div class="editPageInputContainer">
+				</div>
+				<div class="editPageContainer">
+					<p class="editPageFont2">홍길동</p>
+				</div>
+				<div class="editPageInputContainer">
+				</div>
+				<div class="editPageContainer">
+       				<p class="editPageFont2">2024년 3월 6일</p>
+				</div>
 			</div>	
     	</div>
     	<br><br><br><br><br>
