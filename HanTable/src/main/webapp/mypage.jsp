@@ -12,18 +12,13 @@
         justify-content: space-around;
     }
    	.mypageInnerContainer{
-	    width:1280px;
+	    width:1024px;
 	    align-items:center;
 	}
 	.mypageEmptyContainer{
-		width:1280px;
+		width:1024px;
 		height:40px;
 	}
-    .recipeImgContainer{
-        width:290px;
-	    height:287px;
-        position: relative;
-    }
     .form-popup {
     	display: none;
     	position: fixed;
@@ -34,17 +29,17 @@
     }
 	.mypageIntro {
   		color: #937062; 
-  		font-size: 36px; 
+  		font-size: 28px; 
 	}
 	.btn-group .button {
-		width:320px;
-		height:69px;
+		width:256px;
+		height:56px;
     	background-color:#FFFFFF;
 		border: none;
 		border-bottom: 1px solid #937062;
     	color: #937062;
   		text-align: center;
-		font-size: 24px;
+		font-size: 19px;
     	float: left;
 	}
 	.btn-group .button:hover,
@@ -53,7 +48,7 @@
 		border-bottom: 1px solid #ffffff;
 	}
     .mypageBox{
-    	width:1278px;
+    	width:1022px;
     	height: auto;
 		border: 1px solid #937062;
     	display:flex;
@@ -64,12 +59,12 @@
     	border-bottom-right-radius: 0.5%;
 	}
 	.popContentsContainer{
-		margin-top: 30px;
-		margin-bottom: 10px;
+		margin-top: 24px;
+		margin-bottom: 8px;
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		gap: 30px;
-		grid-row-gap: 40px;
+		gap: 24px;
+		grid-row-gap: 32px;
     	grid-auto-flow: dense;
 	}
     .popup {
@@ -115,40 +110,40 @@
     	margin: 0 auto;
     }
     .recipeCard{
-		width: 290px;
-		height: 420px;
+		width: 232px;
+		height: 336px;
 		border: 1px solid #BDBDBD;
 		border-radius: 5px;
 		display: flex;
 		flex-direction: column;
 	}
 	.popImg{
-		width: 100%;
-		height: 100%;
+		width: 232px;
+		height: 232px;
 		object-fit: cover;
 		overflow: hidden;
 		border-radius: 5px 5px 0 0;
 	}
 	.recpContents{
-		margin-top: 5px;
+		margin-top: 4px;
 		display: flex;
 		flex-direction: column;
 		text-align: center;
 	}
 	.popTitle{
-		margin-top: 10px;
-		font-size: 21px;
+		margin-top: 8px;
+		font-size: 16px;
 		font-weight: medium;
 	}
 	.popTime{
-		margin-top: 10px;
-		font-size: 21px;
+		margin-top: 8px;
+		font-size: 16px;
 		color: #616161;
 		font-weight: medium;
 	}
 	.popCategories{
-		margin-top: 10px;
-		width: 290px;
+		margin-top: 8px;
+		width: 232px;
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
@@ -156,36 +151,21 @@
 	.popCategories > p {
 		margin: 0 5px;
 		flex-wrap: nowrap;
-		font-size: 18px;
+		font-size: 12px;
 		color: #937062;
 	}
 	.cateType{
-		font-size: 18px;
-	}
-	.like-countbig{
- 		font-size: 36px;
- 		color:white;
+		font-size: 12px;
 	}
 	.like-count{
-  		font-size: 24px;
+  		font-size: 16px;
   		color:white;
 	}
-	.like-iconbig{
-		width: 36px;
-		height: 36px;
-		margin-right: 5px;
-	}
+
 	.like-icon {
-  		width: 24px; 
- 		height: 24px;
+  		width: 20px; 
+ 		height: 20px;
 		margin-right: 5px; 
-	}
-	.like-containerbig {
-		position: absolute;
-		bottom: 10px;
-		right: 10px;
-		display: flex;
-		align-items: center;
 	}
 	.like-container {
 		position: absolute;
@@ -195,33 +175,33 @@
 		align-items: center;
 	}
 	.recipeImgContainer{
-		width: 290px;
-		height: 290px;
+		width: 232px;
+		height: 232px;
 		position: relative;
 	}
 	.commentContentContainer{
-		width:290px;
-		height:103px;
+		width:232px;
+		height:80px;
 		display: flex;
 		flex-direction: column;
 		text-align:left;
 	}
 	.commentTimeContainer{
-		width:290px;
-		height:27px;
+		width:232px;
+		height:16px;
 		display: flex;
 		flex-direction: column;
 		text-align:right;
 	}
 	.commentContent{
-		margin-top: 10px;
-  		font-size: 24px;
+		margin-top: 8px;
+  		font-size: 20px;
 		color:#000000;
 		word-wrap: break-word; 
 	}
 	.commentTime{
 		color: #616161;
-  		font-size: 20px;
+  		font-size: 16px;
 	}
 </style>
 </head>
@@ -242,7 +222,7 @@
         	<div class="popContentsContainer">
 				<div class="recipeCard">
 					<div class="recipeImgContainer">
-						<img src="./image/example.png" alt="" class="popImg">
+						<img src="./image/recipe2.png" alt="" class="popImg">
 							<div class="like-container">
 								<img src="./image/like-heart.png" class="like-icon">
 								<span class="like-count">0</span>
@@ -260,7 +240,7 @@
 				</div>
 				<div class="recipeCard">
 					<div class="recipeImgContainer">
-						<img src="./image/example.png" alt="" class="popImg">
+						<img src="./image/recipe1.png" alt="" class="popImg">
 							<div class="like-container">
 								<img src="./image/like-heart.png" class="like-icon">
 								<span class="like-count">1000</span>
@@ -275,7 +255,7 @@
 				</div>
 								<div class="recipeCard">
 					<div class="recipeImgContainer">
-						<img src="./image/example.png" alt="" class="popImg">
+						<img src="./image/recipe4.png" alt="" class="popImg">
 							<div class="like-container">
 								<img src="./image/like-heart.png" class="like-icon">
 								<span class="like-count">100000</span>
@@ -357,7 +337,7 @@
         	<p style="margin-battom: 20px; font-size: 24px;text-align: center;">비밀번호 확인이 필요한 요청입니다.</p>
         	<p style="margin-battom: 100px; font-size: 24px;text-align: center;">현재 비밀번호를 입력해주세요.</p><br><br>
         	<input type="password" id="passwordInput" placeholder="비밀번호를 입력하세요"><br>
-        	<button class="yesbutton" id="confirmPassword">입력완료</button>
+        	<button class="yesbutton" id="closePopup">입력완료</button>
     </div>
 </div>
 <script>

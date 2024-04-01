@@ -85,6 +85,12 @@
 					<img src="./image/logo.png">
 				</a>
 			</div>
+			<div class="headerSearchContainer">
+				<input type="text" placeholder="검색어를 입력해주세요." class="searchInput"/>
+				<a href="result.jsp">
+					<img src="./image/search.png" style="width:40px; height:40px;">
+				</a>
+			</div>
 			<div class="headerUserContainer">
 				<a href="login">
 					<img src="./image/nonlogin.png">

@@ -13,18 +13,13 @@
         justify-content: space-around;
     }
    	.mypageInnerContainer{
-	    width:1280px;
+	    width:1024px;
 	    align-items:center;
 	}
 	.mypageEmptyContainer{
-		width:1280px;
+		width:1024px;
 		height:40px;
 	}
-    .recipeImgContainer{
-        width:290px;
-	    height:287px;
-        position: relative;
-    }
     .form-popup {
 	    display: none;
 	    position: fixed;
@@ -35,17 +30,17 @@
     }
 	.mypageIntro {
 	  	color: #937062; 
-	  	font-size: 36px; 
+	  	font-size: 28px; 
 	}
 	.btn-group .button {
-		width:320px;
-		height:69px;
+		width:256px;
+		height:56px;
 	    background-color:#FFFFFF;
 		border: none;
 		border-bottom: 1px solid #937062;
 	    color: #937062;
 	  	text-align: center;
-		font-size: 24px;
+		font-size: 19px;
 	    float: left;
     	margin-bottom:0;	    
 	}
@@ -55,7 +50,7 @@
 		border-bottom: 1px solid #ffffff;
 	}
     .mypageBox{
-	    width:1278px;
+	    width:1022px;
 	    height: auto;
 		border: 1px solid #937062;
 	    display:flex;
@@ -110,50 +105,37 @@
     }
 /* 회원정보수정 */    
 	.editmenu{
-		width:318px;
-    	height:743px;
+		width:253px;
+    	height:500px;
     	color: #FFFFFF;
     	font-weight: bold;
-    	pont-size:27px;
     	text-align: right;
     	background-color:#BFA89F;
     }
     .editpage{
-    	width:960px;
-    	height:743px;
-    	pont-size:20px;
-    }
-    .editbutton{
-    	width:201px;
-    	height:60px;
-    	border-radius:2%;
-    	border: none;
-    	pont-size:24px;
-    	text-align: center;
-    	color: #FFFFFF;
-        font-weight: bold;
-		align-items:center;
+    	width:768px;
+    	height:500px;
     }
     input[type="editpassword"] {
         position: absolute;
         width:584px;
       	height:50px;
         display: block;
-        top:47%;        
+        top:54%;        
     }
     input[type="editpasswordre"] {
         position: absolute;
         width:584px;
       	height:50px;
         display: block; 
-        top:57%;
+        top:64%;
     }
     input[type="editemail"] {
         position: absolute;
         width:584px;
       	height:50px;
         display: block;
-        top:86%; 
+        top:93%; 
     }
     .popupdelete {
          display: none;
@@ -219,6 +201,39 @@
 	.cancleBtn:hover{
 		background: #F5F5F5;
 	}
+	.editMenuFont{
+		position: relative;
+		margin-right: 50px;
+		margin-top:50px;
+		font-size:20px;
+	}
+	.editPageFont{
+		position: relative;
+		margin-left: 30px;
+		margin-top:50px;
+		font-size:20px;
+	}
+	
+	.editPageContainer{
+		position: relative;
+	    width:768px;
+    	height:77px;
+    	margin-left:15px;
+	}
+	.editPageFont2{
+		position: relative;
+		margin-left:10px;
+		font-size:20px;
+		bold:none;
+		color:#696969;
+	    position: absolute;
+    	bottom: 0;
+	}
+	.editPageInputContainer{
+		position: relative;	
+		width:768px;
+    	height:77px;
+	}
 /* 회원정보수정 완 */    
 </style>
 </head>
@@ -238,24 +253,29 @@
 <!-- 회원정보수정 -->
         <div class="mypageBox">
        		<div class="editmenu">
-				<p style="position: relative; top: 10%;">아이디</p>
-				<p style="position: relative; top: 20%;">비밀번호 수정</p>
-				<p style="position: relative; top: 30%;">비밀번호 확인</p>
-				<p style="position: relative; top: 40%;">이름</p>
-				<p style="position: relative; top: 50%;">전화번호</p>
-				<p style="position: relative; top: 60%;">이메일</p>
-				<p style="position: relative; top: 70%;">생년월일</p>
+       			<p class="editMenuFont">아이디</p>
+				<p class="editMenuFont">비밀번호 수정</p>
+				<p class="editMenuFont">비밀번호 확인</p>
+				<p class="editMenuFont">이름</p>
+				<p class="editMenuFont">이메일</p>
+				<p class="editMenuFont">생년월일</p>
     		</div>
     		<div class="editpage">
-    			<p style="position: relative; top: 10%; color: #696969;">Admin123456</p>
-    			<p style="position: relative; top: 14%; color: #F35555;">사용할 수 없는 비밀번호입니다.</p>
-    			<input type="editpassword" id="passwordInput" placeholder="비밀번호 입력(문자, 숫자, 특수문자 포함 8~20자)"><br>
-				<p style="position: relative; top: 22%; color: #F35555;">비밀번호가 일치하지 않습니다.</p>
-				<input type="editpasswordre" id="passwordInput" placeholder="비밀번호 재입력">
-				<p style="position: relative; top: 37%; color: #696969;">홍길동</p>
-				<p style="position: relative; top: 47%; color: #696969;">010-1234-1234</p>
-				<input type="editemail" id="passwordInput" placeholder="이메일">
-				<p style="position: relative; top: 70%; color: #696969;">2024년 3월 6일</p>
+				<div class="editPageContainer">
+					<p class="editPageFont2">Admin123456</p>
+				</div>
+				<div class="editPageInputContainer">
+				</div>
+				<div class="editPageInputContainer">
+				</div>
+				<div class="editPageContainer">
+					<p class="editPageFont2">홍길동</p>
+				</div>
+				<div class="editPageInputContainer">
+				</div>
+				<div class="editPageContainer">
+       				<p class="editPageFont2">2024년 3월 6일</p>
+				</div>
 			</div>	
     	</div>
     	<br><br><br><br><br>
@@ -273,7 +293,7 @@
         <p style="margin-battom: 20px; font-size: 24px; text-align: center;">비밀번호 확인이 필요한 요청입니다.</p>
         <p style="margin-battom: 100px; font-size: 24px; text-align: center;">현재 비밀번호를 입력해주세요.</p><br><br>
         <input type="password" id="passwordInput" placeholder="비밀번호를 입력하세요"><br>
-        <button class="yesbutton" id="closePopup">입력완료</button>
+        <button class="yesbutton" id="passwordYes">입력완료</button>
     </div>
 </div>
     <!-- 회원정보수정 -->
@@ -284,7 +304,7 @@
         <p style= "font-size: 24px; text-align: center;">탈퇴 후 복원할 수 없습니다.</p>
         <p style= "font-size: 24px; text-align: center;">정말로 탈퇴하시겠습니까?</p><br><br>
         <button class="joinBtn" id="closePopup2">확인</button>
-        <button class="cancleBtn" id="closePopup2">취소</button>
+        <button class="cancleBtn" id="closePopup3">취소</button>
     </div>
 </div>
     <!-- 회원정보수정 완 -->
@@ -295,12 +315,21 @@
     document.getElementById('closePopup').addEventListener('click', function() {
         document.getElementById('passwordPopup').style.display = 'none';
     });
+    document.getElementById('passwordYes').addEventListener('click', function() {
+        document.getElementById('passwordPopup').style.display = 'none';
+        document.getElementById('mypageContainer').style.display = 'none';
+        document.getElementById('mypageditContiner').style.display = 'block';
+
+    });
     <!-- 회원정보수정 -->
     document.getElementById('openPopup2').addEventListener('click', function() {
         document.getElementById('deletePopup').style.display = 'block';
     });
     document.getElementById('closePopup2').addEventListener('click', function() {
         document.getElementById('deletePopup').style.display = 'none';
+    });
+    document.getElementById('closePopup3').addEventListener('click', function() {
+    	document.getElementById('deletePopup').style.display = 'none';
     });
     <!-- 회원정보수정 완 -->
 </script>
