@@ -6,18 +6,18 @@
 <meta charset="UTF-8">
 <title>검색 결과</title>
 <style>
-	.popContentsContainer {
-		width: 1280px;
-		height: auto;
-		margin-bottom: 50px;
-	}
 	.mainContainer {
-		width: 1280px;
+		width: 1024px;
 		height: auto;
 		display: flex;
 		flex-direction: column;
-		margin-left: 320px;
-		padding-bottom: 50px;
+		margin-left: 448px;
+		padding-bottom: 40px;
+	}
+	.popContentsContainer {
+		width: 1024px;
+		height: auto;
+		margin-bottom: 40px;
 	}
 	.mainTitle{
 		color: #937062;
@@ -25,48 +25,48 @@
 		margin-top: 50px;
 	}
 	.popContentsContainer{
-		margin-top: 30px;
+		margin-top: 24px;
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		gap: 30px;
-		grid-row-gap: 40px;
+		gap: 24px;
+		grid-row-gap: 32px;
     	grid-auto-flow: dense;
 	}
 	.recipeCard{
-		width: 290px;
-		height: 420px;
+		width: 232px;
+		height: 336px;
 		border: 1px solid #BDBDBD;
 		border-radius: 5px;
 		display: flex;
 		flex-direction: column;
 	}
 	.popImg{
-		width: 100%;
-		height: 100%;
+		width: 232px;
+		height: 232px;
 		object-fit: cover;
 		overflow: hidden;
 		border-radius: 5px 5px 0 0;
 	}
 	.recpContents{
-		margin-top: 5px;
+		margin-top: 4px;
 		display: flex;
 		flex-direction: column;
 		text-align: center;
 	}
 	.popTitle{
-		margin-top: 10px;
-		font-size: 21px;
+		margin-top: 8px;
+		font-size: 16px;
 		font-weight: medium;
 	}
 	.popTime{
-		margin-top: 10px;
-		font-size: 21px;
+		margin-top: 8px;
+		font-size: 16px;
 		color: #616161;
 		font-weight: medium;
 	}
 	.popCategories{
-		margin-top: 10px;
-		width: 290px;
+		margin-top: 8px;
+		width: 232px;
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
@@ -74,19 +74,19 @@
 	.popCategories > p {
 		margin: 0 5px;
 		flex-wrap: nowrap;
-		font-size: 18px;
+		font-size: 12px;
 		color: #937062;
 	}
 	.cateType{
-		font-size: 18px;
+		font-size: 12px;
 	}
 	.like-count{
-  		font-size: 24px;
+  		font-size: 16px;
   		color:white;
 	}
 	.like-icon {
-  		width: 24px; 
- 		height: 24px;
+  		width: 20px; 
+ 		height: 20px;
 		margin-right: 5px; 
 	}
 	.like-container {
@@ -97,8 +97,8 @@
 		align-items: center;
 	}
 	.recipeImgContainer{
-		width: 290px;
-		height: 290px;
+		width: 232px;
+		height: 232px;
 		position: relative;
 }
 	
