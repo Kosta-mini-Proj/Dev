@@ -59,7 +59,7 @@ p {
     
     vertical-align : middle;
     background: #FFFFFF;
-	border: 1px solid #BFA89F;
+	border: 1px solid #c2c2c2;
 	border-radius: 5px;
 }
 
@@ -70,7 +70,7 @@ p {
     height:40px;
     vertical-align : middle;
     background: #FFFFFF;
-	border: 1px solid #BFA89F;
+	border: 1px solid #c2c2c2;
 	border-radius: 5px;
 }
 
@@ -83,7 +83,7 @@ p {
 	height: 164px;
 	top: 550px;
 	background: #FFFFFF;
-	border: 1px solid #BFA89F;
+	border: 1px solid #c2c2c2;
 	border-radius: 5px;
 }
 
@@ -99,13 +99,13 @@ p {
     margin-right:43px;
     display: inline-block; /* 인라인 요소를 블록 요소로 변경하여 너비 속성이 적용되도록 함 */
     background: #FFFFFF;
-	border: 1px solid #BFA89F;
+	border: 1px solid #c2c2c2;
 	border-radius: 5px;
 }
 
 
 h1 {
-   color: #937062;
+   color: #B2402D;
 }
 
 .recipeTitle {
@@ -143,7 +143,7 @@ h1 {
 }
 
 .recipeCreateInnerContainer .finishBtn {
-    background-color: #937062; /* 갈색 배경색 */
+    background-color: #800020; /* 갈색 배경색 */
     color: white; /* 텍스트 색상 */
     position: relative;
     margin-top: 1100px;
@@ -232,7 +232,7 @@ h1 {
          </div>
          <br><br>
          <div class="createContentLine">
-            <p class="titleIngredient" id="titleIngredient">재료</p><textarea class="ingredient" id="ingredient" type="text"></textarea><br>
+            <p class="titleIngredient" id="titleIngredient">재료</p><textarea class="ingredient" id="ingredient" type="text" maxLength="300"></textarea><br>
          </div>
       </div>
       
