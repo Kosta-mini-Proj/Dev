@@ -13,7 +13,7 @@
 	.headerContainer{
 		width:1920px;
 		height:100px;
-		background:#937062;
+		background:#ffffff;
 	}
 	.mainContainer{
 		width:1920px;
@@ -25,7 +25,7 @@
 		display:flex;
 		width: 1280px;
 		height: 640px;
-		border : 1px solid #BFA89F;
+		border : 1px solid #5E6C53;
 		border-radius : 10px;
 		box-shadow: 5px 5px 5px #e0e0e0;
 		align-self:center;
@@ -46,7 +46,7 @@
 		width:390px;
 		height:50px;
 		align-self : center;
-		border : 1px solid #BFA89F;
+		border : 1px solid #5E6C53;
 		border-radius : 5px;
 		box-shadow: 5px 5px 5px #e0e0e0;
 		margin-top: 60px;
@@ -61,7 +61,7 @@
 		width:390px;
 		height:50px;
 		align-self : center;
-		border : 1px solid #BFA89F;
+		border : 1px solid #5E6C53;
 		border-radius : 5px;
 		box-shadow: 5px 5px 5px #e0e0e0;
 		margin-top: 15px;
@@ -73,13 +73,13 @@
 		color:#BDBDBD;
 	}
 	input:focus{
-		outline: 2px solid #937062;
+		outline: 2px solid #5E6C53;
 	}
 	.loginBtn{
 		width:400px;
 		height:50px;
 		align-self : center;
-		background: #937062;
+		background: #800020;
 		border-radius : 5px;
 		box-shadow: 5px 5px 5px #e0e0e0;
 		border: none;
@@ -107,7 +107,7 @@
 		<div class="loginContainer">
 			<div class="loginInnerContainer">
 				<div class="logoContainer">
-					<img src="./image/logo_black.png" style="width: 180px;"/>
+					<img src="./image/logo.png" style="width: 400px;"/>
 				</div>
 				<input type="text" class="idInput" name="id" placeholder="아이디"/>
 				<input type="password" class="passwordInput" name="password" placeholder="비밀번호"/>
