@@ -120,14 +120,14 @@ h1 {
    margin-top : 505px;
 }
 
-.file-input {
+.imgInput {
     border: 2px solid #ccc; /* 테두리 스타일 및 두께 */
     padding: 10px; /* 내부 여백 */
     border-radius: 5px; /* 테두리 모서리 둥글게 */
     display: inline-block; /* 인라인 요소로 표시 */
 }
 
-.mainImgButton {
+.mainImage {
 	position: absolute;
 	width: 415px;
 	height:415px;
@@ -166,6 +166,7 @@ h1 {
 .editorContent {
 	visibility:hidden;
 }
+
 </style>
 
 <!-- TOAST UI Editor CDN URL(CSS) ?-->
@@ -174,9 +175,7 @@ h1 {
 
 </head>
 <body>
-   <%
-   pageContext.include("header.jsp");
-   %>
+   <%@ include file="header.jsp" %>
    <div class="recipeCreateContainer" id="recipeCreateContainer">
    <div class="recipeCreateInnerContainer" id="recipeCreateInnerContainer">
       <br><br><br><h1>레시피 등록</h1><br><br>
@@ -237,8 +236,10 @@ h1 {
       </div>
       
       <div class="right">
-         <input type="file" class="imgInput" id="imgInput" style="display: none;" accept="image/*">
-               <button class="mainImgButton" id="mainImgButton">이미지 선택</button>
+         <input type="file" id="mainImgInput" accept="image/*" style="display:none;">
+    		<label for="mainImgInput" id="imagePreview">
+       			 <img class="mainImage" id="mainImage" src="#" alt="Selected Image">
+    		</label>
       </div>
       <br>
       
@@ -265,4 +266,27 @@ h1 {
    </div>
    </div>
 </body>
+<script>
+        document.getElementById('mainImgInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');  // 캔버스 생성
+                        const ctx = canvas.getContext('2d');  // 캔버스 그리기
+                        canvas.width = 410;
+                        canvas.height = 410;
+                        ctx.drawImage(img, 0, 0, 410, 410);
+                        // img 에서 x좌표 : y좌표, 
+                        document.getElementById('mainImage').src = canvas.toDataURL('image/jpeg');
+                    };
+                    img.src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+                console.log(file);
+            }
+        });
+</script>
 </html>
