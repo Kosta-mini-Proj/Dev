@@ -19,29 +19,34 @@
    
    .recipeTitle {
       font-size : 30px;
-      color : #937062;
+      color : #B2402D;
       font-weight: bold;
    }
    
-   .recipeRecipeComment {
+   .recipeCommentContainer {
+   	  width: 1280px;
+  	  margin:0 auto;
+      margin-top:100px;
+	}
+	
+	.recipeCommentTitle {
       font-size : 30px;
-      color : #937062;
+      color : #B2402D;
       font-weight: bold;
-   } 
+   }
    
    .line {
       width:860px;
-      height : 0.5px;
-      background-color: brown;
+      background-color: #c2c2c2;
    }
    
    .recipeLine {
      width: 1280px;
      height: 0px;
-     border: 1px solid #BFA89F;
+     border: 1px solid #c2c2c2;
      flex: none;
      order: 1;
-     flex-grow: 0;
+     flex-grow: 0;    
    }
       
    .recipeInnerContainer>.left {
@@ -75,18 +80,17 @@
    }
    
    .recipeIntro{
-   width: 835px;
-   height: 160px;
-   left: 321px;
-   top: 377px;
-   font-family: 'Inter';  /* 폰트 설정 */ 
-   font-style: normal;
-   font-weight: 500;
-   font-size: 24px;
-   line-height: 29px;
-
-   color: #000000;  
-}
+   	  width: 835px;
+      height: 160px;
+      left: 321px;
+      top: 377px;
+      font-family: 'Inter';  /* 폰트 설정 */ 
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 29px;
+      color: #000000;  
+	}
 
 .recipeCate {
    position: absolute;
@@ -102,7 +106,7 @@
    display: flex;
    align-items: center;
 
-   color: #937062;
+   color: #800020;
 }
 
 .intro {
@@ -141,21 +145,12 @@ top: 279px;
 
 .inform{
    font-size:15px;
-   color : #937062;
+   color : #800020;
 }
 
 .contentViewer {
    width:1280px;
    margin 0;
-}
-
-.recipeComment {
-   /* position: absolute; */
-   width: 1280px;
-   margin:0 auto;
-   /* left: 315px; */
-   /* top: 2773px; */
-   margin-top:100px;
 }
 
 .contentViewer {
@@ -217,7 +212,7 @@ top: 279px;
 }
 
 .moreComment:hover{
-		background: #F5F5F5;
+   background: #F5F5F5;
 }
 
 .addComment {
@@ -261,7 +256,7 @@ top: 279px;
    	  height:30px;
    	  margin-left:10px;
    	  vertical-align : middle;
-   }
+}
 
 .dropdown {
 	position:relative;
@@ -301,7 +296,7 @@ top: 279px;
 <div class="recipeContainer" id="recipeContainer">
    <div class="recipeInnerContainer" id="recipeContainer">
       <div class="left" id="left">
-         
+          
             
             
             <div class="intro" id="intro">
@@ -313,7 +308,7 @@ top: 279px;
                   		<button style="border-top:none;">삭제</button>
                   	</div>       
                </div>
-               <div class="imgs" id="imgs"><img class="no-like" id="no-like" src="image/no-like-heart.png"></div>
+               <div class="imgs" id="imgs"><img class="no-like" id="no-like" src="image/no-like.png"></div>
                <br><br><hr class="line" id="line">
                <br>
                <p class="recipeIntro" id="recipeIntro">진주에서 유명한 땡초김밥을 우리의식탁에서 만들어 봤어요! 일반적인 김밥은 준비할 게 많아서 조금 번거로울 수 있지만 
@@ -339,7 +334,9 @@ top: 279px;
          <span class="recipeTitle" id="recipeTitle" width="800px">재료</span>
             <br><br><hr class="recipeLine" id="recipeLine"><br>
             <p class="ingredientContent" id="ingredientContent">참치액젓 1 큰술,  진간장 1/2 큰술, 설탕 1/2 큰술, 고춧가루 2 큰술, 갈아 만든 배 3 큰술,
-             다진 마늘 1/2 큰술,  쪽파 3 줄기, 통깨 적당량</p>
+             다진 마늘 1/2 큰술,  쪽파 3 줄기, 통깨 적당량 참치액젓 1 큰술,  진간장 1/2 큰술, 설탕 1/2 큰술, 고춧가루 2 큰술, 갈아 만든 배 3 큰술,
+             다진 마늘 1/2 큰술,  쪽파 3 줄기, 통깨 적당량 참치액젓 1 큰술,  진간장 1/2 큰술, 설탕 1/2 큰술, 고춧가루 2 큰술, 갈아 만든 배 3 큰술,
+             다진 마늘 1/2 큰술,  쪽파 3 줄기, 통깨 적당량 참치액젓 1 큰술,  진간장 1/2 큰술, 설탕 1/2 큰술, 고춧가루 2 큰술</p>
              <p class="inform" id="inform"><img class="informationImg" id="informationImg" src="image/information.png">&nbsp;재료를 클릭하여 상품을 조회하세요</p>
       </div>
       
@@ -369,8 +366,8 @@ top: 279px;
       <span class="views" id="views">조회수 : 1024</span> <span class="nameDate" id="nameDate">작성자 : OOO 작성일자 : 2024-02-13</span>
       </div>
       <!-- 댓글 -->
-       <div class="recipeComment" id="recipeComment">
-         <span class="recipeRecipeComment" id="recipeRecipeComment">댓글</span>
+       <div class="recipeCommentContainer" id="recipeCommentContainer">
+         <span class="recipeCommentTitle" id="recipeCommentTitle">댓글</span>
             <br><br><hr class="recipeLine" id="recipeLine"><br>
             <div>
             <div class="recipeRecipeCommentLeft" id="recipeRecipeCommentLeft">

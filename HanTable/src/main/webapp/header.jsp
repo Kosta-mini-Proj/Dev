@@ -17,7 +17,7 @@
 	.headerContainer{
 		width:1920px;
 		height:100px;
-		background:#937062;
+		background:#ffffff;
 	}
 	.headerInnerContainer{
 		width:1280px;
@@ -50,13 +50,14 @@
 		color:white;
 	}
 	.headerUserContainer{
-		margin-left: 50px;
+		float:right;
+		margin-left: auto;
 		cursor:pointer;
 	}
 	.subHeaderContainer{
 		width:1920px;
 		height:50px;
-		background:#BFA89F;
+		background:#5E6C53;
 	}
 	.subHeaderInnerContainer{
 		margin:0 auto;
@@ -105,6 +106,12 @@
 			<a href="recipeCreate.jsp">
 				<strong class="subHeaderText">레시피 작성하기</strong>
 			</a>
+			<div class="headerSearchContainer">
+				<input type="text" placeholder="검색어를 입력해주세요." class="searchInput"/>
+				<a href="result.jsp">
+					<img src="./image/search.png" style="width:35px; height:35px;">
+				</a>
+			</div>
 		</div>
 	</div>
 </body>
