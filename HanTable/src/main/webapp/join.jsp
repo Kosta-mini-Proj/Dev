@@ -53,9 +53,21 @@
 		flex-direction: column;
 		margin-top:20px;
 		width:750px;
-		height:80px;
+		height:75px;
 		padding: 0 5px;
 		align-self: center;
+	}
+	.InputImageContainer{
+		display: flex;
+		flex-direction: row;
+		width:750px;
+		height:125px;
+		padding: 0 5px;
+		align-self: center;
+	}
+	.InputImageInnerContainer{
+		width:200px;
+		height:125px;
 	}
 	.inputTitle{
 		font-size: 18px;
@@ -141,6 +153,19 @@
 		<div class="joinContainer">
 			<strong class="joinTitle">회원가입</strong>
 			<div class="joinInnerContainer">
+				<div class="InputImageContainer">
+					<div class="InputImageInnerContainer">
+						<strong class="inputTitle">기본 프로필 설정</strong>
+					</div>				
+					<div class="InputImageInnerContainer">
+						<img src="./image/defaultProfile1.png" style="width:100px; height:100px;"><br>
+						<input type="radio" style="margin-left: 45px;">
+					</div>				
+					<div class="InputImageInnerContainer">
+						<img src="./image/defaultProfile2.png" style="width:100px; height:100px;"><br>		
+						<input type="radio" style="margin-left: 45px;">
+					</div>											
+				</div>
 				<div class="InputContainer">
 					<strong class="inputTitle">아이디</strong>
 					<input type="text" class="input" placeholder="아이디 입력(6~20자)"/>
@@ -156,10 +181,6 @@
 				<div class="InputContainer">
 					<strong class="inputTitle">이름</strong>
 					<input type="text" class="input" placeholder="이름을 입력해주세요."/>
-				</div>
-				<div class="InputContainer">
-					<strong class="inputTitle">전화번호</strong>
-					<input type="text" class="input" placeholder="휴대폰 번호 입력('-'제외 11자리)"/>
 				</div>
 				<div class="InputContainer">
 					<strong class="inputTitle">이메일</strong>

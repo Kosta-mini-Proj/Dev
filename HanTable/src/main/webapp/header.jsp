@@ -81,7 +81,7 @@
 	<div class="headerContainer">
 		<div class="headerInnerContainer">
 			<div class="headerImgContainer">
-				<a href="main">
+				<a href="main.jsp">
 					<img src="./image/logo.png">
 				</a>
 			</div>
