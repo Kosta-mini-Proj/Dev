@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.recipe">
+
+	<select id="selectRecipeCount" resultType="Integer">
+		<![CDATA[
+		select count(*) from recipe 
+		]]>
+	</select>
+
+	<select id="selectRecipe" resultType="Recipe" parameterType="Integer">
+		<![CDATA[ 
+		select * from board where num=#{num}
+		]]>
+
+	</select>
+
+	<insert id="insertRecipe" parameterType="Recipe" useGeneratedKeys="true" keyProperty="num">
+		<![CDATA[ 
+		insert into recipe 
+				   (recp_title, recp_img, recp_intro, cate_type, cate_how, cate_ingredient, cate_time, recp_ingredient, recp_cont, user_id) 
+			values (#{recpTitle},#{recpImg},#{recpIntro},#{cateType},#{cateHow},#{cateIngredient},#{cateTime},#{recpIngredient},#{recpCont},#{userId})
+		]]>
+
+	</insert>
+
+	<update id="updateViewCount" parameterType="Recipe">
+		<![CDATA[ 
+		update recipe set recp_views = recp_views + 1 where num=#{num}
+		]]>
+	</update>
+
+	<update id="updateRecipe" parameterType="Recipe">
+		update recipe
+		<trim prefix="SET" suffixOverrides=",">
+			<if test=" != null">subject=#{subject},</if>
+			<if test="content != null">content=#{content},</if>
+			<if test="filenum != null">filenum=#{filenum},</if>
+
+		</trim>
+	</update>
+
+</mapper>

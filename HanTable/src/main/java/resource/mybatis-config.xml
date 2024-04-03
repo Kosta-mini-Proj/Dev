@@ -4,8 +4,6 @@
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="dto.User" alias="User" />
-		<typeAlias type="dto.Comment" alias="Comment"/>
 		<typeAlias type="dto.Recipe" alias="Recipe"/>
 	</typeAliases>
 	<environments default="development">
@@ -22,8 +20,6 @@
 	</environments>
 
 	<mappers>
-		<mapper resource="User.xml" />
-		<mapper resource="Comment.xml" />
-		<mapper resource="Recipe.xml" />
+		<mapper resource="mapper/recipe.xml" />
 	</mappers>
 </configuration>

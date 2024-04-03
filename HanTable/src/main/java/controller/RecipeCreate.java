@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.RecipeService;
+import service.RecipeServiceImpl;
+
 /**
  * Servlet implementation class RecipeCreate
  */
@@ -33,8 +36,20 @@ public class RecipeCreate extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		
+		try {
+			RecipeService recipeService = new RecipeServiceImpl();
+			recipeService.recipeWrite(request);
+			System.out.println(request);
+			response.sendRedirect("recipe");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			request.setAttribute("err",e.getMessage());
+			request.getRequestDispatcher("error.jsp").forward(request, response);
+		}
 	}
 
 }
