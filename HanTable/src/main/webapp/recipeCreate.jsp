@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>Insert title here</title>
+<title>레시피 작성</title>
 <link rel="stylesheet"
 	href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
 <style>
@@ -187,7 +187,7 @@ h1 {
 					<div class="createContentLine">
 						<p>레시피 제목</p>
 						<input class="inputTitle" id="inputTitle" name="recpTitle"
-							type="text" maxlength="48">
+							type="text" maxlength="13">
 					</div>
 					<br> <br>
 					<div class="createContentLine">

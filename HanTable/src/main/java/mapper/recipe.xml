@@ -2,42 +2,56 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mapper.recipe">
-
+	
+	<!-- 최대 게시글 수 조회 -->
 	<select id="selectRecipeCount" resultType="Integer">
 		<![CDATA[
 		select count(*) from recipe 
 		]]>
 	</select>
-
+	
+	<!-- 해당 번호 조회 -->
 	<select id="selectRecipe" resultType="Recipe" parameterType="Integer">
 		<![CDATA[ 
-		select * from board where num=#{num}
+		select * from board where recp_id=#{recpId}
 		]]>
-
 	</select>
 
+	<!-- 게시글 작성 -->
 	<insert id="insertRecipe" parameterType="Recipe" useGeneratedKeys="true" keyProperty="num">
 		<![CDATA[ 
 		insert into recipe 
 				   (recp_title, recp_img, recp_intro, cate_type, cate_how, cate_ingredient, cate_time, recp_ingredient, recp_cont, user_id) 
 			values (#{recpTitle},#{recpImg},#{recpIntro},#{cateType},#{cateHow},#{cateIngredient},#{cateTime},#{recpIngredient},#{recpCont},#{userId})
 		]]>
-
 	</insert>
 
+	<!-- 조회수 증가 -->
 	<update id="updateViewCount" parameterType="Recipe">
 		<![CDATA[ 
 		update recipe set recp_views = recp_views + 1 where num=#{num}
+		]]>
+	</update>
+	
+	<!-- 좋아요 증가 -->
+	<update id="updateViewCount" parameterType="Recipe">
+		<![CDATA[ 
+		update recipe set recp_like = recp_like + 1 where recp_id=#{recpId}
 		]]>
 	</update>
 
 	<update id="updateRecipe" parameterType="Recipe">
 		update recipe
 		<trim prefix="SET" suffixOverrides=",">
-			<if test=" != null">subject=#{subject},</if>
-			<if test="content != null">content=#{content},</if>
-			<if test="filenum != null">filenum=#{filenum},</if>
-
+			<if test="recp-title != null">recp_title=#{recpTitle},</if>
+			<if test="recp-img != null">recp_img=#{recpImg},</if>
+			<if test="recp-intro != null">recp_intro=#{recpIntro},</if>
+			<if test="cate-type != null">cate_type=#{cateType},</if>
+			<if test="cate-how != null">cate_how=#{cateHow},</if>
+			<if test="cate-ingredient != null">cate_ingredient=#{cateIngredient},</if>
+			<if test="cate-time != null">cate_time=#{cateTime},</if>
+			<if test="recp-ingredient != null">recp_ingredient=#{recpIngredient},</if>
+			<if test="recp-cont != null">recp_cont=#{recpCont},</if>
 		</trim>
 	</update>
 

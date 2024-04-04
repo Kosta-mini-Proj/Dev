@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>레시피 상세 보기</title>
 <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
 <style>
    .recipeContainer {
@@ -289,7 +289,7 @@ top: 279px;
    display: block;
 }
 </style>
-
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
 <% pageContext.include("header.jsp"); %>
@@ -300,7 +300,7 @@ top: 279px;
             
             
             <div class="intro" id="intro">
-               <span class="recipeTitle" id="recipeTitle" width="800px">바질 김치</span>
+               <span class="recipeTitle" id="recipeTitle" width="800px">${recpTitle}</span>
                <div class="dropdown" style="float:right;">
                   <button class="dropdownbtn"><img class="titlekebab" id="titlekebab" src="image/kebab.png" alt="Dropdown"></button>
                   	<div class="dropdownContent" id="dropdownContent">
@@ -311,15 +311,9 @@ top: 279px;
                <div class="imgs" id="imgs"><img class="no-like" id="no-like" src="image/no-like.png"></div>
                <br><br><hr class="line" id="line">
                <br>
-               <p class="recipeIntro" id="recipeIntro">진주에서 유명한 땡초김밥을 우리의식탁에서 만들어 봤어요! 일반적인 김밥은 준비할 게 많아서 조금 번거로울 수 있지만 
-               땡초 김밥은 들어가는 재료도 간단하면서 만들기도 쉽답니다.
-                짭짤하면서 매콤해 계속해서 당기는 매력적인 김밥이에요. 스트레스가 풀릴 때 즐길 수 있을 만큼 적당히 매콤해서 마요네즈 등과 함께 드셔도 좋을 것 같아요.
-                꼬마김밥으로 만들어도 좋고, 크게 말아서 한입 크기로 잘라 먹어도 좋아요. 취향에 맞게 만들어 맛있게 드셔보세요.
-               *본 레시피는 브라운 초고속 블렌더를 이용한 레시피입니다.ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-               ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄴㄴㄴㄴ
-               </p>
+               <p class="recipeIntro" id="recipeIntro">${recpIntro}</p>
                
-               <p class="recipeCate" id="recipeCate">#반찬 #기타 #채소 #150kcal~300kcal #30분</p>
+               <p class="recipeCate" id="recipeCate">#${cateType} #${cateHow} #${cateIngredient} #${cateTime}</p>
             </div>
             
          
@@ -333,10 +327,7 @@ top: 279px;
       <div class="recipeIngredient" id="recipeIngredient">
          <span class="recipeTitle" id="recipeTitle" width="800px">재료</span>
             <br><br><hr class="recipeLine" id="recipeLine"><br>
-            <p class="ingredientContent" id="ingredientContent">참치액젓 1 큰술,  진간장 1/2 큰술, 설탕 1/2 큰술, 고춧가루 2 큰술, 갈아 만든 배 3 큰술,
-             다진 마늘 1/2 큰술,  쪽파 3 줄기, 통깨 적당량 참치액젓 1 큰술,  진간장 1/2 큰술, 설탕 1/2 큰술, 고춧가루 2 큰술, 갈아 만든 배 3 큰술,
-             다진 마늘 1/2 큰술,  쪽파 3 줄기, 통깨 적당량 참치액젓 1 큰술,  진간장 1/2 큰술, 설탕 1/2 큰술, 고춧가루 2 큰술, 갈아 만든 배 3 큰술,
-             다진 마늘 1/2 큰술,  쪽파 3 줄기, 통깨 적당량 참치액젓 1 큰술,  진간장 1/2 큰술, 설탕 1/2 큰술, 고춧가루 2 큰술</p>
+            <p class="ingredientContent" id="ingredientContent">${recpIngredient}</p>
              <p class="inform" id="inform"><img class="informationImg" id="informationImg" src="image/information.png">&nbsp;재료를 클릭하여 상품을 조회하세요</p>
       </div>
       
