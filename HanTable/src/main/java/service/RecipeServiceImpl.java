@@ -18,7 +18,7 @@ public class RecipeServiceImpl implements RecipeService {
 	private RecipeDao recipedao = new RecipeDaoImpl();
 
 	
-	// 게시글 작성 serviceimpl
+	// 게시글 작성
 	@Override
 	public void recipeWrite(HttpServletRequest request) throws Exception {
 		Recipe recipe = new Recipe();
@@ -51,6 +51,17 @@ public class RecipeServiceImpl implements RecipeService {
 		System.out.println(recipe);
 		recipedao.insertRecipe(recipe);
 		
+	}
+
+
+	// 레시피 상세 (해당 레시피 조회 & 상세보기)
+	@Override
+	public Recipe recipeDetail(HttpServletRequest request) throws Exception {
+		request.setCharacterEncoding("utf-8");
+		String recpTitle = request.getParameter("recpTitle");
+		String recpIntro = request.getParameter("recpIntro");
+		
+		return null;
 	}
 	
 	

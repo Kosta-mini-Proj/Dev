@@ -207,7 +207,7 @@
 				<div class="leftTopContent">
 					<img src="./image/recipe5.png" alt="" class="recImg">
 						<div class="like-containerbig">
-							<img src="./image/like-heart.png" class="like-iconbig">
+							<img src="./image/no-like.png" class="like-iconbig">
 							<span class="like-countbig">123456</span>
   						</div>
 				</div>
@@ -215,14 +215,14 @@
 					<div class="leftBottomLeftContent">
 						<img src="./image/recipe4.png" alt="" class="recImg">
 							<div class="like-container">
-								<img src="./image/like-heart.png" class="like-icon">
+								<img src="./image/like.png" class="like-icon">
 								<span class="like-count">257</span>
   							</div>
 					</div>
 					<div class="leftBottomRightContent">
 						<img src="./image/example.png" alt="" class="recImg">
 							<div class="like-container">
-								<img src="./image/like-heart.png" class="like-icon">
+								<img src="./image/like.png" class="like-icon">
 								<span class="like-count">511</span>
   							</div>
 					</div>
@@ -233,14 +233,14 @@
 					<div class="rightTopLeftContent">
 						<img src="./image/recipe3.png" alt="" class="recImg">
 							<div class="like-container">
-								<img src="./image/like-heart.png" class="like-icon">
+								<img src="./image/like.png" class="like-icon">
 								<span class="like-count">328</span>
   							</div>
 					</div>
 					<div class="rightTopRightContent">
 						<img src="./image/example.png" alt="" class="recImg">
 							<div class="like-container">
-								<img src="./image/like-heart.png" class="like-icon">
+								<img src="./image/like.png" class="like-icon">
 								<span class="like-count">100</span>
   							</div>
 					</div>
@@ -248,7 +248,7 @@
 				<div class="rightBottomContent">
 					<img src="./image/recipe1.png" alt="" class="recImg">
 						<div class="like-containerbig">
-								<img src="./image/like-heart.png" class="like-iconbig">
+								<img src="./image/like.png" class="like-iconbig">
 								<span class="like-countbig">254689</span>
   						</div>
 				</div>
@@ -260,7 +260,7 @@
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
 						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
+							<img src="./image/no-like.png" class="like-icon">
 							<span class="like-count">100</span>
   						</div>
 				</div>
@@ -278,7 +278,7 @@
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
 						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
+							<img src="./image/like.png" class="like-icon">
 							<span class="like-count">100</span>
   						</div>
 				</div>
@@ -296,7 +296,7 @@
 				<div class="recipeImgContainer">
 					<img src="./image/recipe2.png" alt="" class="popImg">
 						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
+							<img src="./image/like.png" class="like-icon">
 							<span class="like-count">100</span>
   						</div>
 				</div>
@@ -314,7 +314,7 @@
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
 						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
+							<img src="./image/like.png" class="like-icon">
 							<span class="like-count">100</span>
   						</div>
 				</div>
@@ -332,7 +332,7 @@
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
 						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
+							<img src="./image/like.png" class="like-icon">
 							<span class="like-count">100</span>
   						</div>
 				</div>
@@ -350,7 +350,7 @@
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
 						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
+							<img src="./image/no-like.png" class="like-icon">
 							<span class="like-count">100</span>
   						</div>
 				</div>

@@ -5,6 +5,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="dto.Recipe" alias="Recipe"/>
+		<typeAlias type="dto.User" alias="User"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -21,5 +22,6 @@
 
 	<mappers>
 		<mapper resource="mapper/recipe.xml" />
+		<mapper resource="mapper/user.xml" />
 	</mappers>
 </configuration>
