@@ -1,11 +1,15 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import service.UserService;
+import service.UserServiceImpl;
 
 /**
  * Servlet implementation class Login
@@ -33,8 +37,18 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		 
+		try {
+			UserService userservice = new UserServiceImpl();
+			userservice.login(request);
+			response.getWriter().write("true");
+			// json 형태는 request.getRequestDispatcher 이런 형식으로 쓰지 않음
+//			request.getRequestDispatcher("main").forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.getWriter().write("false");
+			// 
+		} 
 	}
 
 }
