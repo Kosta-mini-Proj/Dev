@@ -100,8 +100,37 @@
 		color:#BF917E;
 	}
 </style>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+	$(function() {
+		$("#submit").click(function() {
+			var login= {}
+			login.userId = $("#userId").val();
+			login.password = $("#password").val();
+			console.log(login);
+			
+			$.ajax({
+				url:"login",
+				type:"post",
+				async:true,
+				data:{login:JSON.stringify(login)},
+				success:function(result) {
+					if (result == 'true') {
+						location.href = "main";
+					} else {
+						alert(result);
+					}
+				},
+				error:function(result) {
+					alert("로그인실패");
+				}
+			})
+		})
+	})
+</script>
 </head>
 <body>
+
 	<div class="headerContainer"></div>
 	<div class="mainContainer">
 		<div class="loginContainer">
@@ -109,12 +138,13 @@
 				<div class="logoContainer">
 					<img src="./image/logo.png" style="width: 400px;"/>
 				</div>
-				<input type="text" class="idInput" name="id" placeholder="아이디"/>
-				<input type="password" class="passwordInput" name="password" placeholder="비밀번호"/>
-				<button class="loginBtn"><strong>로그인</strong></button>
+				<input type="text" class="idInput" id="userId" placeholder="아이디"/>
+				<input type="password" class="passwordInput" id="password" placeholder="비밀번호"/>
+				<button type="submit" id="submit" class="loginBtn"><strong>로그인</strong></button>
 				<a href="join.jsp" class="joinBtn">회원가입</a>
 			</div>
 		</div>
 	</div>
+
 </body>
 </html>

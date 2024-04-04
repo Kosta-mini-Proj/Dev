@@ -34,7 +34,7 @@
 	</update>
 	
 	<!-- 좋아요 증가 -->
-	<update id="updateViewCount" parameterType="Recipe">
+	<update id="updateLikeCount" parameterType="Recipe">
 		<![CDATA[ 
 		update recipe set recp_like = recp_like + 1 where recp_id=#{recpId}
 		]]>
@@ -45,7 +45,7 @@
 		<trim prefix="SET" suffixOverrides=",">
 			<if test="recp-title != null">recp_title=#{recpTitle},</if>
 			<if test="recp-img != null">recp_img=#{recpImg},</if>
-			<if test="recp-intro != null">recp_intro=#{recpIntro},</if>
+			<if test="recp-intro != null">recp_intro=#{recpIntro},</if>c
 			<if test="cate-type != null">cate_type=#{cateType},</if>
 			<if test="cate-how != null">cate_how=#{cateHow},</if>
 			<if test="cate-ingredient != null">cate_ingredient=#{cateIngredient},</if>

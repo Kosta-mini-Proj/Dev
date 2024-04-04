@@ -82,5 +82,15 @@ public class User {
 	public void setProfileImg(String profileImg) {
 		this.profileImg = profileImg;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", password=" + password + ", name=" + name + ", email=" + email
+				+ ", birthday=" + birthday + ", latestLike=" + latestLike + ", profileImg=" + profileImg + "]";
+	}
+	
+	
 }
 // 8
