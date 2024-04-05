@@ -254,6 +254,8 @@
 				</div>
 			</div>
 		</div>
+		
+		
 		<strong class="mainTitle">인기 레시피</strong>
 		<div class="popContentsContainer">
 			<div class="recipeCard">

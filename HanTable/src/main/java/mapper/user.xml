@@ -4,7 +4,11 @@
 <mapper namespace="mapper.user">
 	<select id="selectUser" parameterType="String" resultType="User">
 		<![CDATA[
-			 select * from user where user_id = #{userId}
+			 select 
+				 user_id as userId,password as password,name as name,
+				 email as email,birthday as birthday,
+				 latest_like as latestLike,profile_img as profileImg
+			 from user where user_id = #{userId}
 		]]>
 	</select>
 </mapper>

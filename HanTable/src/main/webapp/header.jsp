@@ -75,6 +75,34 @@
 	.subHeaderText:hover{
 		color:white;
 	}
+	
+	.dropdownbtn {
+		background-color:#ffffff;
+		color:#ffffff;
+		border: none;
+	}
+
+	.dropdownContent {
+  		display: none;
+  		position: absolute;
+  		background-color: #BF917E;
+  		min-width: 200px;
+  		z-index: 1;
+  		transform: translateX(-35%);
+	}
+
+	.dropdownContent a {
+  		padding: 12px 16px;
+  		color:white;
+   		text-align: center;
+   		text-decoration:none;
+   		position: relative;
+   		display:block;
+	}
+
+	.dropdownContent a:hover {
+  		 background: #937062;
+	}
 </style>
 </head>
 <body>
@@ -92,9 +120,21 @@
 				</a>
 			</div>
 			<div class="headerUserContainer">
-				<a href="login">
-					<img src="./image/nonlogin.png">
-				</a>
+			<c:choose>	
+				<c:when test="${user eq Empty}">
+					<a href="login">
+						<img src="./image/nonlogin.png">
+					</a>
+				</c:when>
+				<c:otherwise>
+					<button class="dropdownbtn" id="dropdownbtn"><img src="./image/${user.profileImg}" style="width:54px; height:54px;"></button>
+					<div class="dropdownContent">
+						<a href="#" onmousedown="document.location.href='recipecreate'">레시피 작성하기</a>
+						<a href="#" onmousedown="document.location.href='mypage'">마이페이지</a>
+						<a href="#" onmousedown="document.location.href='logout'">로그아웃</a>
+					</div>
+				</c:otherwise>
+			</c:choose>
 			</div>
 		</div>
 	</div>
@@ -115,4 +155,17 @@
 		</div>
 	</div>
 </body>
+<script>
+	const button = document.querySelector('.dropdownbtn');
+
+	button.addEventListener('click', () => {
+  	const dropdown = document.querySelector('.dropdownContent');
+  	dropdown.style.display = 'block';
+	});
+
+	button.addEventListener('blur', (e) => {
+ 	 const dropdown = document.querySelector('.dropdownContent');
+ 	 dropdown.style.display = '';
+	});
+</script>
 </html>

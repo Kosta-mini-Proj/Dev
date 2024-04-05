@@ -263,12 +263,22 @@ function validateEmail(email) {
 						<strong class="inputTitle">기본 프로필 설정</strong>
 					</div>				
 					<div class="InputImageInnerContainer">
+<<<<<<< HEAD
 						<img src="./image/defaultProfile1.png" style="width:100px; height:100px;"><br>
 						<input type="radio" name="option" value="option1" onchange="cancelOtherOption(this)" style="margin-left: 45px;">						
+=======
+						<img src="./image/manchef.png" style="width:100px; height:100px;"><br>
+						<input type="radio" style="margin-left: 45px;" name="profileImg" value="manchef.png" checked="checked">
+>>>>>>> branch 'main' of https://github.com/RohSiHyung/Dev.git
 					</div>				
 					<div class="InputImageInnerContainer">
+<<<<<<< HEAD
 						<img src="./image/defaultProfile2.png" style="width:100px; height:100px;"><br>		
 						<input type="radio" name="option" value="option2" onchange="cancelOtherOption(this)"style="margin-left: 45px;">						
+=======
+						<img src="./image/womanchef.png" style="width:100px; height:100px;"><br>		
+						<input type="radio" style="margin-left: 45px;" name="profileImg" value="womanchef.png">
+>>>>>>> branch 'main' of https://github.com/RohSiHyung/Dev.git
 					</div>											
 				</div>
 				<div class="InputContainer">
