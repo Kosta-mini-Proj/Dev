@@ -43,10 +43,10 @@ public class RecipeServiceImpl implements RecipeService {
 		recipe.setRecpIngredient(multi.getParameter("recpIngredient"));
 		recipe.setRecpCont(multi.getParameter("recpCont"));
 		
-//		User user = (User)request.getSession().getAttribute("user");
-//		if(user!=null) {
-//			recipe.setUserId(user.getUserId());	
-//		}
+		User user = (User)request.getSession().getAttribute("user");
+		if(user!=null) {
+			recipe.setUserId(user.getUserId());	
+		}
 		
 		System.out.println(recipe);
 		recipedao.insertRecipe(recipe);
