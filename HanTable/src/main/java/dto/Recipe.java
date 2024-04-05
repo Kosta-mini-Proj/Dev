@@ -53,6 +53,7 @@ public class Recipe {
 		this.recpIngredient = recpIngredient;
 		this.recpCont = recpCont;
 	}
+	
 
 	// set / get
 	public Long getRecpId() {

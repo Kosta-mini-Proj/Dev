@@ -158,12 +158,12 @@
 						<strong class="inputTitle">기본 프로필 설정</strong>
 					</div>				
 					<div class="InputImageInnerContainer">
-						<img src="./image/defaultProfile1.png" style="width:100px; height:100px;"><br>
-						<input type="radio" style="margin-left: 45px;">
+						<img src="./image/manchef.png" style="width:100px; height:100px;"><br>
+						<input type="radio" style="margin-left: 45px;" name="profileImg" value="manchef.png" checked="checked">
 					</div>				
 					<div class="InputImageInnerContainer">
-						<img src="./image/defaultProfile2.png" style="width:100px; height:100px;"><br>		
-						<input type="radio" style="margin-left: 45px;">
+						<img src="./image/womanchef.png" style="width:100px; height:100px;"><br>		
+						<input type="radio" style="margin-left: 45px;" name="profileImg" value="womanchef.png">
 					</div>											
 				</div>
 				<div class="InputContainer">
