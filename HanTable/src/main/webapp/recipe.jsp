@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
+<%
+	session = request.getSession();
+	out.print("memberId : " + session.getAttribute("memberId"));
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -296,13 +302,13 @@ top: 279px;
 <div class="recipeContainer" id="recipeContainer">
    <div class="recipeInnerContainer" id="recipeContainer">
       <div class="left" id="left">
-          
-            
-            
             <div class="intro" id="intro">
-               <span class="recipeTitle" id="recipeTitle" width="800px">${recpTitle}</span>
+            <input type="hidden" value="${recipe.recpId }">
+               <span class="recipeTitle" id="recipeTitle" width="800px">${recipe.recpTitle}</span>
                <div class="dropdown" style="float:right;">
-                  <button class="dropdownbtn"><img class="titlekebab" id="titlekebab" src="image/kebab.png" alt="Dropdown"></button>
+                  <c:if test="${recipe.userId eq user.userId } }">
+                      <button class="dropdownbtn"><img class="titlekebab" id="titlekebab" src="image/kebab.png" alt="Dropdown"></button>
+                  </c:if>
                   	<div class="dropdownContent" id="dropdownContent">
                   		<button onmousedown="document.location.href='recipemodify'">수정</button>
                   		<button style="border-top:none;">삭제</button>
@@ -311,15 +317,15 @@ top: 279px;
                <div class="imgs" id="imgs"><img class="no-like" id="no-like" src="image/no-like.png"></div>
                <br><br><hr class="line" id="line">
                <br>
-               <p class="recipeIntro" id="recipeIntro">${recpIntro}</p>
+               <p class="recipeIntro" id="recipeIntro">${recipe.recpIntro}</p>
                
-               <p class="recipeCate" id="recipeCate">#${cateType} #${cateHow} #${cateIngredient} #${cateTime}</p>
+               <p class="recipeCate" id="recipeCate">${recipe.cateType} ${recipe.cateHow} ${cateIngredient} ${cateTime}</p>
             </div>
             
          
       </div>
       <div class="right" id="right">
-         <br><br><br><img class="recipeMainImg" id="recipeMainImg" src="image/recipe4.png"/>
+         <br><br><br><img class="recipeMainImg" id="recipeMainImg" name="recpImg" src="./upload/${recpImg }.png">
       </div>
       <br>
       
@@ -327,7 +333,7 @@ top: 279px;
       <div class="recipeIngredient" id="recipeIngredient">
          <span class="recipeTitle" id="recipeTitle" width="800px">재료</span>
             <br><br><hr class="recipeLine" id="recipeLine"><br>
-            <p class="ingredientContent" id="ingredientContent">${recpIngredient}</p>
+            <p class="ingredientContent" id="ingredientContent">${recipe.recpIngredient}</p>
              <p class="inform" id="inform"><img class="informationImg" id="informationImg" src="image/information.png">&nbsp;재료를 클릭하여 상품을 조회하세요</p>
       </div>
       
@@ -337,7 +343,7 @@ top: 279px;
             <br><br><hr class="recipeLine" id="recipeLine"><br>
             <!-- 뷰어 -->
             <div class="contentViewer" id="contentViewer">
-            
+            	<input type="hidden" value="${recipe.recpCont }">
             </div>
     
     <!-- toast ui all js -->
@@ -354,7 +360,7 @@ top: 279px;
       </div>
       
       <div class="viewNameDate" id="viewNameDate">
-      <span class="views" id="views">조회수 : 1024</span> <span class="nameDate" id="nameDate">작성자 : OOO 작성일자 : 2024-02-13</span>
+      <span class="views" id="views">조회수 : ${recipe.recpViews }</span> <span class="nameDate" id="nameDate">작성자 : ${user.name }&nbsp;&nbsp;&nbsp; 작성일자 : ${recipe.recipeAt }</span>
       </div>
       <!-- 댓글 -->
        <div class="recipeCommentContainer" id="recipeCommentContainer">

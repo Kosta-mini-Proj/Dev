@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -195,8 +196,11 @@
 		height: 232px;
 		position: relative;
 }
-
 </style>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+
+</script>
 </head>
 <body>
 	<%@ include file="header.jsp" %>
@@ -257,12 +261,13 @@
 		
 		
 		<strong class="mainTitle">인기 레시피</strong>
+		<c:forEach var="recipe" items="${recipeList}"></c:forEach>
 		<div class="popContentsContainer">
 			<div class="recipeCard">
 				<div class="recipeImgContainer">
-					<img src="./image/example.png" alt="" class="popImg">
+					<a href="recipe?recpId=${recipe.recpId }"><img src="./image/example.png" alt="" class="popImg"></a>
 						<div class="like-container">
-							<img src="./image/no-like.png" class="like-icon">
+							<img src="./image/like.png" class="like-icon">
 							<span class="like-count">100</span>
   						</div>
 				</div>
