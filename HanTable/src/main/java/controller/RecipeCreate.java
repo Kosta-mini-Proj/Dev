@@ -42,13 +42,13 @@ public class RecipeCreate extends HttpServlet {
 		try {
 			RecipeService recipeService = new RecipeServiceImpl();
 			recipeService.recipeWrite(request);
+			Recipe recipe=recipeService.selectRecipeDetail(recpId);
 			System.out.println(request);
-			response.sendRedirect("recipe");
+			request.setAttribute("recipe", recipe);
+			request.getRequestDispatcher("recipe.jsp").forward(request, response);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			request.setAttribute("err",e.getMessage());
-			request.getRequestDispatcher("error.jsp").forward(request, response);
 		}
 	}
 

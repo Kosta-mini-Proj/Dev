@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.RecipeService;
+import service.RecipeServiceImpl;
+
 /**
  * Servlet implementation class Recipe
  */
@@ -27,6 +30,14 @@ public class Recipe extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		Long recpId = Long.parseLong(request.getParameter("recpId"));
+		try {
+			RecipeService recipeService=new RecipeServiceImpl();
+			dto.Recipe recipe = recipeService.recipeDetail(recpId);
+			request.setAttribute("recipe", recipe);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		request.getRequestDispatcher("recipe.jsp").forward(request, response);
 	}
 

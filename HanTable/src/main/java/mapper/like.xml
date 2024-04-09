@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<!-- 충돌이 날 수 있기 때문에 이름을 지정 -->
+<mapper namespace="mapper.like">
+   
+   <!-- 라이크 추가 -->
+   <insert id="insertRecipeLike" parameterType="java.util.Map">
+      <![CDATA[
+         insert into like (user_id as userId, recp_id as recpId) values(#{userId},#{recpId})
+      ]]>
+   </insert>
+   
+   <!-- 라이크 삭제 -->
+   <delete id="deleteRecipeLike" parameterType="java.util.Map">
+       <![CDATA[
+          delete from like where user_id as userId=#{userId} and recp_id as recpId=#{recpId}
+      ]]>
+   </delete>
+   
+   <!-- 라이크 선택(상세 조회?) -->
+   <select id="selectRecipeLike" parameterType="java.util.Map" resultType="Integer">
+      <![CDATA[
+         select like_id as likeId from like where user_id as userId=#{userId} and recp_id as recpId=#{recipeId}
+      ]]>
+   </select>
+</mapper>

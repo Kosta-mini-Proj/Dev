@@ -1,6 +1,8 @@
 package service;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -56,13 +58,22 @@ public class RecipeServiceImpl implements RecipeService {
 
 	// 레시피 상세 (해당 레시피 조회 & 상세보기)
 	@Override
-	public Recipe recipeDetail(HttpServletRequest request) throws Exception {
-		request.setCharacterEncoding("utf-8");
-		String recpTitle = request.getParameter("recpTitle");
-		String recpIntro = request.getParameter("recpIntro");
-		
-		return null;
+	public Recipe recipeDetail(Long recpId) throws Exception {
+		// 해당 레시피의 조회수를 증가
+		recipedao.updateViewCount(recpId);
+		// 해당 레시피 검사
+		return recipedao.selectRecipe(recpId);
 	}
+
+
+	@Override
+	public Recipe selectRecipeDetail(HttpServletRequest request) throws Exception {
+		
+		return recipedao.;
+	}
+
+
+	
 	
 	
 }
