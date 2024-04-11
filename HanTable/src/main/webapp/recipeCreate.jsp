@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	String loginUserId = (String) session.getAttribute("userId");
+%>
+<%
+	
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -167,9 +173,34 @@ h1 {
 <link rel="stylesheet"	href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
 <script	src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<!-- <script>
+	function check() {
+		if (document.recipecreateform.cateType.value == "") {
+			alert("종류를 반드시 선택해야 합니다.");
+			recipecreateform.cateType.focus(); 
+			return false;
+		}
+		if (document.recipecreateform.cateHow.value == "") {
+			alert("조리방법을 반드시 선택해야 합니다.");
+			recipecreateform.cateHow.focus(); 
+			return false;
+		}
+		if (document.recipecreateform.cateIngredient.value == "") {
+			alert("재료를 반드시 선택해야 합니다.");
+			recipecreateform.cateIngredient.focus(); 
+			return false;
+		}
+		if (document.recipecreateform.cateTime.value == "") {
+			alert("조리시간을 반드시 선택해야 합니다.");
+			recipecreateform.cateTime.focus(); 
+			return false;
+		}
+	}
+</script> -->
 </head>
 <body>
 	<%@ include file="header.jsp"%>
+	<section id="./recipeCreate">
 	<form action="recipecreate" method="post" enctype="multipart/form-data"
 		name="recipecreateform" id="recipecreateform">
 
@@ -187,18 +218,18 @@ h1 {
 					<div class="createContentLine">
 						<p>레시피 제목</p>
 						<input class="inputTitle" id="inputTitle" name="recpTitle"
-							type="text" maxlength="13">
+							type="text" maxlength="13" required="required">
 					</div>
 					<br> <br>
 					<div class="createContentLine">
 						<p>요리 소개</p>
 						<textarea class="inputIntro" id="inputIntro" name="recpIntro"
-							type="text" maxlength="350"></textarea>
+							type="text" maxlength="350" required="required"></textarea>
 					</div>
 					<br> <br>
 					<div class="createContentLine" id="selectContainer">
 						<p>분류</p>
-						<select class="cate-type" id="cate-type" name="cateType">
+						<select class="cate-type" id="cate-type" name="cateType" required="required">
 							<option>종류별</option>
 							<option>국/찌개</option>
 							<option>일품</option>
@@ -236,7 +267,7 @@ h1 {
 					<div class="createContentLine">
 						<p class="titleIngredient" id="titleIngredient">재료</p>
 						<textarea class="ingredient" id="ingredient" name="recpIngredient"
-							type="text" maxLength="300"></textarea>
+							type="text" maxLength="300" required="required"></textarea>
 						<br>
 					</div>
 				</div>
@@ -260,6 +291,7 @@ h1 {
 			</div>
 		</div>
 	</form>
+	</section>
 </body>
 
 <script>
