@@ -1,20 +1,18 @@
 package dto;
 
-import java.sql.Date;
-
 public class User {
 	private String userId;
 	private String password;
 	private String name;
 	private String email;
-	private Date birthday;
+	private String birthday;
 	private String latestLike;
 	private String profileImg;
 	
 	// 생성자
 	public User() {}
 	
-	public User(String userId, String password, String name, String email, Date birthday, String latestLike,
+	public User(String userId, String password, String name, String email, String birthday, String latestLike,
 			String profileImg) {
 		super();
 		this.userId = userId;
@@ -59,11 +57,11 @@ public class User {
 		this.email = email;
 	}
 
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 

@@ -32,7 +32,7 @@
 		justify-content:center;
 	}
 	.loginInnerContainer{
-		width: 500px;
+		width: 400px;
 		height: 400px;
 		align-self:center;
 		display: flex;
@@ -103,14 +103,15 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
-<%@ include file="header.jsp" %>
 	<div class="headerContainer"></div>
 	<div class="mainContainer">
 		<div class="loginContainer">
 			<div class="loginInnerContainer">
 			<form action="login" method="post">
 				<div class="logoContainer">
+				<a href="main.jsp">
 					<img src="./image/logo.png" style="width: 400px;"/>
+				</a>
 				</div>
 				<input type="text" class="idInput" name="userId" id="userId" placeholder="아이디"/>
 				<input type="password" class="passwordInput" name="password" id="password" placeholder="비밀번호"/>

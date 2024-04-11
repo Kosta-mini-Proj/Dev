@@ -2,6 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mapper.user">
+
+
 	<select id="selectUser" parameterType="String" resultType="User">
 		<![CDATA[
 			 select 
@@ -11,4 +13,11 @@
 			 from user where user_id = #{userId}
 		]]>
 	</select>
+	<insert id="insertUser" parameterType="User">
+		<![CDATA[ 
+			insert into user 
+				   (user_id, password, name, email, birthday, latest_like, profile_img) 
+			values (#{userId},#{password},#{name},#{email},#{birthday},#{latestLike},#{profileImg})
+		]]>
+	</insert>
 </mapper>

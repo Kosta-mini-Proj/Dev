@@ -6,6 +6,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+
+import service.RecipeService;
+import service.RecipeServiceImpl;
+import service.UserService;
+import service.UserServiceImpl;
+
 
 /**
  * Servlet implementation class Join
@@ -33,8 +41,20 @@ public class Join extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		
+		try {
+			UserService userService = new UserServiceImpl();
+			userService.userJoin(request);
+			System.out.println(request);
+			response.sendRedirect("user");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			request.setAttribute("err",e.getMessage());
+			request.getRequestDispatcher("error.jsp").forward(request, response);
+		}
 	}
 
 }

@@ -53,12 +53,12 @@
 		margin-left: 50px;
 		cursor:pointer;
 	}
-	.subHeaderContainer{
+	.subHeaderContainer1{
 		width:1920px;
 		height:300px;
-		background:#BFA89F;
+		background:#5E6C53;
 	}
-	.subHeaderInnerContainer{
+	.subHeaderInnerContainer1{
 		margin:0 auto;
 		display:flex;
 		align-items:center;
@@ -133,19 +133,61 @@
 		grid-row-gap: 32px;
     	grid-auto-flow: dense;
 	}
-	.resultTypeButton{
+	.resultTypeButtonType{
 		padding: 0.1em 0.5em;
 		font-size:21px;
 		color:white;
 		border:none;
-		border-radius:5%;
+    	border-radius: 15px;
 		margin-left: 20px;
     	margin-right: 20px;
-    	background:#BFA89F;
+    	background:#5E6C53;
 	}
-	.resultTypeButton:hover,
-	.resultTypeButton.active {
-		background:#75574B;
+	.resultTypeButtonType:hover,
+	.resultTypeButtonType.active {
+		background:#800020;
+	}
+	.resultTypeButtonHow{
+		padding: 0.1em 0.5em;
+		font-size:21px;
+		color:white;
+		border:none;
+    	border-radius: 15px;
+		margin-left: 20px;
+    	margin-right: 20px;
+    	background:#5E6C53;
+	}
+	.resultTypeButtonHow:hover,
+	.resultTypeButtonHow.active {
+		background:#800020;
+	}
+	.resultTypeButtonTime{
+		padding: 0.1em 0.5em;
+		font-size:21px;
+		color:white;
+		border:none;
+    	border-radius: 15px;
+		margin-left: 20px;
+    	margin-right: 20px;
+    	background:#5E6C53;
+	}
+	.resultTypeButtonTime:hover,
+	.resultTypeButtonTime.active {
+		background:#800020;
+	}
+	.resultTypeButtonIngredient{
+		padding: 0.1em 0.5em;
+		font-size:21px;
+		color:white;
+		border:none;
+    	border-radius: 15px;
+		margin-left: 20px;
+    	margin-right: 20px;
+    	background:#5E6C53;
+	}
+	.resultTypeButtonIngredient:hover,
+	.resultTypeButtonIngredient.active {
+		background:#800020;
 	}
 	.recipeCard{
 		width: 232px;
@@ -250,30 +292,50 @@
     	bottom: 10px;
 	}
 </style>
+<script>
+//버튼 클릭 이벤트 핸들러
+function categoryButtonClick(category) {
+    // Ajax를 통해 서버에 해당 카테고리를 요청
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'RecipeController?category=' + category, true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            // 서버로부터 받은 데이터를 처리하여 화면에 표시
+            var recipeBox = JSON.parse(xhr.responseText);
+            displayRecipes(recipeBox);
+        }
+    };
+    xhr.send();
+}
+
+// 받은 데이터를 화면에 표시하는 함수
+function displayRecipes(recipeBox) {
+    // 레시피 박스 영역을 비움
+    var container = document.querySelector('.categoryMainInnerContainer');
+    container.innerHTML = '';
+
+    // 각 레시피를 순회하면서 HTML 생성
+    recipeBox.forEach(function(recipe) {
+        var recipeCard = document.createElement('div');
+        recipeCard.className = 'recipeCard';
+        // ... 나머지 레시피 정보를 추가하고 생성된 HTML을 화면에 추가
+        container.appendChild(recipeCard);
+    });
+}
+
+// 각 버튼에 클릭 이벤트 핸들러 등록
+document.querySelector('.resultTypeButtonType').addEventListener('click', function() {
+    categoryButtonClick('전체');
+});
+document.querySelector('.resultTypeButtonHow').addEventListener('click', function() {
+    categoryButtonClick('찌기');
+});
+</script>
 </head>
 <body>
-	<div class="headerContainer">
-		<div class="headerInnerContainer">
-			<div class="headerImgContainer">
-				<a href="main">
-					<img src="./image/logo.png">
-				</a>
-			</div>
-			<div class="headerSearchContainer">
-				<input type="text" placeholder="검색어를 입력해주세요." class="searchInput"/>
-				<a href="result.jsp">
-					<img src="./image/search.png" style="width:40px; height:40px;">
-				</a>
-			</div>
-			<div class="headerUserContainer">
-				<a href="login">
-					<img src="./image/nonlogin.png">
-				</a>
-			</div>
-		</div>	
-	</div>
-	<div class="subHeaderContainer">
-		<div class="subHeaderInnerContainer">
+	<%@ include file="header.jsp" %>
+	<div class="subHeaderContainer1">
+		<div class="subHeaderInnerContainer1">
 			<div class="subHeaderMenuContainer">
 				<p class="categoryMenu">종류별</p><br>
 				<p class="categoryMenu">조리방법별</p><br>
@@ -284,39 +346,39 @@
 			<div class="subHeaderButtonContainer">
 				<div class="subHeaderTopUpContainer">
 					<div class="subHeaderTopContainer">
-						<button class="resultTypeButton">전체</button>
-						<button class="resultTypeButton">국/찌개</button>
-						<button class="resultTypeButton">일품</button>
-						<button class="resultTypeButton">반찬</button>
-						<button class="resultTypeButton">밥</button>
-						<button class="resultTypeButton">면</button>
-						<button class="resultTypeButton">디저트</button>
-						<button class="resultTypeButton">기타</button>
+						<button class="resultTypeButtonType active" onclick="toggleActiveType(this)">전체</button>
+						<button class="resultTypeButtonType" onclick="toggleActiveType(this)">국/찌개</button>
+						<button class="resultTypeButtonType" onclick="toggleActiveType(this)">일품</button>
+						<button class="resultTypeButtonType" onclick="toggleActiveType(this)">반찬</button>
+						<button class="resultTypeButtonType" onclick="toggleActiveType(this)">밥</button>
+						<button class="resultTypeButtonType" onclick="toggleActiveType(this)">면</button>
+						<button class="resultTypeButtonType" onclick="toggleActiveType(this)">디저트</button>
+						<button class="resultTypeButtonType" onclick="toggleActiveType(this)">기타</button>
 					</div>
 				</div>
 				<div class="subHeaderMiddleContainer">
-					<button class="resultTypeButton">전체</button>
-					<button class="resultTypeButton">찌기</button>
-					<button class="resultTypeButton">굽기</button>
-					<button class="resultTypeButton">끓이기</button>
-					<button class="resultTypeButton">튀기기</button>
-					<button class="resultTypeButton">기타</button>
+					<button class="resultTypeButtonHow active" onclick="toggleActiveHow(this)">전체</button>
+					<button class="resultTypeButtonHow" onclick="toggleActiveHow(this)">찌기</button>
+					<button class="resultTypeButtonHow" onclick="toggleActiveHow(this)">굽기</button>
+					<button class="resultTypeButtonHow" onclick="toggleActiveHow(this)">끓이기</button>
+					<button class="resultTypeButtonHow" onclick="toggleActiveHow(this)">튀기기</button>
+					<button class="resultTypeButtonHow" onclick="toggleActiveHow(this)">기타</button>
 				</div>
 				<div class="subHeaderMiddleContainer">
-					<button class="resultTypeButton">전체</button>
-					<button class="resultTypeButton">육류</button>
-					<button class="resultTypeButton">해산물</button>
-					<button class="resultTypeButton">채소/과일</button>
-					<button class="resultTypeButton">콩/견과류</button>
-					<button class="resultTypeButton">기타</button>
+					<button class="resultTypeButtonIngredient active" onclick="toggleActiveIngredient(this)">전체</button>
+					<button class="resultTypeButtonIngredient" onclick="toggleActiveIngredient(this)">육류</button>
+					<button class="resultTypeButtonIngredient" onclick="toggleActiveIngredient(this)">해산물</button>
+					<button class="resultTypeButtonIngredient" onclick="toggleActiveIngredient(this)">채소/과일</button>
+					<button class="resultTypeButtonIngredient" onclick="toggleActiveIngredient(this)">콩/견과류</button>
+					<button class="resultTypeButtonIngredient" onclick="toggleActiveIngredient(this)">기타</button>
 				</div>
 				<div class="subHeaderMiddleContainer">
-					<button class="resultTypeButton">전체</button>
-					<button class="resultTypeButton">15분 이하</button>
-					<button class="resultTypeButton">15~30분</button>
-					<button class="resultTypeButton">30~45분</button>
-					<button class="resultTypeButton">45~60분</button>
-					<button class="resultTypeButton">60분 이상</button>
+					<button class="resultTypeButtonTime active" onclick="toggleActiveTime(this)">전체</button>
+					<button class="resultTypeButtonTime" onclick="toggleActiveTime(this)">15분 이하</button>
+					<button class="resultTypeButtonTime" onclick="toggleActiveTime(this)">15~30분</button>
+					<button class="resultTypeButtonTime" onclick="toggleActiveTime(this)">30~45분</button>
+					<button class="resultTypeButtonTime" onclick="toggleActiveTime(this)">45~60분</button>
+					<button class="resultTypeButtonTime" onclick="toggleActiveTime(this)">60분 이상</button>
 				</div>
 				<div class="subHeaderBottomContainer">
 					<div class="categorySearchContainer">
@@ -344,7 +406,7 @@
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
 						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
+							<img src="./image/like.png" class="like-icon">
 							<span class="like-count">100</span>
   						</div>
 				</div>
@@ -362,7 +424,7 @@
 				<div class="recipeImgContainer">
 					<img src="./image/recipe1.png" alt="" class="popImg">
 						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
+							<img src="./image/like.png" class="like-icon">
 							<span class="like-count">100</span>
   						</div>
 				</div>
@@ -380,7 +442,7 @@
 				<div class="recipeImgContainer">
 					<img src="./image/recipe3.png" alt="" class="popImg">
 						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
+							<img src="./image/like.png" class="like-icon">
 							<span class="like-count">100</span>
   						</div>
 				</div>
@@ -398,7 +460,7 @@
 				<div class="recipeImgContainer">
 					<img src="./image/recipe4.png" alt="" class="popImg">
 						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
+							<img src="./image/like.png" class="like-icon">
 							<span class="like-count">100</span>
   						</div>
 				</div>
@@ -416,7 +478,7 @@
 				<div class="recipeImgContainer">
 					<img src="./image/example.png" alt="" class="popImg">
 						<div class="like-container">
-							<img src="./image/like-heart.png" class="like-icon">
+							<img src="./image/like.png" class="like-icon">
 							<span class="like-count">100</span>
   						</div>
 				</div>
@@ -435,5 +497,53 @@
 	</div>	
 	<div class="categoryIntroContainer">
 	</div>
+	<script>
+        function toggleActiveType(button) {
+            button.classList.toggle('active');
+
+            var buttons = document.querySelectorAll('.resultTypeButtonType');
+            buttons.forEach(function(btn) {
+                if (btn !== button) {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+    </script>
+	<script>
+        function toggleActiveHow(button) {
+            button.classList.toggle('active');
+
+            var buttons = document.querySelectorAll('.resultTypeButtonHow');
+            buttons.forEach(function(btn) {
+                if (btn !== button) {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+    </script>
+	<script>
+        function toggleActiveTime(button) {
+            button.classList.toggle('active');
+
+            var buttons = document.querySelectorAll('.resultTypeButtonTime');
+            buttons.forEach(function(btn) {
+                if (btn !== button) {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+    </script>
+	<script>
+        function toggleActiveIngredient(button) {
+            button.classList.toggle('active');
+
+            var buttons = document.querySelectorAll('.resultTypeButtonIngredient');
+            buttons.forEach(function(btn) {
+                if (btn !== button) {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+    </script>
 </body>		
 </html>

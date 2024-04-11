@@ -1,13 +1,20 @@
 package service;
 
+import java.io.File;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+
 import dao.UserDao;
 import dao.UserDaoImpl;
+import dto.Recipe;
 import dto.User;
 
 public class UserServiceImpl implements UserService {
@@ -46,5 +53,35 @@ public class UserServiceImpl implements UserService {
 		HttpSession session = request.getSession();
 		user.setPassword("");
 		session.setAttribute("user", user);
+	}
+	@Override
+	public void userJoin(HttpServletRequest request) throws Exception {
+		User user = new User();
+	    String birthday = request.getParameter("birthday");
+	    if (birthday == null || birthday.isEmpty()) {
+	        // 기본값으로 현재 날짜 설정 또는 다른 값을 설정할 수 있음
+	        birthday = "1970-01-01";
+	    }
+		
+		user.setUserId(request.getParameter("userId"));
+		user.setPassword(request.getParameter("password"));
+		user.setName(request.getParameter("name"));
+		user.setEmail(request.getParameter("email"));
+	    user.setProfileImg(request.getParameter("profileImg"));
+	    user.setBirthday(request.getParameter("birthday"));
+
+
+		System.out.println(user);
+		userdao.insertUser(user);
+
+	}
+	
+	
+	
+	
+	public boolean checkDuplicate(String userId) throws Exception {
+		User user = userdao.selectUser(userId);
+		if(user==null) return false;
+		return true;
 	}
 }

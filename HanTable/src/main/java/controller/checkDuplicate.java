@@ -7,6 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+import service.UserService;
+import service.UserServiceImpl;
+
 /**
  * Servlet implementation class checkDuplicate
  */
@@ -35,13 +39,13 @@ public class checkDuplicate extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		String id=request.getParameter("id");
 		try {
-			String id = request.getParameter("id");
-			MemberService memberService = new MemberServiceImpl();
-			boolean doubleId = memberService.memberIdCheck(id);
-			response.getWriter().write(String.valueOf(doubleId));
-		} catch( Exception e) {
-			response.sendError(500);
+			UserService userService = new UserServiceImpl();
+			boolean checkDuplicate = userService.checkDuplicate(id);
+			response.getWriter().write(String.valueOf(checkDuplicate));
+		} catch(Exception e) {
+			e.printStackTrace();
 		}
 	}
 }

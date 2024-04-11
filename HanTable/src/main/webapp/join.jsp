@@ -11,15 +11,16 @@
 		margin:0;
 		overflow-x: hidden;
 	}
-	.headerContainer{
-		width:1920px;
-		height:100px;
-		background:#937062;
-	}
 	.mainContainer{
 		width:1920px;
 		height:1200px;
 		display: flex;
+		justify-content:center;
+	}
+	.mainLogoContainer{
+		width:1920px;
+		height:100px;
+		display: flex;		
 		justify-content:center;
 	}
 	.joinContainer{
@@ -165,95 +166,38 @@
 	}
 </style>
 <script>
-//회원가입 조건 확인
-function validateForm() {
-    var userId = document.getElementById("userId").value;
-    var password = document.getElementById("password").value;
-    var confirmPassword = document.getElementById("confirmPassword").value;
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var birthYear = document.getElementById("year").value;
-    var birthMonth = document.getElementById("month").value;
-    var birthDay = document.getElementById("day").value;
-    var profileImageChecked = document.querySelector("input[name='profile']:checked");
-
-    // 클라이언트 측에서의 조건 확인
-    if (userId.length < 6 || userId.length > 20) {
-        alert("아이디는 6자 이상, 20자 이하로 입력해주세요.");
-        return false;
-    }
-
-    if (password.length < 8 || password.length > 20) {
-        alert("비밀번호는 8자 이상, 20자 이하로 입력해주세요.");
-        return false;
-    }
-
-    if (password !== confirmPassword) {
-        alert("비밀번호가 일치하지 않습니다.");
-        return false;
-    }
-
-    if (name.length > 10) {
-        alert("이름은 10글자 이하여야 합니다.");
-        return false;
-    }
-
-    if (!validateEmail(email)) {
-        alert("올바른 이메일 형식을 입력해주세요.");
-        return false;
-    }
-
-    if (birthYear === "" || birthMonth === "" || birthDay === "") {
-        alert("생년월일을 모두 선택해주세요.");
-        return false;
-    }
-
-    if (!profileImageChecked) {
-        alert("기본 프로필 설정을 선택해주세요.");
-        return false;
-    }
-
-    return true;
-}
-
-function validateEmail(email) {
-    var re = /\S+@\S+\.\S+/;
-    return re.test(email);
-}
-</script>
-<script>
-//아이디 중복확인
-    $(document).ready(function() {
-        $('#checkDuplicate').click(function() {
-            var userId = $('#userId').val();
-
-            // 클라이언트 측에서의 조건 확인
-            if (userId.length < 6 || userId.length > 20) {
-                alert("아이디는 6자 이상, 20자 이하로 입력해주세요.");
-                return false;
-            }
-            $.ajax({
-                url: 'checkDuplicate',
-                type: 'POST', 
-                dataType: 'text',
-                data: { userId: userId },
-                success: function(result) {
-                    if (result === 'true') {
-                        alert("아이디가 중복됩니다.");
-                    } else {
-                        alert("사용 가능한 아이디입니다.");
-                    }
-                },
-                error: function(xhr, status, error) {
-                    alert("오류가 발생했습니다. 다시 시도해주세요.");
-                }
-            });
-        });
-    });
+	$(function() {
+		$('#checkDuplicate').click(function(e) {
+			e.preventDefault();
+			$.ajax({
+				url:'checkDuplicate',
+				type:'post',
+				async:true,
+				dataType:'text',
+				data:{id:$('#id').val()},
+				success:function(result) {
+					if(result=='true') {
+						alert("아이디가 중복됩니다");
+					} else {
+						alert("사용 가능한 아이디입니다");
+					}
+				},
+				error:function(result) {
+					
+				}
+			})
+			
+		})
+	})
 </script>
 </head>
 <body>
-	<div class="headerContainer"></div>
+	<form action="join" method="post" enctype="multipart/form-data">
+	<div class="mainLogoContainer">
+		<a href="main.jsp">
+			<img src="./image/logo.png">
+		</a>
+	</div>
 	<div class="mainContainer">
 		<div class="joinContainer">
 			<strong class="joinTitle">회원가입</strong>
@@ -262,35 +206,25 @@ function validateEmail(email) {
 					<div class="InputImageInnerContainer">
 						<strong class="inputTitle">기본 프로필 설정</strong>
 					</div>				
-					<div class="InputImageInnerContainer">
-<<<<<<< HEAD
-						<img src="./image/defaultProfile1.png" style="width:100px; height:100px;"><br>
-						<input type="radio" name="option" value="option1" onchange="cancelOtherOption(this)" style="margin-left: 45px;">						
-=======
-						<img src="./image/manchef.png" style="width:100px; height:100px;"><br>
-						<input type="radio" style="margin-left: 45px;" name="profileImg" value="manchef.png" checked="checked">
->>>>>>> branch 'main' of https://github.com/RohSiHyung/Dev.git
+					<div class="InputImageInnerContainer">					
+						<label for="manchef"><img src="./image/manchef.png" style="width:100px; height:100px;"><br></label>
+						<input type="radio" style="margin-left: 45px;" name="profileImg" value="manchef.png" checked="checked" id="manchef">
 					</div>				
-					<div class="InputImageInnerContainer">
-<<<<<<< HEAD
-						<img src="./image/defaultProfile2.png" style="width:100px; height:100px;"><br>		
-						<input type="radio" name="option" value="option2" onchange="cancelOtherOption(this)"style="margin-left: 45px;">						
-=======
-						<img src="./image/womanchef.png" style="width:100px; height:100px;"><br>		
-						<input type="radio" style="margin-left: 45px;" name="profileImg" value="womanchef.png">
->>>>>>> branch 'main' of https://github.com/RohSiHyung/Dev.git
+					<div class="InputImageInnerContainer">			
+						<label for="womanchef"><img src="./image/womanchef.png" style="width:100px; height:100px;"><br></label>		
+						<input type="radio" style="margin-left: 45px;" name="profileImg" value="womanchef.png" id="womanchef">
 					</div>											
 				</div>
 				<div class="InputContainer">
 					<strong class="inputTitle">아이디</strong>
 				    <div class="inputWithButton">
-						<input type="text" id="userId" class="input" style="margin: 4px;" placeholder="아이디 입력(6~20자)"/>	
+						<input type="text" id="userId" name="userId" class="input" style="margin: 4px;" placeholder="아이디 입력(6~20자)"/>	
 						<button class="checkDuplicateBtn" id="checkDuplicate">중복확인</button>
 					</div>						
 				</div>			
 				<div class="InputContainer">
 					<strong class="inputTitle">비밀번호</strong>
-					<input type="password" id="password" class="input" placeholder="비밀번호 입력(문자, 숫자, 특수문자 포함 8~20자)"/>
+					<input type="password" id="password" name="password" class="input" placeholder="비밀번호 입력(문자, 숫자, 특수문자 포함 8~20자)"/>
 				</div>
 				<div class="InputContainer">
 					<strong class="inputTitle">비밀번호 확인</strong>
@@ -298,31 +232,32 @@ function validateEmail(email) {
 				</div>
 				<div class="InputContainer">
 					<strong class="inputTitle">이름</strong>
-					<input type="text" id="name" class="input" placeholder="이름을 입력해주세요."/>
+					<input type="text" id="name" name="name" class="input" placeholder="이름을 입력해주세요."/>
 				</div>
 				<div class="InputContainer">
 					<strong class="inputTitle">이메일</strong>
-					<input type="text" id="email" class="input" placeholder="example@hantable.com"/>
+					<input type="text" id="email" name="email" class="input" placeholder="example@hantable.com"/>
 				</div>
 				<div class="selectContainer">
 					<strong class="inputTitle">생년월일</strong>
 					<div class="birthdaySelectContainer">
-						<select class="selectBox">
+						<select class="selectBox" id="yearSelect">
 							<option disabled selected>출생년도</option>
 						</select>
-						<select class="selectBox">
+						<select class="selectBox" id="monthSelect">
 							<option disabled selected>월</option>
 						</select>
-						<select class="selectBox">
+						<select class="selectBox" id="daySelect">
 							<option disabled selected>일</option>
 						</select>
 					</div>
 				</div>
 				<div class="btnContainer">
-					<button class="joinBtn" id="joinBtn"><strong>회원가입</strong></button>
+					<button class="joinBtn" id="joinBtn" type="submit"><strong>회원가입</strong></button>
 					<button class="cancleBtn"><strong>취소</strong></button>
 				</div>
 			</div>
+			</form>
 		</div>
 	</div>
 	<script>
@@ -361,17 +296,6 @@ function validateEmail(email) {
     daySelect.addEventListener('change', function() {
         console.log('일:', daySelect.value);
     });
-	</script>
-	<script>
-	//프로필 기본 이미지 설정 하나 선택시 나머지 취소
-		function cancelOtherOption(selectedOption) {
-		  var radioButtons = document.getElementsByName("option");
-				for (var i = 0; i < radioButtons.length; i++) {
-		    		if (radioButtons[i] !== selectedOption) {
-	    	  		radioButtons[i].checked = false;
-	   	 		}
-		    }
-		}
 	</script>
 </body>
 </html>
