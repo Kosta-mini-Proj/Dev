@@ -4,7 +4,7 @@
     
 <%
 	session = request.getSession();
-	out.print("memberId : " + session.getAttribute("memberId"));
+	out.print("userId : " + session.getAttribute("userId"));
 %>
 <!DOCTYPE html>
 <html>
@@ -319,13 +319,13 @@ top: 279px;
                <br>
                <p class="recipeIntro" id="recipeIntro">${recipe.recpIntro}</p>
                
-               <p class="recipeCate" id="recipeCate">${recipe.cateType} ${recipe.cateHow} ${cateIngredient} ${cateTime}</p>
+               <p class="recipeCate" id="recipeCate">${recipe.cateType}, ${recipe.cateHow}, ${recipe.cateIngredient}, ${recipe.cateTime}</p>
             </div>
             
          
       </div>
       <div class="right" id="right">
-         <br><br><br><img class="recipeMainImg" id="recipeMainImg" name="recpImg" src="./upload/${recpImg }.png">
+         <br><br><br><img class="recipeMainImg" id="recipeMainImg" name="recpImg" src="<%=request.getContextPath()%>/imageView?imageName=${recipe.recpImg}">
       </div>
       <br>
       
@@ -354,13 +354,13 @@ top: 279px;
             el : document.querySelector("#contentViewer"),
             viewer:true,
             width: '1280px',
-            initialValue : "Hello toast ui editor~!"
+            initialValue : '${recipe.recpCont}'
         });
     </script>
       </div>
       
       <div class="viewNameDate" id="viewNameDate">
-      <span class="views" id="views">조회수 : ${recipe.recpViews }</span> <span class="nameDate" id="nameDate">작성자 : ${user.name }&nbsp;&nbsp;&nbsp; 작성일자 : ${recipe.recipeAt }</span>
+      <span class="views" id="views">조회수 : ${recipe.recpViews }</span> <span class="nameDate" id="nameDate">작성자 : ${user.name }&nbsp;&nbsp;&nbsp; 작성일자 : ${recipe.recpAt }</span>
       </div>
       <!-- 댓글 -->
        <div class="recipeCommentContainer" id="recipeCommentContainer">
@@ -376,13 +376,15 @@ top: 279px;
              
          <div class="recipeRecipeCommentRight" id="recipeRecipeCommentRight">
          	<div class="dropdown" style="float:right; margin-top:15px;">
+                 <c:if test="${user.userId eq comment.userId }">
                  <button class="dropdownbtn"><img class="titlekebab" id="titlekebab" src="image/kebab.png" alt="Dropdown"></button>
+                 </c:if> 
                   <div class="dropdownContent" id="dropdownContent">
                   		<button>수정</button>
                   		<button style="border-top:none;">삭제</button>
                   </div>       
             </div>
-        <!--  <button class="kebab" id="kebab"><img class="Contentkebab" id="Contentkebab" src="image/kebab.png"></button> -->
+          <button class="kebab" id="kebab"><img class="Contentkebab" id="Contentkebab" src="image/kebab.png"></button>
          </div>
          <br><br><br><br><hr class="recipeLine" id="recipeLine"><br>
          </div>

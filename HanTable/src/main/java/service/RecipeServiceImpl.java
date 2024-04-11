@@ -1,8 +1,6 @@
 package service;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -22,7 +20,7 @@ public class RecipeServiceImpl implements RecipeService {
 	
 	// 게시글 작성
 	@Override
-	public void recipeWrite(HttpServletRequest request) throws Exception {
+	public Recipe recipeWrite(HttpServletRequest request) throws Exception {
 		Recipe recipe = new Recipe();
 		
 		String uploadPath = request.getServletContext().getRealPath("upload");
@@ -50,30 +48,31 @@ public class RecipeServiceImpl implements RecipeService {
 			recipe.setUserId(user.getUserId());	
 		}
 		
-		System.out.println(recipe);
+		//Long recpId = recipedao.selectMaxNumber();
+		//recipe.setRecpId(Recipe.lastIndex++);
+		//recipe.setRecpId(recipe.getRecpId());
+		//recipe.setRecpId(recipedao.selectMaxNumber() + 1);
+//		recipe.setRecpId(Long.parseLong(request.getParameter("recpId")));
 		recipedao.insertRecipe(recipe);
-		
+		System.out.println(recipe);
+		return recipe;
 	}
 
 
 	// 레시피 상세 (해당 레시피 조회 & 상세보기)
 	@Override
 	public Recipe recipeDetail(Long recpId) throws Exception {
-		// 해당 레시피의 조회수를 증가
-		recipedao.updateViewCount(recpId);
-		// 해당 레시피 검사
+		System.out.println(recpId);
 		return recipedao.selectRecipe(recpId);
 	}
 
 
+	// 레시피 일련번호 
 	@Override
-	public Recipe selectRecipeDetail(HttpServletRequest request) throws Exception {
-		
-		return recipedao.;
+	public Long recipeCount(HttpServletRequest request) throws Exception {
+		Long recpId = recipedao.selectRecipeCount();
+//		System.out.println(recpId); //  출력 됨
+		return recpId;
 	}
-
-
-	
-	
 	
 }
