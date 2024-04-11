@@ -2,8 +2,6 @@ package dao;
 
 
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 
 import dto.Recipe;
@@ -26,12 +24,28 @@ public class RecipeDaoImpl implements RecipeDao {
 		return sqlsession.selectOne("mapper.recipe.selectRecipe", recpId);
 	}
 
-	//조회수 증가
 	@Override
-	public void updateViewCount(Long recpId) throws Exception {
-		sqlsession.update("mapper.recipe.updateViewCount", recpId);
-		sqlsession.commit();
+	public void updateRecipe(Recipe recipe) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
+	public void updateViewCount(Long recpId) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Long selectRecipeCount() throws Exception {
+		return sqlsession.selectOne("mapper.recipe.selectRecipeCount");
+	}
+
+	// recpId 최대값을 얻어오는 메서드 
+	@Override
+	public Long selectMaxNumber() throws Exception {
+		// TODO Auto-generated method stub
+		return sqlsession.selectOne("mapper.recipe.selectMaxNumber");
+	}
 	
 }

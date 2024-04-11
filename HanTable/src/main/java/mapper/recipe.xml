@@ -3,72 +3,73 @@
 
 <mapper namespace="mapper.recipe">
 	
-	<!-- 전체 게시글 조회 -->
-	<select id="selectRecipeList" resultType="Recipe" parameterType="Long">
-		<![CDATA[ 
-			select * from recipe where recp_like as recpLike desc
-		]]>
-	</select>
-	
 	<!-- 최대 게시글 수 조회 -->
-	<select id="selectRecipeCount" resultType="Integer">
+	<select id="selectRecipeCount" resultType="Long">
 		<![CDATA[
 			select count(*) from recipe 
 		]]>
 	</select>
-
-	<!-- 게시글 작성 -->
-	<insert id="insertRecipe" parameterType="Recipe" useGeneratedKeys="true" keyProperty="num">
-		<![CDATA[ 
-			insert into recipe 
-				   	(recp_title, recp_img, recp_intro, cate_type, cate_how, cate_ingredient, cate_time, recp_ingredient, recp_cont, user_id) 
-				values (#{recpTitle},#{recpImg},#{recpIntro},#{cateType},#{cateHow},#{cateIngredient},#{cateTime},#{recpIngredient},#{recpCont},#{userId})
-		]]>
-	</insert>
 	
-	<!-- 게시글 상세 -->
+	<!-- recpId 최대값 출력 -->
+	<select id="selectMaxNumber" parameterType="Long" resultType="Long">
+		<![CDATA[
+			select Max(recp_id) from recipe
+		]]>
+	</select> 
+	
+	<!-- 해당 번호 조회 -->
 	<select id="selectRecipe" resultType="Recipe" parameterType="Long">
 		<![CDATA[ 
-		select recp_id as recpId, user_id as userId, recp_title as recpTitle, recp_img as recpImg
-			recp_intro as recpIntro, cate_type as cateType, cate_how as cateHow, cate_time as cateTime
-			cate_ingredient as cateIngredient, recp_cont as recpCont, recp_at as recpAt, like_count as likeCount
+			select recp_id as recpId,
+			user_id as userId,
+			recp_title as recpTitle,
+			recp_img as recpImg,
+			recp_intro as recpIntro,
+			cate_type as cateType,
+			cate_how as cateHow,
+			cate_time as cateTime,
+			cate_ingredient as cateIngredient,
+			recp_ingredient as recpIngredient,
+			recp_cont as recpCont,
+			recp_at as recpAt,
+			like_count as likeCount,
 			recp_views as recpViews
-			from recipe where recp_id = #{recpId}
+			 from recipe where recp_id=#{recpId}
 		]]>
 	</select>
 
-	<!-- 조회수 증가 -->
-	<update id="updateViewCount" parameterType="Recipe">
+	<!-- 게시글 작성 -->
+	<insert id="insertRecipe" parameterType="Recipe" useGeneratedKeys="true" keyProperty="recpId">
 		<![CDATA[ 
-		update recipe set recp_views = recp_views + 1 where recp_id=#{recpId}
+			insert into recipe 
+				   (recp_title, recp_img, recp_intro, cate_type, cate_how, cate_ingredient, cate_time, recp_ingredient, recp_cont, user_id,recp_at, recp_views, like_count) 
+			values (#{recpTitle},#{recpImg},#{recpIntro},#{cateType},#{cateHow},#{cateIngredient},#{cateTime},#{recpIngredient},#{recpCont},#{userId}, curdate(), 0, 0)
 		]]>
-	</update>
-	
-	<!-- 좋아요 증가 -->
-	<update id="updateLikeCount" parameterType="Recipe">
+	</insert>
+
+	<!-- 조회수 증가 -->
+	<update id="updateViewCount" parameterType="Long">
 		<![CDATA[ 
-		update recipe set recp_like as recpLike = recp_like + 1 where recp_id=#{recpId}
+			update recipe set recp_views = recp_views + 1 where recipe_id as recipeId=#{recipeId}
 		]]>
 	</update>
 
+	<!-- 게시글 수정 -->
 	<update id="updateRecipe" parameterType="Recipe">
 		update recipe
 		<trim prefix="SET" suffixOverrides=",">
-			<if test="recp_title != null">recp_title=#{recpTitle},</if>
-			<if test="recp_img != null">recp_img=#{recpImg},</if>
-			<if test="recp_intro != null">recp_intro=#{recpIntro},</if>c
-			<if test="cate_type != null">cate_type=#{cateType},</if>
-			<if test="cate_how != null">cate_how=#{cateHow},</if>
-			<if test="cate_ingredient != null">cate_ingredient=#{cateIngredient},</if>
-			<if test="cate_time != null">cate_time=#{cateTime},</if>
-			<if test="recp_ingredient != null">recp_ingredient=#{recpIngredient},</if>
-			<if test="recp_cont != null">recp_cont=#{recpCont},</if>
+			<if test="recp-title != null">recp_title=#{recpTitle},</if>
+			<if test="recp-img != null">recp_img=#{recpImg},</if>
+			<if test="recp-intro != null">recp_intro=#{recpIntro},</if>c
+			<if test="cate-type != null">cate_type=#{cateType},</if>
+			<if test="cate-how != null">cate_how=#{cateHow},</if>
+			<if test="cate-ingredient != null">cate_ingredient=#{cateIngredient},</if>
+			<if test="cate-time != null">cate_time=#{cateTime},</if>
+			<if test="recp-ingredient != null">recp_ingredient=#{recpIngredient},</if>
+			<if test="recp-cont != null">recp_cont=#{recpCont},</if>
 		</trim>
 	</update>
 	
-	<!-- 마지막 좋아요 -->
-	<!-- <update id="updateLatestLike" parameterType="String">
-		
-	</update> -->
+	
 
 </mapper>

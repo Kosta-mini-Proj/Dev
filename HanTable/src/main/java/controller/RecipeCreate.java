@@ -1,12 +1,14 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dto.Recipe;
 import service.RecipeService;
 import service.RecipeServiceImpl;
 
@@ -28,9 +30,9 @@ public class RecipeCreate extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("recipeCreate.jsp").forward(request, response);
-	}
+//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		request.getRequestDispatcher("recipeCreate.jsp").forward(request, response);
+//	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -41,14 +43,13 @@ public class RecipeCreate extends HttpServlet {
 		
 		try {
 			RecipeService recipeService = new RecipeServiceImpl();
-			recipeService.recipeWrite(request);
-			Recipe recipe=recipeService.selectRecipeDetail(recpId);
-			System.out.println(request);
+			Recipe recipe =  recipeService.recipeWrite(request);
 			request.setAttribute("recipe", recipe);
-			request.getRequestDispatcher("recipe.jsp").forward(request, response);
 			
+			request.getRequestDispatcher("recipe.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
+			
 		}
 	}
 

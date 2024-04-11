@@ -1,12 +1,14 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dto.Recipe;
 import service.RecipeService;
 import service.RecipeServiceImpl;
 
@@ -14,38 +16,38 @@ import service.RecipeServiceImpl;
  * Servlet implementation class Recipe
  */
 @WebServlet("/recipe")
-public class Recipe extends HttpServlet {
+public class RecipeDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Recipe() {
+    public RecipeDetail() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		Long recpId = Long.parseLong(request.getParameter("recpId"));
-		try {
-			RecipeService recipeService=new RecipeServiceImpl();
-			dto.Recipe recipe = recipeService.recipeDetail(recpId);
-			request.setAttribute("recipe", recipe);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		request.getRequestDispatcher("recipe.jsp").forward(request, response);
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		request.getRequestDispatcher("recipe.jsp").forward(request, response);
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		Long recpId = Long.parseLong(request.getParameter("recpId"));
+		String recpAt = request.getParameter("recpAt");
+		Long likeCount = Long.parseLong(request.getParameter("likeCount")); 
+		Long recpViews = Long.parseLong(request.getParameter("recpViews"));
+		try {
+			RecipeService recipeservice = new RecipeServiceImpl();
+		    Recipe recipe = recipeservice.recipeDetail(recpId);
+		    System.out.println(recipe);
+		    request.setAttribute("recipe", recipe);
+			request.getRequestDispatcher("recipe.jsp").forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
