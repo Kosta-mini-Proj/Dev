@@ -1,5 +1,8 @@
 package dto;
 
+import java.sql.Date;
+import java.time.LocalDateTime;
+
 public class Recipe {
 	private Long recpId;
 	private String userId;
@@ -12,7 +15,7 @@ public class Recipe {
 	private String cateIngredient;
 	private String recpIngredient;
 	private String recpCont;
-	private String recpAt;
+	private LocalDateTime recpAt;
 	private Long likeCount;
 	private Long recpViews;
 	
@@ -21,7 +24,7 @@ public class Recipe {
 	
 	public Recipe(Long recpId, String userId, String recpTitle, String recpImg, String recpIntro, String cateType,
 			String cateHow, String cateTime, String cateIngredient, String recpIngredient, String recpCont,
-			String recpAt, Long likeCount, Long recpViews) {
+			LocalDateTime recpAt, Long likeCount, Long recpViews) {
 		super();
 		this.recpId = recpId;
 		this.userId = userId;
@@ -144,11 +147,11 @@ public class Recipe {
 		this.recpCont = recpCont;
 	}
 
-	public String getRecpAt() {
+	public LocalDateTime getRecpAt() {
 		return recpAt;
 	}
 
-	public void setRecpAt(String recpAt) {
+	public void setRecpAt(LocalDateTime recpAt) {
 		this.recpAt = recpAt;
 	}
 

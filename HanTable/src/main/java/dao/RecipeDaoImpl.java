@@ -24,9 +24,11 @@ public class RecipeDaoImpl implements RecipeDao {
 		return sqlsession.selectOne("mapper.recipe.selectRecipe", recpId);
 	}
 
+	// 레시피 수정
 	@Override
 	public void updateRecipe(Recipe recipe) throws Exception {
-		// TODO Auto-generated method stub
+		sqlsession.update("mapper.recipe.updateRecipe", recipe);
+		sqlsession.commit();
 		
 	}
 

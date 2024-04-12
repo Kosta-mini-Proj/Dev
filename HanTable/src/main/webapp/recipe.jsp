@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    
-<%
-	session = request.getSession();
-	out.print("userId : " + session.getAttribute("userId"));
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -291,7 +288,7 @@ top: 279px;
    background: #F5F5F5;
 }
 
-.dropdown:hover .dropdownContent {
+ .dropdown:hover .dropdownContent {
    display: block;
 }
 </style>
@@ -299,6 +296,7 @@ top: 279px;
 </head>
 <body>
 <% pageContext.include("header.jsp"); %>
+
 <div class="recipeContainer" id="recipeContainer">
    <div class="recipeInnerContainer" id="recipeContainer">
       <div class="left" id="left">
@@ -306,20 +304,22 @@ top: 279px;
             <input type="hidden" value="${recipe.recpId }">
                <span class="recipeTitle" id="recipeTitle" width="800px">${recipe.recpTitle}</span>
                <div class="dropdown" style="float:right;">
-                  <c:if test="${recipe.userId eq user.userId } }">
-                      <button class="dropdownbtn"><img class="titlekebab" id="titlekebab" src="image/kebab.png" alt="Dropdown"></button>
-                  </c:if>
+                  
+                      
+                  <c:if test="${recipe.userId eq user.userId }">
+                  <button class="dropdownbtn"><img class="titlekebab" id="titlekebab" src="image/kebab.png" alt="Dropdown"></button>
                   	<div class="dropdownContent" id="dropdownContent">
-                  		<button onmousedown="document.location.href='recipemodify'">수정</button>
+                  		<a href="recipemodify?recpId=${recipe.recpId}">수정</a>
                   		<button style="border-top:none;">삭제</button>
-                  	</div>       
+                  	</div>
+                  	</c:if>      
                </div>
                <div class="imgs" id="imgs"><img class="no-like" id="no-like" src="image/no-like.png"></div>
                <br><br><hr class="line" id="line">
                <br>
                <p class="recipeIntro" id="recipeIntro">${recipe.recpIntro}</p>
                
-               <p class="recipeCate" id="recipeCate">${recipe.cateType}, ${recipe.cateHow}, ${recipe.cateIngredient}, ${recipe.cateTime}</p>
+               <p class="recipeCate" id="recipeCate">#${recipe.cateType}, #${recipe.cateHow}, #${recipe.cateIngredient}, #${recipe.cateTime}</p>
             </div>
             
          
@@ -375,15 +375,17 @@ top: 279px;
             </div>
              
          <div class="recipeRecipeCommentRight" id="recipeRecipeCommentRight">
+         	<c:if test="${user.userId eq comment.userId }">
          	<div class="dropdown" style="float:right; margin-top:15px;">
-                 <c:if test="${user.userId eq comment.userId }">
+                 
                  <button class="dropdownbtn"><img class="titlekebab" id="titlekebab" src="image/kebab.png" alt="Dropdown"></button>
-                 </c:if> 
                   <div class="dropdownContent" id="dropdownContent">
                   		<button>수정</button>
                   		<button style="border-top:none;">삭제</button>
-                  </div>       
+                  </div>
+                         
             </div>
+             </c:if>
           <button class="kebab" id="kebab"><img class="Contentkebab" id="Contentkebab" src="image/kebab.png"></button>
          </div>
          <br><br><br><br><hr class="recipeLine" id="recipeLine"><br>
@@ -399,16 +401,25 @@ top: 279px;
 </div>
 </body>
 <script>
-	const button = document.querySelector('.dropdownbtn');
+	const dropBtn = document.querySelectorAll('.dropdownbtn');
+	
+	if(dropBtn!=null) {
+		dropBtn.map(item=> { 
+			item.addEventListener('click', () => {
+				const dropdown = document.querySelector('.dropdownContent');
+				dropdown.style.display = 'block';
+			});
 
-	button.addEventListener('click', () => {
-		const dropdown = document.querySelector('.dropdownContent');
-		dropdown.style.display = 'block';
-	});
+			item.addEventListener('blur', (e) => {
+		 		const dropdown = document.querySelector('.dropdownContent');
+		 		dropdown.style.display = '';
+			});
+		
+ 		}) 
+	}
 
-	button.addEventListener('blur', (e) => {
-	 	const dropdown = document.querySelector('.dropdownContent');
-	 	dropdown.style.display = '';
-	});
+	
+	console.log(recipe.userId);
+	console.log(user.usrId);
 </script>
 </html>

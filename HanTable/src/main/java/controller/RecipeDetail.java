@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dto.Recipe;
 import service.RecipeService;
@@ -36,9 +37,7 @@ public class RecipeDetail extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		Long recpId = Long.parseLong(request.getParameter("recpId"));
-		String recpAt = request.getParameter("recpAt");
-		Long likeCount = Long.parseLong(request.getParameter("likeCount")); 
-		Long recpViews = Long.parseLong(request.getParameter("recpViews"));
+		
 		try {
 			RecipeService recipeservice = new RecipeServiceImpl();
 		    Recipe recipe = recipeservice.recipeDetail(recpId);

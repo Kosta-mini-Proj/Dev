@@ -58,18 +58,36 @@
 	<update id="updateRecipe" parameterType="Recipe">
 		update recipe
 		<trim prefix="SET" suffixOverrides=",">
-			<if test="recp-title != null">recp_title=#{recpTitle},</if>
-			<if test="recp-img != null">recp_img=#{recpImg},</if>
-			<if test="recp-intro != null">recp_intro=#{recpIntro},</if>c
-			<if test="cate-type != null">cate_type=#{cateType},</if>
-			<if test="cate-how != null">cate_how=#{cateHow},</if>
-			<if test="cate-ingredient != null">cate_ingredient=#{cateIngredient},</if>
-			<if test="cate-time != null">cate_time=#{cateTime},</if>
-			<if test="recp-ingredient != null">recp_ingredient=#{recpIngredient},</if>
-			<if test="recp-cont != null">recp_cont=#{recpCont},</if>
+			<if test="recpTitle != null">recp_title=#{recpTitle},</if>
+			<if test="recpImg != null">recp_img=#{recpImg},</if>
+			<if test="recpIntro != null">recp_intro=#{recpIntro},</if>
+			<if test="cateType != null">cate_type=#{cateType},</if>
+			<if test="cateHow != null">cate_how=#{cateHow},</if>
+			<if test="cateIngredient != null">cate_ingredient=#{cateIngredient},</if>
+			<if test="cateTime != null">cate_time=#{cateTime},</if>
+			<if test="recpIngredient != null">recp_ingredient=#{recpIngredient},</if>
+			<if test="recpCont != null">recp_cont=#{recpCont}</if>
 		</trim>
+		where recp_id=#{recpId}
 	</update>
 	
+	<delete id="deleteRecipe" parameterType="Long">
+		delete recp_id as recpId,
+			user_id as userId,
+			recp_title as recpTitle,
+			recp_img as recpImg,
+			recp_intro as recpIntro,
+			cate_type as cateType,
+			cate_how as cateHow,
+			cate_time as cateTime,
+			cate_ingredient as cateIngredient,
+			recp_ingredient as recpIngredient,
+			recp_cont as recpCont,
+			recp_at as recpAt,
+			like_count as likeCount,
+			recp_views as recpViews 
+			from recipe where recpId = #{recpId}
+	</delete>
 	
 
 </mapper>

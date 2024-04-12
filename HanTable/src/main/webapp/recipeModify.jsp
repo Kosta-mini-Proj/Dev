@@ -170,9 +170,8 @@ h1 {
 </head>
 <body>
 	<%@ include file="header.jsp"%>
-	<form action="recipecreate" method="post" enctype="multipart/form-data"
-		name="recipecreateform" id="recipecreateform">
-
+	<form action="recipemodify" method="post" enctype="multipart/form-data" name="recipemodifyform" id="recipemodifyform">
+		<input type="hidden" name="recpId" value="${recipe.recpId}"/>
 		<div class="recipeCreateContainer" id="recipeCreateContainer">
 			<div class="recipeCreateInnerContainer"
 				id="recipeCreateInnerContainer">
@@ -187,48 +186,48 @@ h1 {
 					<div class="createContentLine">
 						<p>레시피 제목</p>
 						<input class="inputTitle" id="inputTitle" name="recpTitle"
-							type="text" maxlength="13" required="required">
+							type="text" maxlength="13" required="required" value="${recipe.recpTitle}">
 					</div>
 					<br> <br>
 					<div class="createContentLine">
 						<p>요리 소개</p>
 						<textarea class="inputIntro" id="inputIntro" name="recpIntro"
-							type="text" maxlength="350" required="required"></textarea>
+							type="text" maxlength="350" required="required">${recipe.recpIntro}</textarea>
 					</div>
 					<br> <br>
 					<div class="createContentLine" id="selectContainer">
 						<p>분류</p>
 						<select class="cate-type" id="cate-type" name="cateType">
 							<option>종류별</option>
-							<option>국/찌개</option>
-							<option>일품</option>
-							<option>반찬</option>
-							<option>밥</option>
-							<option>면</option>
-							<option>디저트</option>
-							<option>기타</option>
+							<option value="국/찌개">국/찌개</option>
+							<option value="일품">일품</option>
+							<option value="반찬">반찬</option>
+							<option value="밥">밥</option>
+							<option value="면">면</option>
+							<option value="디저트">디저트</option>
+							<option value="기타">기타</option>
 						</select> <select class="cate-how" id="cate-how" name="cateHow">
 							<option>조리방법별</option>
-							<option>찌기</option>
-							<option>굽기</option>
-							<option>끓이기</option>
-							<option>튀기기</option>
-							<option>기타</option>
+							<option value="찌기">찌기</option>
+							<option value="굽기">굽기</option>
+							<option value="끓이기">끓이기</option>
+							<option value="튀기기">튀기기</option>
+							<option value="기타">기타</option>
 						</select> <select class="cate-ingredent" id="cate-ingredent"
 							name="cateIngredient">
 							<option>재료별</option>
-							<option>육류</option>
-							<option>해산물</option>
-							<option>채소/과일</option>
-							<option>콩/견과류</option>
-							<option>기타</option>
-						</select> <select class="cate-time" id="cate-time" name="cateTime" >
+							<option value="육류">육류</option>
+							<option value="해산물">해산물</option>
+							<option value="채소/과일">채소/과일</option>
+							<option value="콩/견과류">콩/견과류</option>
+							<option value="기타">기타</option>
+						</select> <select class="cate-time" id="cate-time" name="cateTime">
 							<option>조리시간</option>
-							<option>15분 이하</option>
-							<option>15분~30분</option>
-							<option>30분~45분</option>
-							<option>45분~60분</option>
-							<option>60분 이상</option>
+							<option value="15분 이하">15분 이하</option>
+							<option value="15분~30분">15분~30분</option>
+							<option value="30분~45분">30분~45분</option>
+							<option value="45분~60분">45분~60분</option>
+							<option value="60분 이상">60분 이상</option>
 						</select>
 					</div>
 					<br>
@@ -236,7 +235,7 @@ h1 {
 					<div class="createContentLine">
 						<p class="titleIngredient" id="titleIngredient">재료</p>
 						<textarea class="ingredient" id="ingredient" name="recpIngredient"
-							type="text" maxLength="300" required="required"></textarea>
+							type="text" maxLength="300" required="required">${recipe.recpIngredient}</textarea>
 						<br>
 					</div>
 				</div>
@@ -244,7 +243,7 @@ h1 {
 				<div class="right">
 					<input type="file" id="mainImgInput" accept="image/*" style="display: none;" name="file"> 
 					<label for="mainImgInput"	id="imagePreview">
-						<img class="mainImage" id="mainImage" name="recpImg" src="#" alt="Selected Image">
+						<img class="mainImage" id="mainImage" name="recpImg" src="imageView?imageName=${recipe.recpImg}" alt="Selected Image">
 					</label>
 				</div>
 				<br>
@@ -267,13 +266,17 @@ h1 {
 	const editor = new toastui.Editor({
     	el : document.querySelector('#recipeContent'),
     	height : '800px',
-    	initialValue : '해당 요리에 대한 레시피의 자세한 설명을 자유롭게 입력하세요.', // 초기 설명 (토스트ui editor에서 사용자가 입력하기전 설명해주는 부분)
+    	initialValue : '${recipe.recpCont}', // 초기 설명 (토스트ui editor에서 사용자가 입력하기전 설명해주는 부분)
     	initialEditType : 'wysiwyg',
  	});
+	$("select[name=cateType]").val("${recipe.cateType}").prop("selected", true);
+	$("select[name=cateHow]").val("${recipe.cateHow}").prop("selected", true);
+	$("select[name=cateIngredient]").val("${recipe.cateIngredient}").prop("selected", true);
+	$("select[name=cateTime]").val("${recipe.cateTime}").prop("selected", true);
  
 	 // !!여기!! editor.getHtml()을 사용해서 에디터 내용 받아오기
  /* document.querySelector('#editorContent').insertAdjacentHTML('afterbegin' ,editor.getHTML()); */
- console.log(editor.getHTML());
+
 
         document.getElementById('mainImgInput').addEventListener('change', function(event) {
             const file = event.target.files[0];
@@ -297,7 +300,7 @@ h1 {
             }
         });
         
-        $("#recipecreateform").submit(function(e) {
+        $("#recipemodifyform").submit(function(e) {
         	$("#recpCont").val(editor.getHTML());
         })
 </script>
