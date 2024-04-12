@@ -20,8 +20,32 @@ public class RecipeDaoImpl implements RecipeDao {
 
 	// 레시피 상세 검색 (selectOne -> recpId만 가지고 오기 때문에)
 	@Override
-	public Recipe selectRecipe(Integer recpId) throws Exception {
+	public Recipe selectRecipe(Long recpId) throws Exception {
 		return sqlsession.selectOne("mapper.recipe.selectRecipe", recpId);
+	}
+
+	@Override
+	public void updateRecipe(Recipe recipe) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateViewCount(Long recpId) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Long selectRecipeCount() throws Exception {
+		return sqlsession.selectOne("mapper.recipe.selectRecipeCount");
+	}
+
+	// recpId 최대값을 얻어오는 메서드 
+	@Override
+	public Long selectMaxNumber() throws Exception {
+		// TODO Auto-generated method stub
+		return sqlsession.selectOne("mapper.recipe.selectMaxNumber");
 	}
 	
 }

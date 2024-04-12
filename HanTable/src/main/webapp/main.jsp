@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -195,37 +196,39 @@
 		height: 232px;
 		position: relative;
 }
-
 </style>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+
+</script>
 </head>
 <body>
 	<%@ include file="header.jsp" %>
 	<div class="mainContainer">
 		<strong class="mainTitle">당신을 위한 추천 레시피</strong>
-		<% for (Recipe recipe : mainContents) { %>            
-		
+		<c:forEach var="recipe" items="${mainContents}">
 		<div class="recContentsContainer">
 			<div class="leftContent">
 				<div class="leftTopContent">
-					<img src="./image/recipe5.png" alt="" class="recImg">
+					<img src="${recipe.recpImg}" alt="" class="recImg">
 						<div class="like-containerbig">
-							<img src="./image/no-like.png" class="like-iconbig">
-							<span class="like-countbig"><%= recipe.getLikeCount() %></span>
+							<img src="${recipe.recpImg}" class="like-iconbig">
+							<span class="like-countbig">${recipe.likeCount}</span>
   						</div>
 				</div>
 				<div class="leftbottomContent">
 					<div class="leftBottomLeftContent">
-						<img src="./image/recipe4.png" alt="" class="recImg">
+						<img src="${recipe.recpImg}" alt="" class="recImg">
 							<div class="like-container">
 								<img src="./image/like.png" class="like-icon">
-								<span class="like-count"><%= recipe.getLikeCount() %></span>
+								<span class="like-count">${recipe.likeCount}</span>
   							</div>
 					</div>
 					<div class="leftBottomRightContent">
-						<img src="./image/example.png" alt="" class="recImg">
+						<img src="${recipe.recpImg}" alt="" class="recImg">
 							<div class="like-container">
 								<img src="./image/like.png" class="like-icon">
-								<span class="like-count"><%= recipe.getLikeCount() %></span>
+								<span class="like-count">${recipe.likeCount}</span>
   							</div>
 					</div>
 				</div>
@@ -233,143 +236,158 @@
 			<div class="rightContent">
 				<div class="rightTopContent">
 					<div class="rightTopLeftContent">
-						<img src="./image/recipe3.png" alt="" class="recImg">
+						<img src="${recipe.recpImg}" alt="" class="recImg">
 							<div class="like-container">
 								<img src="./image/like.png" class="like-icon">
-								<span class="like-count"><%= recipe.getLikeCount() %></span>
+								<span class="like-count">${recipe.likeCount}</span>
   							</div>
 					</div>
 					<div class="rightTopRightContent">
-						<img src="./image/example.png" alt="" class="recImg">
+						<img src="${recipe.recpImg}" alt="" class="recImg">
 							<div class="like-container">
 								<img src="./image/like.png" class="like-icon">
-								<span class="like-count"><%= recipe.getLikeCount() %></span>
+								<span class="like-count">${recipe.likeCount}</span>
   							</div>
 					</div>
 				</div>
 				<div class="rightBottomContent">
-					<img src="./image/recipe1.png" alt="" class="recImg">
+					<img src="${recipe.recpImg}" alt="" class="recImg">
 						<div class="like-containerbig">
 								<img src="./image/like.png" class="like-iconbig">
-								<span class="like-countbig"><%= recipe.getLikeCount() %></span>
+								<span class="like-countbig">${recipe.likeCount}</span>
   						</div>
 				</div>
 			</div>
 		</div>
-	<% } %>
-		
+	</c:forEach>
 		<strong class="mainTitle">인기 레시피</strong>
 		<div class="popContentsContainer">
-            <% for (Recipe recipe : recipeBox) { %>            
+		<c:forEach var="recipe" items="${recipeBox}">
                 <div class="recipeCard">
                     <div class="recipeImgContainer">
-                        <img src="<%= recipe.getImgPath() %>" alt="" class="popImg">
+                        <img src="${recipe.recpImg}" alt="" class="popImg">
                         <div class="like-container">
                             <img src="./image/no-like.png" class="like-icon">
-                            <span class="like-count"><%= recipe.getLikeCount() %></span>
+                            <span class="like-count">${recipe.likeCount}</span>
                         </div>
                     </div>
                     <div class="recpContents">
-                        <p class="popTitle"><%= recipe.getrecpTitle() %></p>
-                        <p class="popTime"><%= recipe.getcateTime() %></p>
+                        <p class="popTitle">${recipe.recpTitle}</p>
+                        <p class="popTime">${recipe.cateTime}</p>
                         <div class="popCategories">
-                            <p>#<%= recipe.getCateType() %></p>
-                            <p>#<%= recipe.getCateHow() %></p>
-                            <p>#<%= recipe.getCateIngredient() %></p>
+                            <p>${recipe.cateType}</p>
+                            <p>#${recipe.cateHow}</p>
+                            <p>#${recipe.cateIngredient}</p>
+						</div>
+					</div>
+			<div class="recipeCard">
+				<div class="recipeImgContainer">
+					<a href="recipe?recpId=${recipe.recpId }"><img src="./image/example.png" alt="" class="popImg"></a>
+						<div class="like-container">
+							<img src="./image/like.png" class="like-icon">
+							<span class="like-count">100</span>
+  						</div>
+				</div>
+				<div class="recpContents">
+					<p class="popTitle">꼬마김밥</p>
+					<p class="popTime">15분</p>
+					<div class="popCategories">
+						<p>#밥</p>
+						<p>#기타</p>
+						<p>#채소/과일류</p>
+					</div>
+				</div>
+                <div class="recipeCard">
+                    <div class="recipeImgContainer">
+                        <img src="${recipe.recpImg}" alt="" class="popImg">
+                        <div class="like-container">
+                            <img src="./image/no-like.png" class="like-icon">
+                            <span class="like-count">${recipe.likeCount}</span>
+                        </div>
+                    </div>
+                    <div class="recpContents">
+                        <p class="popTitle">${recipe.recpTitle}</p>
+                        <p class="popTime">${recipe.cateTime}</p>
+                        <div class="popCategories">
+                            <p>${recipe.cateType}</p>
+                            <p>#${recipe.cateHow}</p>
+                            <p>#${recipe.cateIngredient}</p>
 						</div>
 					</div>
 				</div>
                 <div class="recipeCard">
                     <div class="recipeImgContainer">
-                        <img src="<%= recipe.getImgPath() %>" alt="" class="popImg">
+                        <img src="${recipe.recpImg}" alt="" class="popImg">
                         <div class="like-container">
                             <img src="./image/no-like.png" class="like-icon">
-                            <span class="like-count"><%= recipe.getLikeCount() %></span>
+                            <span class="like-count">${recipe.likeCount}</span>
                         </div>
                     </div>
                     <div class="recpContents">
-                        <p class="popTitle"><%= recipe.getrecpTitle() %></p>
-                        <p class="popTime"><%= recipe.getcateTime() %></p>
+                        <p class="popTitle">${recipe.recpTitle}</p>
+                        <p class="popTime">${recipe.cateTime}</p>
                         <div class="popCategories">
-                            <p>#<%= recipe.getCateType() %></p>
-                            <p>#<%= recipe.getCateHow() %></p>
-                            <p>#<%= recipe.getCateIngredient() %></p>
+                            <p>${recipe.cateType}</p>
+                            <p>#${recipe.cateHow}</p>
+                            <p>#${recipe.cateIngredient}</p>
 						</div>
 					</div>
 				</div>
                 <div class="recipeCard">
                     <div class="recipeImgContainer">
-                        <img src="<%= recipe.getImgPath() %>" alt="" class="popImg">
+                        <img src="${recipe.recpImg}" alt="" class="popImg">
                         <div class="like-container">
                             <img src="./image/no-like.png" class="like-icon">
-                            <span class="like-count"><%= recipe.getLikeCount() %></span>
+                            <span class="like-count">${recipe.likeCount}</span>
                         </div>
                     </div>
                     <div class="recpContents">
-                        <p class="popTitle"><%= recipe.getrecpTitle() %></p>
-                        <p class="popTime"><%= recipe.getcateTime() %></p>
+                        <p class="popTitle">${recipe.recpTitle}</p>
+                        <p class="popTime">${recipe.cateTime}</p>
                         <div class="popCategories">
-                            <p>#<%= recipe.getCateType() %></p>
-                            <p>#<%= recipe.getCateHow() %></p>
-                            <p>#<%= recipe.getCateIngredient() %></p>
+                            <p>${recipe.cateType}</p>
+                            <p>#${recipe.cateHow}</p>
+                            <p>#${recipe.cateIngredient}</p>
 						</div>
 					</div>
 				</div>
                 <div class="recipeCard">
                     <div class="recipeImgContainer">
-                        <img src="<%= recipe.getImgPath() %>" alt="" class="popImg">
+                        <img src="${recipe.recpImg}" alt="" class="popImg">
                         <div class="like-container">
                             <img src="./image/no-like.png" class="like-icon">
-                            <span class="like-count"><%= recipe.getLikeCount() %></span>
+                            <span class="like-count">${recipe.likeCount}</span>
                         </div>
                     </div>
                     <div class="recpContents">
-                        <p class="popTitle"><%= recipe.getrecpTitle() %></p>
-                        <p class="popTime"><%= recipe.getcateTime() %></p>
+                        <p class="popTitle">${recipe.recpTitle}</p>
+                        <p class="popTime">${recipe.cateTime}</p>
                         <div class="popCategories">
-                            <p>#<%= recipe.getCateType() %></p>
-                            <p>#<%= recipe.getCateHow() %></p>
-                            <p>#<%= recipe.getCateIngredient() %></p>
+                            <p>${recipe.cateType}</p>
+                            <p>#${recipe.cateHow}</p>
+                            <p>#${recipe.cateIngredient}</p>
 						</div>
 					</div>
 				</div>
                 <div class="recipeCard">
                     <div class="recipeImgContainer">
-                        <img src="<%= recipe.getImgPath() %>" alt="" class="popImg">
+                        <img src="${recipe.recpImg}" alt="" class="popImg">
                         <div class="like-container">
                             <img src="./image/no-like.png" class="like-icon">
-                            <span class="like-count"><%= recipe.getLikeCount() %></span>
+                            <span class="like-count">${recipe.likeCount}</span>
                         </div>
                     </div>
                     <div class="recpContents">
-                        <p class="popTitle"><%= recipe.getrecpTitle() %></p>
-                        <p class="popTime"><%= recipe.getcateTime() %></p>
+                        <p class="popTitle">${recipe.recpTitle}</p>
+                        <p class="popTime">${recipe.cateTime}</p>
                         <div class="popCategories">
-                            <p>#<%= recipe.getCateType() %></p>
-                            <p>#<%= recipe.getCateHow() %></p>
-                            <p>#<%= recipe.getCateIngredient() %></p>
+                            <p>#${recipe.cateType}</p>
+                            <p>#${recipe.cateHow}</p>
+                            <p>#${recipe.cateIngredient}</p>
 						</div>
 					</div>
 				</div>
-                <div class="recipeCard">
-                    <div class="recipeImgContainer">
-                        <img src="<%= recipe.getImgPath() %>" alt="" class="popImg">
-                        <div class="like-container">
-                            <img src="./image/no-like.png" class="like-icon">
-                            <span class="like-count"><%= recipe.getLikeCount() %></span>
-                        </div>
-                    </div>
-                    <div class="recpContents">
-                        <p class="popTitle"><%= recipe.getrecpTitle() %></p>
-                        <p class="popTime"><%= recipe.getcateTime() %></p>
-                        <div class="popCategories">
-                            <p>#<%= recipe.getCateType() %></p>
-                            <p>#<%= recipe.getCateHow() %></p>
-                            <p>#<%= recipe.getCateIngredient() %></p>
-						</div>
-					</div>
-				</div>
-			<% } %>
+			</c:forEach>
 		</div>
 	</div>
 </body>

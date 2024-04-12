@@ -13,43 +13,40 @@ import service.RecipeService;
 import service.RecipeServiceImpl;
 
 /**
- * Servlet implementation class RecipeCreate
+ * Servlet implementation class Recipe
  */
-@WebServlet("/recipecreate")
-public class RecipeCreate extends HttpServlet {
+@WebServlet("/recipe")
+public class RecipeDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RecipeCreate() {
+    public RecipeDetail() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		request.getRequestDispatcher("recipeCreate.jsp").forward(request, response);
-//	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		request.getRequestDispatcher("recipe.jsp").forward(request, response);
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		
+		Long recpId = Long.parseLong(request.getParameter("recpId"));
+		String recpAt = request.getParameter("recpAt");
+		Long likeCount = Long.parseLong(request.getParameter("likeCount")); 
+		Long recpViews = Long.parseLong(request.getParameter("recpViews"));
 		try {
-			RecipeService recipeService = new RecipeServiceImpl();
-			Recipe recipe =  recipeService.recipeWrite(request);
-			request.setAttribute("recipe", recipe);
-			
+			RecipeService recipeservice = new RecipeServiceImpl();
+		    Recipe recipe = recipeservice.recipeDetail(recpId);
+		    System.out.println(recipe);
+		    request.setAttribute("recipe", recipe);
 			request.getRequestDispatcher("recipe.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
-			
 		}
 	}
 

@@ -7,7 +7,11 @@ import dto.Recipe;
 public interface RecipeService {
 	
 	// 레시피 작성
-	void recipeWrite(HttpServletRequest request) throws Exception;
+	Recipe recipeWrite(HttpServletRequest request) throws Exception;
 	
-	Recipe recipeDetail(HttpServletRequest request) throws Exception;
+	// 레시피 상세 보기
+	Recipe recipeDetail(Long recpId) throws Exception;
+	
+	// 레시피 아이디
+	Long recipeCount(HttpServletRequest request) throws Exception;
 }

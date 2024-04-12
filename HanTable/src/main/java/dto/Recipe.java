@@ -40,19 +40,19 @@ public class Recipe {
 	}
 	
 	// 작성용 생성자 만들어줌
-	public Recipe(String recpTitle, String recpImg, String recpIntro, String cateType, String cateHow, String cateTime,
-			String cateIngredient, String recpIngredient, String recpCont) {
-		super();
-		this.recpTitle = recpTitle;
-		this.recpImg = recpImg;
-		this.recpIntro = recpIntro;
-		this.cateType = cateType;
-		this.cateHow = cateHow;
-		this.cateTime = cateTime;
-		this.cateIngredient = cateIngredient;
-		this.recpIngredient = recpIngredient;
-		this.recpCont = recpCont;
-	}
+//	public Recipe(String recpTitle, String recpImg, String recpIntro, String cateType, String cateHow, String cateTime,
+//			String cateIngredient, String recpIngredient, String recpCont) {
+//		super();
+//		this.recpTitle = recpTitle;
+//		this.recpImg = recpImg;
+//		this.recpIntro = recpIntro;
+//		this.cateType = cateType;
+//		this.cateHow = cateHow;
+//		this.cateTime = cateTime;
+//		this.cateIngredient = cateIngredient;
+//		this.recpIngredient = recpIngredient;
+//		this.recpCont = recpCont;
+//	}
 	
 
 	// set / get

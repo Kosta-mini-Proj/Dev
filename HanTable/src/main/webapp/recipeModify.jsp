@@ -187,13 +187,13 @@ h1 {
 					<div class="createContentLine">
 						<p>레시피 제목</p>
 						<input class="inputTitle" id="inputTitle" name="recpTitle"
-							type="text" maxlength="13">
+							type="text" maxlength="13" required="required">
 					</div>
 					<br> <br>
 					<div class="createContentLine">
 						<p>요리 소개</p>
 						<textarea class="inputIntro" id="inputIntro" name="recpIntro"
-							type="text" maxlength="350"></textarea>
+							type="text" maxlength="350" required="required"></textarea>
 					</div>
 					<br> <br>
 					<div class="createContentLine" id="selectContainer">
@@ -222,7 +222,7 @@ h1 {
 							<option>채소/과일</option>
 							<option>콩/견과류</option>
 							<option>기타</option>
-						</select> <select class="cate-time" id="cate-time" name="cateTime">
+						</select> <select class="cate-time" id="cate-time" name="cateTime" >
 							<option>조리시간</option>
 							<option>15분 이하</option>
 							<option>15분~30분</option>
@@ -236,7 +236,7 @@ h1 {
 					<div class="createContentLine">
 						<p class="titleIngredient" id="titleIngredient">재료</p>
 						<textarea class="ingredient" id="ingredient" name="recpIngredient"
-							type="text" maxLength="300"></textarea>
+							type="text" maxLength="300" required="required"></textarea>
 						<br>
 					</div>
 				</div>
