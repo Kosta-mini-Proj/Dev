@@ -74,5 +74,40 @@ public class RecipeServiceImpl implements RecipeService {
 //		System.out.println(recpId); //  출력 됨
 		return recpId;
 	}
+
+
+	@Override
+	public Recipe recipeModify(HttpServletRequest request) throws Exception {
+		Recipe recipe = new Recipe();
+		
+		String uploadPath = request.getServletContext().getRealPath("upload");
+		int size = 10*1024*1024;
+		MultipartRequest multi = new MultipartRequest(request,uploadPath,size,"utf-8",new DefaultFileRenamePolicy());
+		
+		File file = multi.getFile("file");
+
+		if(file!=null) {
+			recipe.setRecpImg(file.getName());
+			System.out.println(file.getName());
+		}
+		recipe.setRecpId(Long.parseLong(multi.getParameter("recpId")));
+		recipe.setRecpTitle(multi.getParameter("recpTitle"));
+		recipe.setRecpIntro(multi.getParameter("recpIntro"));
+		recipe.setCateType(multi.getParameter("cateType"));
+		recipe.setCateHow(multi.getParameter("cateHow"));
+		recipe.setCateTime(multi.getParameter("cateTime"));
+		recipe.setCateIngredient(multi.getParameter("cateIngredient"));
+		recipe.setRecpIngredient(multi.getParameter("recpIngredient"));
+		recipe.setRecpCont(multi.getParameter("recpCont"));
+		
+		User user = (User)request.getSession().getAttribute("user");
+		if(user!=null) {
+			recipe.setUserId(user.getUserId());	
+		}
+		
+		recipedao.updateRecipe(recipe);
+		System.out.println(recipe);
+		return recipedao.selectRecipe(recipe.getRecpId());
+	}
 	
 }

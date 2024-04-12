@@ -113,12 +113,6 @@
 					<img src="./image/logo.png">
 				</a>
 			</div>
-			<div class="headerSearchContainer">
-				<input type="text" placeholder="검색어를 입력해주세요." class="searchInput"/>
-				<a href="result.jsp">
-					<img src="./image/search.png" style="width:40px; height:40px;">
-				</a>
-			</div>
 			<div class="headerUserContainer">
 			<c:choose>	
 				<c:when test="${user eq Empty}">
@@ -157,15 +151,15 @@
 </body>
 <script>
 	const button = document.querySelector('.dropdownbtn');
-
-	button.addEventListener('click', () => {
-  	const dropdown = document.querySelector('.dropdownContent');
-  	dropdown.style.display = 'block';
-	});
-
-	button.addEventListener('blur', (e) => {
- 	 const dropdown = document.querySelector('.dropdownContent');
- 	 dropdown.style.display = '';
-	});
+	if(button != null) {
+		button.onclick = ()=>{
+		  	const dropdown = document.querySelector('.dropdownContent');
+	  		dropdown.style.display = 'block';
+		}
+		button.onblur = ()=>{
+	 		 const dropdown = document.querySelector('.dropdownContent');
+	 	 	dropdown.style.display = '';
+		}
+	}
 </script>
 </html>

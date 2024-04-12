@@ -200,7 +200,6 @@ h1 {
 </head>
 <body>
 	<%@ include file="header.jsp"%>
-	<section id="./recipeCreate">
 	<form action="recipecreate" method="post" enctype="multipart/form-data"
 		name="recipecreateform" id="recipecreateform">
 

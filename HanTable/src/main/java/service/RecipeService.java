@@ -14,4 +14,7 @@ public interface RecipeService {
 	
 	// 레시피 아이디
 	Long recipeCount(HttpServletRequest request) throws Exception;
+	
+	// 레시피 수정
+	Recipe recipeModify(HttpServletRequest request) throws Exception;
 }
